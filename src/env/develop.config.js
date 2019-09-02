@@ -5,7 +5,7 @@ const webpack = require('webpack')
 
 const {
   setFreeVariable, buildPath, before,
-} = require('./utils')
+} = require('../utils')
 
 const PORT = process.env.PORT || '8080'
 

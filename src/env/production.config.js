@@ -2,7 +2,7 @@ const merge = require('webpack-merge')
 
 const {
   setFreeVariable, buildPath,
-} = require('./utils')
+} = require('../utils')
 
 exports.config = merge([
   {

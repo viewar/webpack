@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const {
   srcPath, getViewARConfig,
-} = require('./utils')
+} = require('../utils')
 
 const {
   appId, appVersion,
