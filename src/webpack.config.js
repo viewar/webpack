@@ -1,8 +1,8 @@
 const merge = require('webpack-merge')
 
-const common = require('./common.config')
-const production = require('./production.config')
-const develop = require('./develop.config')
+const common = require('./env/common.config')
+const production = require('./env/production.config')
+const develop = require('./env/develop.config')
 
 module.exports = (env) => {
   if (env === 'production') {
