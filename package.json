@@ -1,0 +1,21 @@
+{
+  "name": "@viewar/webpack",
+  "version": "1.0.0",
+  "description": "shared webpack config of ViewAR",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "dev@it5.at:/var/git/repositories/packages/webpack"
+  },
+  "keywords": [
+    "viewar",
+    "webpack",
+    "config",
+    "shared"
+  ],
+  "author": "Stefan Friedl <sf@viewar.com>",
+  "license": "MIT"
+}
