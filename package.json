@@ -37,6 +37,7 @@
     "html-webpack-plugin": "^3.2.0",
     "ip": "^1.1.5",
     "mini-css-extract-plugin": "^0.8.0",
+    "node-port-check": "^2.0.1",
     "postcss-preset-env": "^6.7.0",
     "webpack": "^4.39.3",
     "webpack-merge": "^4.2.2"

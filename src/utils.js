@@ -4,6 +4,7 @@ const fs = require('fs')
 const webpack = require('webpack')
 const bodyParser = require('body-parser')
 const chalk = require('chalk')
+const { isFreePort } = require('node-port-check')
 
 const setFreeVariable = (key, value) => {
   const env = {}
@@ -29,6 +30,23 @@ const getViewARConfig = () => {
     return {}
   }
 }
+
+/* eslint-disable */
+// TODO: reject promise with error?
+const errorOnUsedPort = (PORT) =>
+  isFreePort(PORT).then(([ , , isFree ]) => {
+    if (isFree) {
+      return true
+    }
+    else {
+      console.error(
+        chalk`{bold.rgb(195,20,20) [ViewAR] Error: PORT "${PORT}" in use!\n}{rgb(195,20,20) Please, verify if there is another watcher running,}`,
+        chalk`\n{rgb(195,20,20) or change port manually via env var: 'PORT=8888 npm run start'\n}`
+      )
+      process.exit(1)
+    }
+  })
+/* eslint-enable */
 
 // Webpack-dev-server's before function to receive remote console output.
 const before = (app) => {
@@ -56,4 +74,5 @@ module.exports = {
   buildPath,
   getViewARConfig,
   before,
+  errorOnUsedPort,
 }
