@@ -12,7 +12,7 @@ const PORT = process.env.PORT || '8080'
 exports.config = merge([
   {
     devServer: {
-      'public':      ip ? `${ip}:${PORT}` : undefined,
+      'public':      ip ? `${ip}:${PORT}` : null,
       host:        process.env.HOST || '0.0.0.0',
       port:        PORT,
       contentBase: buildPath,
