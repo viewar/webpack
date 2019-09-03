@@ -2,14 +2,18 @@
 
 ## Usage
 
-**default**
+**cli**
+
+`webpack-dev-server --config ./node_modules/viewar-webpack`
+
+**node - default**
 
 ```javascript
 // webpack.config.js
 module.exports = require('@viewar/webpack');
 ```
 
-**merged**
+**node - merged**
 
 ```javascript
 // webpack.config.js
