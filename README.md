@@ -67,3 +67,4 @@ which allows us to add our own express-middleware(s)
   - add test script
   - start dev-server per script
     - add SSR!?
+- peerDependencies? (f.e. webpack and babel)

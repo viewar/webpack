@@ -42,7 +42,7 @@
   },
   "author": "Stefan Friedl <sf@viewar.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
@@ -53,15 +53,6 @@
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "copy-webpack-plugin": "^5.0.4",
-    "cross-env": "^5.2.1",
-    "crossenv": "0.0.2-security",
-    "eslint": "^6.3.0",
-    "eslint-formatter-pretty": "^2.1.1",
-    "eslint-import-resolver-webpack": "^0.11.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^9.2.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.14.3",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "ip": "^1.1.5",
@@ -70,10 +61,8 @@
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "rimraf": "^3.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
@@ -81,7 +70,18 @@
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.2"
   },
-  "peerDependencies": {
-    "webpack": "^4.39.3"
-  }
+  "devDependencies": {
+    "cross-env": "^5.2.1",
+    "eslint": "^6.3.0",
+    "eslint-config-viewar": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
+    "eslint-formatter-pretty": "^2.1.1",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {}
 }
