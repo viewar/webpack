@@ -1,10 +1,10 @@
-const path = require('path')
 const fs = require('fs')
-
 const webpack = require('webpack')
 const bodyParser = require('body-parser')
 const chalk = require('chalk')
 const { isFreePort } = require('node-port-check')
+
+const { PORT } = require('./constants')
 
 const setFreeVariable = (key, value) => {
   const env = {}
@@ -14,10 +14,6 @@ const setFreeVariable = (key, value) => {
     plugins: [ new webpack.DefinePlugin(env) ],
   }
 }
-
-const root = path.join(__dirname, '..')
-const srcPath = path.join(root, 'src')
-const buildPath = path.join(root, 'build')
 
 const getViewARConfig = () => {
   try {
@@ -33,8 +29,8 @@ const getViewARConfig = () => {
 
 /* eslint-disable */
 // TODO: reject promise with error?
-const errorOnUsedPort = (PORT) =>
-  isFreePort(PORT).then(([ , , isFree ]) => {
+const errorOnUsedPort = (port) =>
+  isFreePort(port || PORT).then(([ , , isFree ]) => {
     if (isFree) {
       return true
     }
@@ -70,8 +66,6 @@ const before = (app) => {
 
 module.exports = {
   setFreeVariable,
-  srcPath,
-  buildPath,
   getViewARConfig,
   before,
   errorOnUsedPort,

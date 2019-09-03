@@ -1,13 +1,13 @@
 const merge = require('webpack-merge')
 
-const {
-  setFreeVariable, buildPath,
-} = require('../utils')
+const { setFreeVariable } = require('../utils')
+const { PATHS } = require('../constants')
+
 
 exports.config = merge([
   {
     output: {
-      path:          buildPath,
+      path:          PATHS.build,
       chunkFilename: '[name].js',
       filename:      '[name].js',
     },

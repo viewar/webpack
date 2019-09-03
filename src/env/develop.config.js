@@ -3,11 +3,8 @@ const merge = require('webpack-merge')
 const ip = require('ip').address()
 const webpack = require('webpack')
 
-const {
-  setFreeVariable, buildPath, before,
-} = require('../utils')
-
-const PORT = process.env.PORT || '8080'
+const { setFreeVariable, before } = require('../utils')
+const { PATHS, PORT } = require('../constants')
 
 exports.config = merge([
   {
@@ -15,7 +12,7 @@ exports.config = merge([
       'public':      ip ? `${ip}:${PORT}` : null,
       host:        process.env.HOST || '0.0.0.0',
       port:        PORT,
-      contentBase: buildPath,
+      contentBase: PATHS.build,
       hot:         true,
       open:        true,
       overlay:     true,

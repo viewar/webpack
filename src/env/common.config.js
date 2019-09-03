@@ -1,12 +1,11 @@
 const path = require('path')
-
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const {
-  srcPath, getViewARConfig,
-} = require('../utils')
+const { PATHS } = require('../constants')
+const { getViewARConfig } = require('../utils')
+
 
 const {
   appId, appVersion,
@@ -15,7 +14,7 @@ const {
 exports.config = merge([
   {
     entry: {
-      index: [ '@babel/polyfill', srcPath ],
+      index: PATHS.src,
     },
     module: {
       rules: [
@@ -71,7 +70,7 @@ exports.config = merge([
         filename: '[name].scss',
       }),
       new HtmlWebpackPlugin({
-        template:         path.join(srcPath, 'index.html'),
+        template:         path.join(PATHS.src, 'index.html'),
         inject:           true,
         bundleIdentifier: appId,
         bundleVersion:    appVersion,
