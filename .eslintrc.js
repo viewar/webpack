@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['viewar/env/node'],
+  extends: ['viewar/env/react'],
   rules: {
     semi: ['error', 'never']
   }
