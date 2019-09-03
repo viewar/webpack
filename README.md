@@ -27,14 +27,19 @@ module.exports = async (...args) => {
 
 ### Constants
 
-| name      | default | env          |
-| --------- | ------- | ------------ |
-| PATHS.src | ./src   | WEBPACK_PATH |
-| PORT      | 8080    | WEBPACK_PORT |
+| name        | default | env           |
+| ----------- | ------- | ------------- |
+| PATHS.src   | 'src'   | WEBPACK_PATH  |
+| PATHS.build | 'build' | WEBPACK_BUILD |
+| PORT        | 8080    | WEBPACK_PORT  |
 
 ## TODOS
 
-- handle args/envVars
-- start dev-server per script
-  - add SSR!?
-- add test script
+- refactor
+  - handle args/envVars
+  - env/mode
+- ehance
+  - add build script
+  - add test script
+  - start dev-server per script
+    - add SSR!?

@@ -7,10 +7,8 @@ const ROOT    = path.join(__dirname, '..')
 
 const PATHS = {
   root:  ROOT,
-  build: path.join(ROOT, 'build'),
-  src:   process.env.WEBPACK_PATH
-    ? path.join(ROOT, process.env.WEBPACK_PATH)
-    : path.join(ROOT, 'src'),
+  build: path.join(ROOT, process.env.WEBPACK_BUILD || 'build'),
+  src:   path.join(ROOT, process.env.WEBPACK_PATH || 'src'),
 }
 
 /**
