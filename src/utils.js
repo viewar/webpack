@@ -36,7 +36,7 @@ const errorOnUsedPort = (port) =>
     }
     else {
       console.error(
-        chalk`{bold.rgb(195,20,20) [ViewAR] Error: PORT "${PORT}" in use!\n}{rgb(195,20,20) Please, verify if there is another watcher running,}`,
+        chalk`\n{bold.rgb(195,20,20) [ViewAR] Error: PORT "${PORT}" in use!\n}{rgb(195,20,20) Please, verify if there is another watcher running,}`,
         chalk`\n{rgb(195,20,20) or change port manually via env var: 'PORT=8888 npm run start'\n}`
       )
       process.exit(1)
