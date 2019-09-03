@@ -37,6 +37,26 @@ module.exports = async (...args) => {
 | PATHS.build | 'build' | WEBPACK_BUILD |
 | PORT        | 8080    | WEBPACK_PORT  |
 
+### Features
+
+#### `errorOnUsedPort()`
+
+> **to be refactored:** reject/resolve promise?
+
+before exporting the (promised) config, we check if the port is free to use  
+and throw an Error, if not. (kills the process)
+
+#### remote-console
+
+> **to be refactored:**  
+> use serialize, catch native errors, prevent doubled output in browser, ...
+
+**all native console outputs are sent** to our endpoint of remote-console,  
+and get catched server-side to log them **in the terminal**.
+
+The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function,  
+which allows us to add our own express-middleware(s)
+
 ## TODOS
 
 - refactor
