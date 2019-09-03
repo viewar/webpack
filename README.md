@@ -60,6 +60,10 @@ which allows us to add our own express-middleware(s)
 ## TODOS
 
 - refactor
+  - check port BEFORE webpack-dev-server
+    - ? IIFE async on file-header
+    - ? npm run checkPort && npm run start
+    - ? start dev-server per node-script
   - handle args/envVars
   - env/mode
 - ehance
