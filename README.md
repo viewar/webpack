@@ -37,3 +37,4 @@ module.exports = async (...args) => {
 - handle args/envVars
 - start dev-server per script
   - add SSR!?
+- add test script
