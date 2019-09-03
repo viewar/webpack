@@ -41,6 +41,16 @@
   "engines": {
     "node": ">=10.0.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "./node_modules/.bin/eslint --fix --format pretty"
+    ]
+  },
   "author": "Stefan Friedl <sf@viewar.com>",
   "license": "MIT",
   "dependencies": {
