@@ -4,10 +4,9 @@
   "description": "shared webpack config of ViewAR",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
     "clean": "rimraf build && rimraf bundle",
-    "start": "npm run clean && webpack-dev-server --config ./test/webpack.config.js --open --mode development --env development_core",
-    "start:mock": "npm run clean && webpack-dev-server --config ./test/webpack.config.js --open --mode development --env development_mock"
+    "start": "cross-env WEBPACK_PATH=./test ./node_modules/.bin/webpack-dev-server --config ./test/webpack.config.js --progress --open --mode development --env development_mock",
+    "test": "npm run start"
   },
   "repository": {
     "type": "git",
