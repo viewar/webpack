@@ -1,18 +1,23 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const merge = require('webpack-merge')
 const ip = require('ip').address()
 const webpack = require('webpack')
 
 const viewArMiddlleware = require('../middleware')
+const { setFreeVariable } = require('../utils')
+const { PATHS, PORT } = require('../utils/constants')
 
 exports.config = merge([
   {
     devServer: {
-      'public':      ip ? `${ip}:${PORT}` : null,
+      'public':    ip ? `${ip}:${PORT}` : null,
       host:        process.env.HOST || '0.0.0.0',
       port:        PORT,
       contentBase: PATHS.build,
       hot:         true,
+      overlay:     {
+        warnings: false,
+        errors:   true,
+      },
       before:      viewArMiddlleware,
     },
     devtool: 'inline-source-map',
@@ -23,24 +28,3 @@ exports.config = merge([
   },
   setFreeVariable('process.env.NODE_ENV', 'development'),
 ])
-
-exports.core = merge([
-  {
-    plugins: [
-      new CopyWebpackPlugin(
-        [
-          {
-            from: 'node_modules/viewar-core/viewar-core.js',
-            to:   'viewar-core.js',
-          },
-        ],
-        {
-          copyUnmodified: true,
-        }
-      ),
-    ],
-  },
-  setFreeVariable('process.env.NODE_ENV', 'core'),
-])
-
-exports.mock = merge([ setFreeVariable('process.env.NODE_ENV', 'mock') ])

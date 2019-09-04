@@ -1,24 +1,25 @@
 const merge = require('webpack-merge')
 
+const { errorOnUsedPort } = require('./utils')
 const common = require('./env/common.config')
+const core = require('./env/core.config')
 const production = require('./env/production.config')
 const develop = require('./env/develop.config')
-const { errorOnUsedPort } = require('./utils')
+const mock = require('./env/mock.config')
 
-const getMergedConfig = (env, ...args) => {
+const getMergedConfig = (env) => {
   if (env === 'production') {
-    console.log('[ViewAR] Using production mode.')
+    console.log('using production mode')
     return merge(common.config, production.config)
   }
 
-  const developConfig = merge(common.config, develop.config)
   if (env === 'development_mock') {
-    console.log('[ViewAR] Using development mock mode.')
-    return merge(developConfig, develop.mock)
+    console.log('using development mock mode')
+    return merge(merge(common.config, develop.config), mock.config)
   }
 
-  console.log('[ViewAR] Using development core mode.')
-  return merge(developConfig, develop.core)
+  console.log('using development core mode')
+  return merge(merge(common.config, develop.config), core.config)
 }
 
 /**
@@ -32,5 +33,3 @@ module.exports = async (env) => {
   }
   return getMergedConfig(env)
 }
-
-module.exports.getMergedConfig = getMergedConfig
