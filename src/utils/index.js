@@ -1,10 +1,11 @@
 const fs = require('fs')
+const path = require('path')
 const webpack = require('webpack')
-const bodyParser = require('body-parser')
 const chalk = require('chalk')
+const bodyParser = require('body-parser')
 const { isFreePort } = require('node-port-check')
 
-const { PORT } = require('./constants')
+const { PORT, PATHS } = require('./constants')
 
 const setFreeVariable = (key, value) => {
   const env = {}
@@ -17,7 +18,7 @@ const setFreeVariable = (key, value) => {
 
 const getViewARConfig = () => {
   try {
-    return JSON.parse(fs.readFileSync(`${__dirname}/../.viewar-config`))
+    return JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')))
   }
   catch (e) {
     console.error(
@@ -44,29 +45,8 @@ const errorOnUsedPort = (port) =>
   })
 /* eslint-enable */
 
-// Webpack-dev-server's before function to receive remote console output.
-const before = (app) => {
-  const colors = {
-    log:   'white',
-    info:  'white',
-    warn:  'yellow',
-    error: 'red',
-  }
-
-  app.use(bodyParser.json())
-  app.post('/remote-console', bodyParser.json(), function(req, res) {
-    const {
-      type, args,
-    } = req.body
-    const time = new Date().toLocaleTimeString()
-    console[type](`[${time}][App]` + chalk[colors[type]](`[${type}]`), ...args)
-    res.send()
-  })
-}
-
 module.exports = {
   setFreeVariable,
   getViewARConfig,
-  before,
   errorOnUsedPort,
 }

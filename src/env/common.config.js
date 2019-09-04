@@ -3,7 +3,7 @@ const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const { PATHS } = require('../constants')
+const { PATHS } = require('../utils/constants')
 const { getViewARConfig } = require('../utils')
 
 const {
@@ -13,7 +13,7 @@ const {
 exports.config = merge([
   {
     entry: {
-      index: PATHS.src,
+      index: [ path.join(__dirname, '..', 'utils', 'polyfills.js'), PATHS.src ],
     },
     module: {
       rules: [

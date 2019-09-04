@@ -1,7 +1,22 @@
-import React from 'react'
-// TODO: remote-console feature
-// import './remote-console'
+import React, { Component, Fragment } from 'react'
 
-const App = () => <h1>@viewar/webpack up and running!</h1>
+import Test from './Test'
+
+require('../src/utils/remoteConsole').remoteConsoleInjector()
+
+
+class App extends Component {
+  render() {
+    // test error reporting per remtoteConsole
+    // const foo = bar
+
+    return (
+      <Fragment>
+        <h1>@viewar/webpack up and running!</h1>
+        <Test />
+      </Fragment>
+    )
+  }
+}
 
 export default App

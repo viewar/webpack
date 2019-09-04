@@ -3,8 +3,7 @@ const merge = require('webpack-merge')
 const ip = require('ip').address()
 const webpack = require('webpack')
 
-const { setFreeVariable, before } = require('../utils')
-const { PATHS, PORT } = require('../constants')
+const viewArMiddlleware = require('../middleware')
 
 exports.config = merge([
   {
@@ -14,9 +13,7 @@ exports.config = merge([
       port:        PORT,
       contentBase: PATHS.build,
       hot:         true,
-      open:        true,
-      overlay:     true,
-      before,
+      before:      viewArMiddlleware,
     },
     devtool: 'inline-source-map',
     output:  {
