@@ -65,6 +65,8 @@ which allows us to add our own express-middleware(s)
 ## TODOS
 
 - ehance
+  - add [redbox-react](https://github.com/commissure/redbox-react)
+  - error boundaries (may belong to client packages)
   - add build script
   - add test script
   - start dev-server per script
