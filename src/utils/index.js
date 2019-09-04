@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 const chalk = require('chalk')
-const bodyParser = require('body-parser')
 const { isFreePort } = require('node-port-check')
 
 const { PORT, PATHS } = require('./constants')
