@@ -7,7 +7,7 @@
     "clean": "rimraf build && rimraf bundle",
     "start": "cross-env WEBPACK_PATH=./test webpack-dev-server --config ./test/webpack.config.js --open --mode development --env development_mock",
     "test": "npm run start",
-    "format": "eslint . --format pretty --fix"
+    "lint": "eslint . --format pretty --fix"
   },
   "repository": {
     "type": "git",
