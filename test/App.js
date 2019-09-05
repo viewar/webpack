@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 
 import Test from 'components/Test'
-import styles from 'App.scss'
+// :global app styles
+import styles from 'App.scss' // eslint-disable-line no-unused-vars
 
 require('../src/utils/remoteConsole').remoteConsoleInjector()
 // usage after release:
