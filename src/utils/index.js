@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+
 const webpack = require('webpack')
 const chalk = require('chalk')
 const { isFreePort } = require('node-port-check')
@@ -30,17 +31,19 @@ const getViewARConfig = () => {
 /* eslint-disable */
 // TODO: reject promise with error?
 const errorOnUsedPort = (port) =>
-  isFreePort(port || PORT).then(([ , , isFree ]) => {
-    if (isFree) {
-      return true
-    }
-    else {
-      console.error(
-        chalk`\n{bold.rgb(195,20,20) [ViewAR] Error: PORT "${PORT}" in use!\n}{rgb(195,20,20) Please, verify if there is another watcher running,}`,
-        chalk`\n{rgb(195,20,20) or change port manually via env var: 'PORT=8888 npm run start'\n}`
-      )
-      process.exit(1)
-    }
+  Promise((res, rej) => {
+    isFreePort(port || PORT).then(([ , , isFree ]) => {
+      if (isFree) {
+        res(true)
+      }
+      else {
+        console.error(
+          chalk`\n{bold.rgb(195,20,20) [ViewAR] Error: PORT "${PORT}" in use!\n}{rgb(195,20,20) Please, verify if there is another watcher running,}`,
+          chalk`\n{rgb(195,20,20) or change port manually via env var: 'PORT=8888 npm run start'\n}`
+        )
+        rej(false)
+      }
+    })
   })
 /* eslint-enable */
 

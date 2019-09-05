@@ -1,14 +1,17 @@
 const path = require('path')
+
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const { PATHS } = require('../utils/constants')
 const { getViewARConfig } = require('../utils')
+const { resolve } = require('../webpack.config.resolve')
 
 const {
   appId, appVersion,
 } = getViewARConfig()
+
 
 exports.config = merge([
   {
@@ -25,13 +28,19 @@ exports.config = merge([
         {
           test: /\.s?css$/,
           use:  [
-            'style-loader',
+            {
+              loader:  'style-loader',
+              options: {
+                injectType: 'singletonStyleTag',
+              },
+            },
             {
               loader:  'css-loader',
               options: {
                 importLoaders:  1,
-                modules:        true,
-                localIdentName: '[name]-[local]',
+                modules:        {
+                  localIdentName: '[name]-[local]',
+                },
               },
             },
             {
@@ -45,7 +54,9 @@ exports.config = merge([
               loader: 'sass-loader',
               query:  {
                 sourceMap:    true,
-                includePaths: [ 'css/' ],
+                sassOptions: {
+                  includePaths: [ 'css/' ],
+                },
               },
             },
           ],
@@ -61,9 +72,7 @@ exports.config = merge([
         },
       ],
     },
-    resolve: {
-      extensions: [ '*', '.js', '.jsx' ],
-    },
+    resolve,
     plugins: [
       new MiniCssExtractPlugin({
         filename: '[name].scss',
