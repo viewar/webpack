@@ -1,8 +1,10 @@
 # @viewar/webpack
 
+[![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
 ![cross-env][cross-env-img]
 ![Maintenance][maintenance-img]
 
+[circle-ci-status-img]: https://circleci.com/bb/viewar_sf/viewar-webpack.svg?style=svg
 [cross-env-img]: https://img.shields.io/badge/%E2%9C%94-cross--env-green
 [maintenance-img]: https://img.shields.io/badge/%E2%9C%94-maintained-green.svg
 
