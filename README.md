@@ -12,7 +12,7 @@
 
 **cli**
 
-`webpack-dev-server --config ./node_modules/viewar-webpack`
+`webpack-dev-server --config ./node_modules/@viewar/webpack`
 
 **node - default**
 
@@ -25,6 +25,7 @@ module.exports = require('@viewar/webpack');
 
 ```javascript
 // webpack.config.js
+const configViewAr = require('@viewar/webpack');
 const merge = require('webpack-merge');
 const configViewAr = require('../src/webpack.config');
 
