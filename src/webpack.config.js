@@ -1,12 +1,11 @@
 const merge = require('webpack-merge')
 
 const { errorOnUsedPort } = require('./utils')
-const common = require('./configs/common.config')
-const core = require('./configs/core.config')
-const production = require('./configs/production.config')
-const develop = require('./configs/develop.config')
-const mock = require('./configs/mock.config')
-const resolve = require('./webpack.config.resolve')
+const common = require('./env/common.config')
+const core = require('./env/core.config')
+const production = require('./env/production.config')
+const develop = require('./env/develop.config')
+const mock = require('./env/mock.config')
 
 const getMergedConfig = (env) => {
   if (env === 'production') {
@@ -19,6 +18,7 @@ const getMergedConfig = (env) => {
     return merge(merge(common.config, develop.config), mock.config)
   }
 
+  console.log('using development core mode')
   return merge(merge(common.config, develop.config), core.config)
 }
 
@@ -28,16 +28,8 @@ const getMergedConfig = (env) => {
  * @returns {Promise} webpack config
  */
 module.exports = async (env) => {
-  const config = getMergedConfig(env)
-
-  if (env === 'lint') {
-    // eslint-import-resolver-webpack doesn't hanlde Promises
-    return Promise.resolve(resolve)
-  }
-
   if (env !== 'production') {
     await errorOnUsedPort()
   }
-
-  return config
+  return getMergedConfig(env)
 }

@@ -5,7 +5,6 @@ const { PATHS } = require('./utils/constants')
 
 const resolveConfig = {
   resolve: {
-    root:       true,
     extensions: [ '.js', '.jsx', 'json' ],
     modules:    [ join(basename(PATHS.src), 'components'), basename(PATHS.src), 'node_modules' ],
   },
