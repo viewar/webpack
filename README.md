@@ -1,12 +1,8 @@
 # @viewar/webpack
 
 [![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
-![cross-env][cross-env-img]
-![Maintenance][maintenance-img]
 
 [circle-ci-status-img]: https://circleci.com/bb/viewar_sf/viewar-webpack.svg?style=svg
-[cross-env-img]: https://img.shields.io/badge/%E2%9C%94-cross--env-green
-[maintenance-img]: https://img.shields.io/badge/%E2%9C%94-maintained-green.svg
 
 ## Usage
 
@@ -27,7 +23,6 @@ module.exports = require('@viewar/webpack');
 // webpack.config.js
 const configViewAr = require('@viewar/webpack');
 const merge = require('webpack-merge');
-const configViewAr = require('../src/webpack.config');
 
 module.exports = async (...args) => {
   // configViewAr is ASYNC!
@@ -63,11 +58,9 @@ which allows us to add our own express-middlewares
 
 **TODO**
 
-- [x] catch native errors
 - [ ] use serialize instead of JSON.stringify
 - [ ] fix doubled terminal output
-- [ ] use error boundaries instead of window.on(error)  
-       see src/utils/polyfills.js
+- [ ] use error boundaries instead of window.on(error)
 
 ### module resolver
 
@@ -75,7 +68,6 @@ we lookup `WEBPACK_PATH` (see [constants](#constants)) relative to the working d
 so you can just `import Header from 'components/Header'` anywhere in your webpack dir
 
 if you use another webpack root than default you have to add your `WEBPACK_PATH` to the env
-either per CLI or per `.env` file in your workspace root
 
 ## ISSUES
 
@@ -83,12 +75,8 @@ either per CLI or per `.env` file in your workspace root
 
 #### aliase
 
-eslint's import-resolvers do not recognize resolve.alias from config.  
-_(there are already [a load of issues](https://github.com/benmosher/eslint-plugin-import/issues/1451) open for that)_
-
+eslint's import-resolvers [do not recognize resolve.alias](https://github.com/benmosher/eslint-plugin-import/issues/1451) from config.  
 would need [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)  
-TODO: build mapper, which reads resolver.config.js
-and transform data into scheme of eslint-import-resolver-alias
 
 #### promised config
 
@@ -111,10 +99,11 @@ will be located in root/configs - see todos
   - `webpack.config.resolve.js`
     - in workspace root ? enables to use default node-usage with additional resovler options
     - => handle webpack.env "lint" to return promise.resolve
+  - build mapper, which reads resolver.config.js  
+  and transform data into scheme of eslint-import-resolver-alias
 - **refactor**
   - `errorOnUsedPort()`
-    - ? IIFE async on file-header
-    - ? npm run checkPort && npm run start
+    - try to remove async fn
     - ? start dev-server per node-script
   - handle args/envVars
   - args and env vars (mode, etc.)
