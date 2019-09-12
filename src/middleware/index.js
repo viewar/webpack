@@ -1,9 +1,10 @@
 const { remoteConsoleMiddleware } = require('../utils/remoteConsole')
+const { viewarCoreMiddleware } = require('./viewarCore')
 
 
 const viewArMiddlleware = (app) => {
   remoteConsoleMiddleware(app)
-  // TODO: [VASB-4275] serve 'viewar-core' dependent on user agent
+  viewarCoreMiddleware(app)
 }
 
 
