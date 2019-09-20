@@ -37,8 +37,9 @@ exports.config = merge([
               loader:  'css-loader',
               options: {
                 importLoaders:  1,
-                modules:        true,
-                localIdentName: '[name]-[local]',
+                modules:        {
+                  localIdentName: '[name]-[local]',
+                },
               },
             },
             {
