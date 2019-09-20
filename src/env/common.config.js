@@ -1,5 +1,4 @@
 const path = require('path')
-
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -38,9 +37,8 @@ exports.config = merge([
               loader:  'css-loader',
               options: {
                 importLoaders:  1,
-                modules:        {
-                  localIdentName: '[name]-[local]',
-                },
+                modules:        true,
+                localIdentName: '[name]-[local]',
               },
             },
             {
