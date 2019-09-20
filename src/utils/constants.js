@@ -1,5 +1,4 @@
 const path = require('path')
-
 const dotEnv = require('dotenv')
 const { WEBPACK_PATH, WEBPACK_BUILD, WEBPACK_PORT } = dotEnv.config().parsed
 
