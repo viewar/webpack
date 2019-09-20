@@ -7,7 +7,6 @@ const viewarCoreMiddleware = (app) => {
     const { headers: { 'user-agent': userAgentString }} = req
     const { isMobile, isTablet } = UAParser.parse(userAgentString)
 
-    console.log('userAgent :', isMobile, isTablet)
     if (isMobile || isTablet) {
       res.status(200).end()
     }
