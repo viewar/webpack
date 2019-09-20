@@ -13,7 +13,7 @@ const viewarCoreMiddleware = (app) => {
     }
     else {
       res.set('Content-Type', 'application/javascript')
-      res.status(200).sendFile(path.join(process.cwd(), 'node_modules', 'viewar-core/.js'))
+      res.status(200).sendFile(path.join(process.cwd(), 'node_modules', 'viewar-core/viewar-core.js'))
     }
   })
 }
