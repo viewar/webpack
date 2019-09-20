@@ -39,22 +39,27 @@ module.exports = async (...args) => {
 | ----------- | ------- | ------------- |
 | PATHS.src   | 'src'   | WEBPACK_PATH  |
 | PATHS.build | 'build' | WEBPACK_BUILD |
-| PORT        | 8080    | WEBPACK_PORT  |
+| PORT        | 8080    | PORT          |
 
 ### Features
 
 #### `errorOnUsedPort()`
 
-before exporting the (promised) config, we check if the port is free to use  
-and throw an Error, if not. (kills the process)
+before exporting the (promised) config,  
+we check if the port is free to use and throw an Error, if not.
 
 #### remote-console
+
+```javascript
+// client
+import { remoteConsoleInjector } from '@viewar/webpack/remoteConsole';
+remoteConsoleInjector();
+```
 
 **all native console outputs are sent to** our endpoint of remote-console,  
 and get catched server-side to log them in **the terminal**.
 
-The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function,  
-which allows us to add our own express-middlewares
+The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function: `webpackConfig.devServer.before = viewArMiddlleware;`
 
 **TODO**
 
@@ -64,10 +69,31 @@ which allows us to add our own express-middlewares
 
 ### module resolver
 
-we lookup `WEBPACK_PATH` (see [constants](#constants)) relative to the working directory
-so you can just `import Header from 'components/Header'` anywhere in your webpack dir
+`import Header from 'components/Header'`
 
-if you use another webpack root than default you have to add your `WEBPACK_PATH` to the env
+**our default resolber config:**
+
+```javascript
+const resolveConfig = {
+  resolve: {
+    extensions: ['.js', '.jsx', 'json'],
+    modules: [
+      // PATHS.src = ROOT + WEBPACK_PATH || 'src'
+      join(path.basename(PATHS.src), 'components'),
+      basename(PATHS.src),
+      'node_modules',
+    ],
+  },
+};
+```
+
+overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
+or add your own 'webpack.config.resolve.js' in your workspace root.
+
+#### TODOS
+
+- alias config mapper for 'eslint-import-resolver-alias'
+- resolve conflict of 'eslint-config-viewar' with `errorOnUsedPort()`
 
 ## ISSUES
 
@@ -76,34 +102,19 @@ if you use another webpack root than default you have to add your `WEBPACK_PATH`
 #### aliase
 
 eslint's import-resolvers [do not recognize resolve.alias](https://github.com/benmosher/eslint-plugin-import/issues/1451) from config.  
-would need [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)  
+would need [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)
 
 #### promised config
 
-// eslint-import-resolver-webpack doesn't hanlde Promises
-
-so we use an extra file to define the resolver config: `./src/webpack.config.resolve.js`
-will be located in root/configs - see todos
+eslint-import-resolver-webpack doesn't handle Promises
 
 ## TODOS
 
 - **ehance**
-  - check if you're root in ? pre-script ? webpack config
   - add [redbox-react](https://github.com/commissure/redbox-react)
   - add error boundaries (may belong to client packages)
-  - add build script
-  - add test script
   - start dev-server per script
     - add SSR!?
-  - peerDependencies? (f.e. webpack and babel)
-  - `webpack.config.resolve.js`
-    - in workspace root ? enables to use default node-usage with additional resovler options
-    - => handle webpack.env "lint" to return promise.resolve
-  - build mapper, which reads resolver.config.js  
-  and transform data into scheme of eslint-import-resolver-alias
 - **refactor**
-  - `errorOnUsedPort()`
-    - try to remove async fn
-    - ? start dev-server per node-script
-  - handle args/envVars
-  - args and env vars (mode, etc.)
+  - `errorOnUsedPort()`: try to remove async fn
+  - yargs and env vars (mode, etc.)
