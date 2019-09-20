@@ -1,6 +1,13 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.1.1](https://github.com/DoubleU23/viewar-webpack/compare/v1.1.0...v1.1.1) (2019-09-20)
+
+
+### Bug Fixes
+
+* **dotenv:** remove requirement and dep ([09d410a](https://github.com/DoubleU23/viewar-webpack/commit/09d410a))
+
 # [1.1.0](https://github.com/DoubleU23/viewar-webpack/compare/v1.0.0...v1.1.0) (2019-09-20)
 
 
