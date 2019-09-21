@@ -1,6 +1,14 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.1.2](https://github.com/DoubleU23/viewar-webpack/compare/v1.1.1...v1.1.2) (2019-09-21)
+
+
+### Bug Fixes
+
+* **remoteConsole:** export injector seperately for client usage ([029a536](https://github.com/DoubleU23/viewar-webpack/commit/029a536))
+* **test:** run clean before test ([7ac0650](https://github.com/DoubleU23/viewar-webpack/commit/7ac0650))
+
 ## [1.1.1](https://github.com/DoubleU23/viewar-webpack/compare/v1.1.0...v1.1.1) (2019-09-20)
 
 
