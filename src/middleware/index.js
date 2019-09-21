@@ -1,11 +1,11 @@
-const { remoteConsoleMiddleware } = require('../utils/remoteConsole')
+const { remoteConsoleMiddleware } = require('../utils/remoteConsole/remoteConsoleMiddleware')
 const { viewarCoreMiddleware } = require('./viewarCore')
 
 
-const viewArMiddlleware = (app) => {
+const viewArMiddleware = (app) => {
   remoteConsoleMiddleware(app)
   viewarCoreMiddleware(app)
 }
 
 
-module.exports = viewArMiddlleware
+module.exports = viewArMiddleware
