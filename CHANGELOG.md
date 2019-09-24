@@ -1,6 +1,13 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.1.3](https://github.com/DoubleU23/viewar-webpack/compare/v1.1.2...v1.1.3) (2019-09-24)
+
+
+### Bug Fixes
+
+* **remoteConsole:** fix import as default ([4eeb46b](https://github.com/DoubleU23/viewar-webpack/commit/4eeb46b))
+
 ## [1.1.2](https://github.com/DoubleU23/viewar-webpack/compare/v1.1.1...v1.1.2) (2019-09-21)
 
 
