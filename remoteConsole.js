@@ -1,3 +1,3 @@
-const { remoteConsoleInjector } = require('./src/utils/remoteConsole/remoteConsoleInjector')
+const remoteConsoleInjector = require('./src/utils/remoteConsole/remoteConsoleInjector')
 
 module.exports = remoteConsoleInjector
