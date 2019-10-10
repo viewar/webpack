@@ -1,0 +1,44 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12.9.0
+    steps:
+      - checkout
+      - run:
+          name: Setup
+          command: npm install
+      - run:
+          name: Test
+          command: npm run test
+  semantic_release:
+    docker:
+      - image: circleci/node:12.9.0
+    steps:
+      - checkout
+      - run:
+          name: Setup
+          command: npm install
+      # uses GH_TOKEN
+      - run:
+          name: Release to GitHub
+          command: npx semantic-release
+      # uses BB_APP_PW
+      - run:
+          name: Push Code to Bitbucket
+          command: git push https://viewar_sf:${BB_APP_PW}@bitbucket.org/viewar_sf/viewar-webpack.git
+      - run:
+          name: Push Tags to Bitbucket
+          command: git push https://viewar_sf:${BB_APP_PW}@bitbucket.org/viewar_sf/viewar-webpack.git --tags
+
+workflows:
+  version: 2
+  lint_and_release:
+    jobs:
+      - test
+      # - semantic_release:
+      #     requires:
+      #       - test
+      #     filters:
+      #       branches:
+      #         only: master
