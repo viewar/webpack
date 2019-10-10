@@ -1,6 +1,7 @@
 # @viewar/webpack
 
 [![Build Status](https://travis-ci.com/viewar/webpack.svg?token=9j4kv11sMyqyMRAPNQXm&branch=master)](https://travis-ci.com/viewar/webpack)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 
 <!-----
 [![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
