@@ -1,11 +1,21 @@
 # @viewar/webpack
 
 [![Build Status](https://travis-ci.com/viewar/webpack.svg?token=9j4kv11sMyqyMRAPNQXm&branch=master)](https://travis-ci.com/viewar/webpack)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
+[![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
+[![Conventional Commits](https://img.shields.io/badge/✔-Conventional%20Commits-blue.svg)](https://conventionalcommits.org)
+[![Semantic Versioning][semantic-img]][semantic-url]
 
-<!-----
+<!-- badge-urls -->
+
+[pr-welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
+[semantic-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-blue.svg
+[semantic-url]: https://semver.org/
+
+<!--
 [![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
 [circle-ci-status-img]: https://circleci.com/bb/viewar_sf/viewar-webpack.svg?style=svg
------>
+ /badge-urls -->
 
 ## Usage
 
