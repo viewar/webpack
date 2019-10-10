@@ -36,9 +36,9 @@ workflows:
   lint_and_release:
     jobs:
       - test
-      - semantic_release:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+      # - semantic_release:
+      #     requires:
+      #       - test
+      #     filters:
+      #       branches:
+      #         only: master

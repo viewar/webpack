@@ -1,6 +1,18 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.2.0](https://github.com/viewar/webpack/compare/v1.1.3...v1.2.0) (2019-10-10)
+
+
+### Bug Fixes
+
+* **CI:** explicitly permit deployment for "next" branch ([79c7d5c](https://github.com/viewar/webpack/commit/79c7d5c1b43a2bdf8aab566ca8ec79ef92dccf6b))
+
+
+### Features
+
+* **CI:** use TravisCI instead of circleCI ([adbdc8b](https://github.com/viewar/webpack/commit/adbdc8bc3e68d0dcc1a70d2ebfaf719c04969828))
+
 ## [1.1.3](https://github.com/DoubleU23/viewar-webpack/compare/v1.1.2...v1.1.3) (2019-09-24)
 
 
