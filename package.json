@@ -94,7 +94,7 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "cross-env": "^5.2.1",
+    "cross-env": "^6.0.3",
     "eslint": "^6.3.0",
     "eslint-config-viewar": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
     "eslint-formatter-pretty": "^2.1.1",
