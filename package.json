@@ -7,7 +7,7 @@
     "clean": "rimraf build && rimraf bundle",
     "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./test/webpack.config.js --open --mode development --env development_mock",
     "build": "cross-env WEBPACK_PATH=test webpack -p --config ./test/webpack.config.js --mode production --env production",
-    "test": "npm run clean && npm run lint && npm run build",
+    "test": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
     "lint": "cross-env WEBPACK_PATH=test eslint . --format pretty --fix"
   },
   "repository": {
