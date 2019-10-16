@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unpublished-import */
 import React from 'react'
 import TestUtils from 'react-dom/test-utils'
 import { configure, shallow } from 'enzyme'
