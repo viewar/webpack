@@ -30,7 +30,7 @@ install: npm install
 script:
   - npm run clean
   - npm run lint
-  - WEBPACK_PATH=test ./node_modules/karma start ./src/test/karma.config.js --single-run --browsers PhantomJS
+  - WEBPACK_PATH=test ./node_modules/.bin/karma start ./src/test/karma.config.js --single-run --browsers PhantomJS
   - npm run build
 
 before_deploy:
