@@ -119,6 +119,7 @@
     "karma-webpack": "^4.0.2",
     "lint-staged": "^9.2.5",
     "mocha": "^6.2.1",
+    "phantomjs": "^2.1.7",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0"
   },
