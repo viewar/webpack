@@ -32,6 +32,7 @@ module.exports = (config) => {
       'karma-mocha',
       'karma-chrome-launcher',
       'karma-nyan-reporter',
+      'karma-mocha-reporter',
     ],
     // customLaunchers: {
     //   phantomjs_custom: {
@@ -93,7 +94,7 @@ module.exports = (config) => {
       resolve:   resolverConfig.resolve,
     },
 
-    reporters:    [ 'nyan' ],
+    reporters:    [ process.env.CI ? 'mocha' : 'nyan' ],
 
     nyanReporter: {
       suppressErrorHighlighting: true,
