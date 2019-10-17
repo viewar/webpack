@@ -9,7 +9,6 @@ preprocessors[PATHS.root + '/test/**/*.spec.js'] = [ 'webpack', 'sourcemap' ]
 
 module.exports = (config) => {
   config.set({
-    browsers:   [ 'Chrome' ], // run in Chrome
     singleRun:  true, // just run once by default
     frameworks: [ 'mocha' ],
     reporters:  [ 'dots' ],
@@ -20,6 +19,32 @@ module.exports = (config) => {
         watched: false,
       },
     ],
+    plugins:  [
+      'karma-sourcemap-loader',
+      'karma-webpack',
+      'karma-mocha',
+      'karma-chrome-launcher',
+      'karma-phantomjs-launcher',
+    ],
+    customLaunchers: {
+      phantomjs_custom: {
+        base:    'PhantomJS',
+        options: {
+          windowName: 'viewar-karma-webpack',
+          settings:   {
+            webSecurityEnabled: false,
+          },
+        },
+        flags:               [ '--load-images=true' ],
+        debug:               true,
+        // Have phantomjs exit if a ResourceError is encountered
+        // (useful if karma exits without killing phantom)
+        exitOnResourceError: true,
+      },
+    },
+    // use headless (!) phantomjs on CI like travis
+    // TODO: use ChromeHeadless for CI
+    browsers: [ process.env.CI ? 'phantomjs_custom' : 'Chrome' ],
 
     preprocessors,
 
