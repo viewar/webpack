@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+
 import styles from 'App.scss' // eslint-disable-line no-unused-vars
 import Test from 'components/Test.jsx'
 
