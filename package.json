@@ -94,12 +94,12 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
+    "@viewar/config-eslint": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
     "chai": "^4.2.0",
     "cross-env": "^6.0.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.3.0",
-    "eslint-config-viewar": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
     "eslint-formatter-pretty": "^2.1.1",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-import-resolver-webpack": "^0.11.1",
