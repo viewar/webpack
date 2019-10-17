@@ -15,16 +15,10 @@ const foo = () => {
 // TODO: move configuration to "before" config setup
 configure({ adapter: new Adapter() })
 chai.use(chaiEnzyme())
-// import App from 'App'
 
 describe('Test', function() {
   it('renders without problems', function() {
     const wrapper = shallow(<TestComponent />)
     chai.expect(wrapper).to.have.descendants('#foo')
-
-    // const insertedComponent = TestUtils.renderIntoDocument(<Test />)
-    // expect(insertedComponent).to.exist()
-
-    // chai.expect('foo').to.equal('foo')
   })
 })
