@@ -7,6 +7,7 @@ module.exports = (config) => {
   //
   // file pattern
   const karmaTestGlob = 'test/**/*.spec.js'
+  // const karmaTestGlob = 'src/test/mocha.entry.js'
   // preprocessors
   const preprocessors = {}
   preprocessors[karmaTestGlob] = [ 'webpack', 'sourcemap' ]
@@ -54,7 +55,7 @@ module.exports = (config) => {
         // mocha - mocha config
         //
         // require specific files after Mocha is initialized
-        // require: mochaRequire,
+        // require: [ require.resolve('./mocha.entry.js') ],
       },
     },
 

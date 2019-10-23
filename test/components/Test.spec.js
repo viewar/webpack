@@ -19,6 +19,7 @@ chai.use(chaiEnzyme())
 describe('Test', function() {
   it('renders without problems', function() {
     const wrapper = shallow(<TestComponent />)
+    chai.expect(wrapper).to.have.id('test_wrapper')
     chai.expect(wrapper).to.have.descendants('#foo')
   })
 })

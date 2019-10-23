@@ -11,5 +11,6 @@ module.exports = {
     "react/jsx-filename-extension": 0,
     // conflicts between webpack- and node- resolver
     "node/no-missing-import": 0,
+    "node/no-unpublished-import": 0,
   }
 }
