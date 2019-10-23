@@ -38,6 +38,9 @@
         }
       ],
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-export-default-from"
     ]
   },
   "engines": {
@@ -95,6 +98,7 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
     "@viewar/config-eslint": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",
