@@ -21,15 +21,18 @@ install: npm install
 
 script:
   - npm run lint
+  - npm run test
   - npm run build
+#
+# /feat/circleCI
+#
+# before_deploy:
+#   - npm i -g semantic-release
+#   - npm i -g @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github
 
-before_deploy:
-  - npm i -g semantic-release
-  - npm i -g @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github
-
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: npx semantic-release
-  on:
-    branch: next
+# deploy:
+#   provider: script
+#   skip_cleanup: true
+#   script: npx semantic-release
+#   on:
+#     branch: next
