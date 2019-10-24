@@ -21,6 +21,7 @@
   "eslint.autoFixOnSave": true,
   "eslint.run": "onType",
   "eslint.lintTask.enable": true,
+  "eslint.workingDirectories": [{ "directory": ".", "changeProcessCWD": true }],
   // prettier
   "vsprettier.packageManager": "npm",
   "vsprettier.useEsLint": true,
