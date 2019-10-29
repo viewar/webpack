@@ -1,22 +1,25 @@
 # @viewar/webpack
 
-<<<<<<< HEAD
-[![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
-=======
 [![CircleCI](https://circleci.com/gh/viewar/webpack.svg?style=shield&circle-token=89955835022246b062444ed0f36309353f919512)](https://circleci.com/gh/viewar/webpack)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
 [![NPM Release](https://img.shields.io/npm/v/%40viewar%2Fwebpack.svg?style=flat)](https://www.npmjs.com/package/%40viewar%2Fwebpack)
 [![Conventional Commits](https://img.shields.io/badge/✔-Conventional%20Commits-blue.svg)](https://conventionalcommits.org)
 [![Semantic Versioning][semantic-img]][semantic-url]
->>>>>>> e904b8c... docs(README): add npm status version badge
 
-[circle-ci-status-img]: https://circleci.com/bb/viewar_sf/viewar-webpack.svg?style=svg
+<!-- badge-urls -->
+
+[pr-welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
+[semantic-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-blue.svg
+[semantic-url]: https://semver.org/
+
+<!-- /badge-urls -->
 
 ## Usage
 
 **cli**
 
+`webpack-dev --config ./node_modules/@viewar/webpack`  
 `webpack-dev-server --config ./node_modules/@viewar/webpack`
 
 **node - default**
@@ -26,7 +29,7 @@
 module.exports = require('@viewar/webpack');
 ```
 
-**node - merged**
+**node - extended**
 
 ```javascript
 // webpack.config.js
@@ -48,71 +51,48 @@ module.exports = async (...args) => {
 | ----------- | ------- | ------------- |
 | PATHS.src   | 'src'   | WEBPACK_PATH  |
 | PATHS.build | 'build' | WEBPACK_BUILD |
-| PORT        | 8080    | WEBPACK_PORT  |
+| PORT        | 8080    | PORT          |
 
 ### Features
 
+#### module resolver
+
+enables absolute import paths like `import Header from 'components/Header'`  
+if you use '/src' for your webpack root, you probably don't have to change anything.
+
+**default extensions:** `['.js', '.jsx', 'json']`  
+**default module paths:** `[basename(PATHS.src), 'node_modules']`
+
+overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
+or add your own 'webpack.config.resolve.js' in your workspace root:
+
+```js
+// {workspaceRoot}/webpack.config.resolve.js
+const resolveConfig = {
+  resolve: {
+    extensions: ['.jsx', '.js', '.json'],
+    // paths are relative to workspace root
+    modules: ['myWebpackRootDir', 'node_modules'],
+  },
+};
+
+module.exports = resolveConfig;
+```
+
 #### `errorOnUsedPort()`
 
-before exporting the (promised) config, we check if the port is free to use  
-and throw an Error, if not. (kills the process)
+before exporting the (promised) config,  
+we **check if the port is free to use and throw an Error, if not.**
 
-#### remote-console
+#### `remoteConsoleInjector()`
+
+```javascript
+// on client
+import { remoteConsoleInjector } from '@viewar/webpack/remoteConsole';
+remoteConsoleInjector();
+```
 
 **all native console outputs are sent to** our endpoint of remote-console,  
 and get catched server-side to log them in **the terminal**.
 
-The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function,  
-which allows us to add our own express-middlewares
-
-**TODO**
-
-- [ ] use serialize instead of JSON.stringify
-- [ ] fix doubled terminal output
-- [ ] use error boundaries instead of window.on(error)
-
-### module resolver
-
-we lookup `WEBPACK_PATH` (see [constants](#constants)) relative to the working directory
-so you can just `import Header from 'components/Header'` anywhere in your webpack dir
-
-if you use another webpack root than default you have to add your `WEBPACK_PATH` to the env
-
-## ISSUES
-
-### module resolver
-
-#### aliase
-
-eslint's import-resolvers [do not recognize resolve.alias](https://github.com/benmosher/eslint-plugin-import/issues/1451) from config.  
-would need [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)  
-
-#### promised config
-
-// eslint-import-resolver-webpack doesn't hanlde Promises
-
-so we use an extra file to define the resolver config: `./src/webpack.config.resolve.js`
-will be located in root/configs - see todos
-
-## TODOS
-
-- **ehance**
-  - check if you're root in ? pre-script ? webpack config
-  - add [redbox-react](https://github.com/commissure/redbox-react)
-  - add error boundaries (may belong to client packages)
-  - add build script
-  - add test script
-  - start dev-server per script
-    - add SSR!?
-  - peerDependencies? (f.e. webpack and babel)
-  - `webpack.config.resolve.js`
-    - in workspace root ? enables to use default node-usage with additional resovler options
-    - => handle webpack.env "lint" to return promise.resolve
-  - build mapper, which reads resolver.config.js  
-  and transform data into scheme of eslint-import-resolver-alias
-- **refactor**
-  - `errorOnUsedPort()`
-    - try to remove async fn
-    - ? start dev-server per node-script
-  - handle args/envVars
-  - args and env vars (mode, etc.)
+The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function: `webpackConfig.devServer.before = viewArMiddlleware;`
