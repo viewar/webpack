@@ -18,7 +18,7 @@
 
 **cli**
 
-`webpack-dev-server --config ./node_modules/@viewar/webpack`
+`webpack-dev-server --config @viewar/webpack`
 
 **node - default**
 
