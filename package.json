@@ -10,9 +10,13 @@
     "test": "npm run clean && npm run lint && npm run build",
     "lint": "cross-env WEBPACK_PATH=test eslint . --format pretty --fix"
   },
+  "homepage": "https://viewar.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/viewar/webpack"
+  },
+  "bugs": {
+    "url": "https://github.com/viewar/webpack/issues"
   },
   "private": false,
   "publishConfig": {

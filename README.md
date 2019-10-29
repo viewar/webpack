@@ -18,7 +18,8 @@
 
 **cli**
 
-`webpack-dev-server --config @viewar/webpack`
+`webpack-dev --config ./node_modules/@viewar/webpack`  
+`webpack-dev-server --config ./node_modules/@viewar/webpack`
 
 **node - default**
 
@@ -27,7 +28,7 @@
 module.exports = require('@viewar/webpack');
 ```
 
-**node - merged**
+**node - extended**
 
 ```javascript
 // webpack.config.js
@@ -53,15 +54,39 @@ module.exports = async (...args) => {
 
 ### Features
 
+#### module resolver
+
+enables absolute import paths like `import Header from 'components/Header'`  
+if you use '/src' for your webpack root, you probably don't have to change anything.
+
+**default extensions:** `['.js', '.jsx', 'json']`  
+**default module paths:** `[basename(PATHS.src), 'node_modules']`
+
+overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
+or add your own 'webpack.config.resolve.js' in your workspace root:
+
+```js
+// {workspaceRoot}/webpack.config.resolve.js
+const resolveConfig = {
+  resolve: {
+    extensions: ['.jsx', '.js', '.json'],
+    // paths are relative to workspace root
+    modules: ['myWebpackRootDir', 'node_modules'],
+  },
+};
+
+module.exports = resolveConfig;
+```
+
 #### `errorOnUsedPort()`
 
 before exporting the (promised) config,  
-we check if the port is free to use and throw an Error, if not.
+we **check if the port is free to use and throw an Error, if not.**
 
-#### remote-console
+#### `remoteConsoleInjector()`
 
 ```javascript
-// client
+// on client
 import { remoteConsoleInjector } from '@viewar/webpack/remoteConsole';
 remoteConsoleInjector();
 ```
@@ -70,61 +95,3 @@ remoteConsoleInjector();
 and get catched server-side to log them in **the terminal**.
 
 The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function: `webpackConfig.devServer.before = viewArMiddlleware;`
-
-**TODO**
-
-- [ ] use serialize instead of JSON.stringify
-- [ ] fix doubled terminal output
-- [ ] use error boundaries instead of window.on(error)
-
-### module resolver
-
-`import Header from 'components/Header'`
-
-**our default resolber config:**
-
-```javascript
-const resolveConfig = {
-  resolve: {
-    extensions: ['.js', '.jsx', 'json'],
-    modules: [
-      // PATHS.src = ROOT + WEBPACK_PATH || 'src'
-      join(path.basename(PATHS.src), 'components'),
-      basename(PATHS.src),
-      'node_modules',
-    ],
-  },
-};
-```
-
-overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
-or add your own 'webpack.config.resolve.js' in your workspace root.
-
-#### TODOS
-
-- alias config mapper for 'eslint-import-resolver-alias'
-- resolve conflict of 'eslint-config-viewar' with `errorOnUsedPort()`
-
-## ISSUES
-
-### module resolver
-
-#### aliase
-
-eslint's import-resolvers [do not recognize resolve.alias](https://github.com/benmosher/eslint-plugin-import/issues/1451) from config.  
-would need [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)
-
-#### promised config
-
-eslint-import-resolver-webpack doesn't handle Promises
-
-## TODOS
-
-- **ehance**
-  - add [redbox-react](https://github.com/commissure/redbox-react)
-  - add error boundaries (may belong to client packages)
-  - start dev-server per script
-    - add SSR!?
-- **refactor**
-  - `errorOnUsedPort()`: try to remove async fn
-  - yargs and env vars (mode, etc.)
