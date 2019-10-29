@@ -1,7 +1,5 @@
 module.exports = {
-  extends: [
-    require.resolve('@viewar/config-eslint/env/react')
-  ],
+  extends: ['viewar/env/react'],
   rules: {
     "node/no-missing-import": 0,
     semi: ['error', 'never'],
