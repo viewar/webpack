@@ -1,18 +1,22 @@
 {
   "name": "@viewar/webpack",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "shared webpack config of ViewAR",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build && rimraf bundle",
-    "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./test/webpack.config.js --open --mode development --env development_mock",
-    "build": "cross-env WEBPACK_PATH=test webpack -p --config ./test/webpack.config.js --mode production --env production",
+    "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./webpack.config.js --open --mode development --env development_mock",
+    "build": "cross-env WEBPACK_PATH=test webpack -p --config ./webpack.config.js --mode production --env production",
     "test": "npm run clean && npm run lint && npm run build",
     "lint": "cross-env WEBPACK_PATH=test eslint . --format pretty --fix"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/viewar/webpack"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "viewar",
@@ -60,12 +64,8 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.5.5",
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/commit-analyzer": "^6.3.0",
-    "@semantic-release/git": "^7.0.16",
-    "@semantic-release/github": "^5.4.3",
-    "@semantic-release/npm": "^5.1.15",
-    "@semantic-release/release-notes-generator": "^7.3.0",
+    "@formatjs/intl-pluralrules": "^1.3.0",
+    "@formatjs/intl-relativetimeformat": "^4.2.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
@@ -85,7 +85,6 @@
     "react-dom": "^16.9.0",
     "sass": "^1.23.0-module.beta.1",
     "sass-loader": "^8.0.0",
-    "semantic-release-cli": "^5.2.1",
     "style-loader": "^1.0.0",
     "viewar-core": "^11.41.1",
     "webpack": "^4.39.3",
@@ -94,9 +93,9 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "cross-env": "^5.2.1",
+    "cross-env": "^6.0.3",
     "eslint": "^6.3.0",
-    "eslint-config-viewar": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
+    "eslint-config-viewar": "git+https://github.com/doubleu23/eslint-config-viewar.git",
     "eslint-formatter-pretty": "^2.1.1",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-import-resolver-webpack": "^0.11.1",
