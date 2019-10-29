@@ -23,6 +23,9 @@ jobs:
           name: Setup
           command: npm install
       - run:
+          name: Install 'semantic-release' modules
+          command: npm i --no-save semantic-release-cli @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator
+      - run:
           name: Release to GitHub
           command: npx semantic-release
 
