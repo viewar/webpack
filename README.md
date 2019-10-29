@@ -12,10 +12,7 @@
 [semantic-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-blue.svg
 [semantic-url]: https://semver.org/
 
-<!--
-[![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
-[circle-ci-status-img]: https://circleci.com/bb/viewar_sf/viewar-webpack.svg?style=svg
- /badge-urls -->
+<!-- /badge-urls -->
 
 ## Usage
 
