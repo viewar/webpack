@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  test_and_build:
+  lint_and_build:
     docker:
       - image: circleci/node:12.9.0
     steps:
@@ -11,9 +11,6 @@ jobs:
       - run:
           name: Lint
           command: npm run lint
-      - run:
-          name: Test
-          command: npm run test
       - run:
           name: Build
           command: npm run build
@@ -33,10 +30,10 @@ workflows:
   version: 2
   lint_and_release:
     jobs:
-      - test_and_build
+      - lint_and_build
       - semantic_release:
           requires:
-            - test
+            - lint_and_build
           filters:
             branches:
               only: next
