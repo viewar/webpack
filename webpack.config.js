@@ -1,6 +1,6 @@
 const merge = require('webpack-merge')
 
-const configViewAr = require('../index.js')
+const configViewAr = require('./index.js')
 
 module.exports = async (...args) => {
   // configViewAr is ASYNC!

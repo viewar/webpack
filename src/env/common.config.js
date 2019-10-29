@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const { PATHS } = require('../utils/constants')
 const { getViewARConfig } = require('../utils')
-const { resolve } = require('../webpack.config.resolve')
+const { resolve } = require('../webpack.config.resolve.js')
 
 const {
   appId, appVersion,

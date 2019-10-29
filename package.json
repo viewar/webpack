@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build && rimraf bundle",
-    "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./test/webpack.config.js --open --mode development --env development_mock",
-    "build": "cross-env WEBPACK_PATH=test webpack -p --config ./test/webpack.config.js --mode production --env production",
+    "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./webpack.config.js --open --mode development --env development_mock",
+    "build": "cross-env WEBPACK_PATH=test webpack -p --config ./webpack.config.js --mode production --env production",
     "test": "npm run clean && npm run lint && npm run build",
     "lint": "cross-env WEBPACK_PATH=test eslint . --format pretty --fix"
   },
@@ -98,7 +98,7 @@
   "devDependencies": {
     "cross-env": "^6.0.3",
     "eslint": "^6.3.0",
-    "eslint-config-viewar": "git+https://bitbucket.org/viewar_sf/eslint-config-viewar.git",
+    "eslint-config-viewar": "git+https://github.com/doubleu23/eslint-config-viewar.git",
     "eslint-formatter-pretty": "^2.1.1",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-import-resolver-webpack": "^0.11.1",
