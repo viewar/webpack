@@ -2,8 +2,6 @@ const chalk = require('chalk')
 const bodyParser = require('body-parser')
 
 /**
- * SERVER
- *
  * @function
  * @name remoteConsoleMiddleware
  * @uses {express} webpack dev server instance
