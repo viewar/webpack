@@ -1,6 +1,6 @@
 # @viewar/webpack
 
-[![Build Status](https://travis-ci.com/viewar/webpack.svg?token=9j4kv11sMyqyMRAPNQXm&branch=master)](https://travis-ci.com/viewar/webpack)
+[![CircleCI](https://circleci.com/gh/viewar/webpack.svg?style=svg&circle-token=2d8c6a42d7ad4702a013a25939a56d90525e764c)](https://circleci.com/gh/viewar/webpack)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
 [![Conventional Commits](https://img.shields.io/badge/✔-Conventional%20Commits-blue.svg)](https://conventionalcommits.org)
