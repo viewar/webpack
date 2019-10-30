@@ -61,7 +61,7 @@ exports.config = merge([
           ],
         },
         {
-          test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|svg|gif|ico$/,
+          test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|svg|gif|ico|mp4$/,
           use:  {
             loader:  'file-loader',
             options: {
