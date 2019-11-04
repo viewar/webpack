@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
 
-import Test from 'components/Test'
-import styles from 'App.scss'
+import Test from 'components/Test.jsx'
 
-require('../remoteConsole').remoteConsoleInjector()
+import styles from './App.scss' // eslint-disable-line no-unused-vars
+
+require('../../remoteConsole').remoteConsoleInjector()
 
 class App extends PureComponent {
   render() {
