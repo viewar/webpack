@@ -1,6 +1,15 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.5.1](https://github.com/viewar/webpack/compare/v1.5.0...v1.5.1) (2019-11-04)
+
+
+### Bug Fixes
+
+* add mp4 to files loader ([66013ab](https://github.com/viewar/webpack/commit/66013abac67b1c83ec7de2a3a968f9cedf9c038a))
+* **deps:** fix bugs due to dep errors ([#27](https://github.com/viewar/webpack/issues/27)) ([#28](https://github.com/viewar/webpack/issues/28)) ([dcaaea5](https://github.com/viewar/webpack/commit/dcaaea51007ebd1d37bed79d66357ca6b327c331))
+* **CI:** typo in merge ([34db122](https://github.com/viewar/webpack/commit/34db1225fb1e0ae0fa84ecffa6ea6aba6db9ad3c))
+
 # [1.5.0](https://github.com/viewar/webpack/compare/v1.4.0...v1.5.0) (2019-11-04)
 
 
