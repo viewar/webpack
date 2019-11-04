@@ -1,10 +1,10 @@
 version: 2.1
 jobs:
   lint_and_build:
+    environment:
+      NODE_ENV: development
     docker:
       - image: circleci/node:12.9.0
-      - environment:
-          NODE_ENV: development
     steps:
       - checkout
       - run:
@@ -21,8 +21,7 @@ jobs:
             fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
       - run:
           name: Install puppeteer with chronium
-          command: |
-            npm i puppeteer
+          command: npm i puppeteer
       - run:
           name: Lint
           command: npm run lint
