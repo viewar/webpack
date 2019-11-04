@@ -1,6 +1,41 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.4.0](https://github.com/viewar/webpack/compare/v1.3.0...v1.4.0) (2019-10-29)
+
+
+### Bug Fixes
+
+* **lint:** add 'webpack.config.resolve.js' ([ec73b5b](https://github.com/viewar/webpack/commit/ec73b5b2b3a315a6090102f876274c754c1bf607))
+* **IDE:** add 'workingDirectories' ([c1483b0](https://github.com/viewar/webpack/commit/c1483b0298031850cc948088a14a5879efd327d1))
+* **CI:** fix job names ([22703eb](https://github.com/viewar/webpack/commit/22703eb79f3a96f9da62f0910648e8be29fe768f))
+* **CI:** use circleCI ([#12](https://github.com/viewar/webpack/issues/12)) ([ee706d0](https://github.com/viewar/webpack/commit/ee706d0f1c2637f087928da84429977ea258ebd6))
+* use named export `remoteConsoleInjector()` ([cb486a1](https://github.com/viewar/webpack/commit/cb486a1362026394b798f97a673bdc760f05e69d))
+* **eslint:** use newer version of config "@viewar/config-eslint" ([d6d0223](https://github.com/viewar/webpack/commit/d6d022313cde11dc8339a329b0423d72dca5b857))
+
+
+### Features
+
+* **polyfill:** add polyfill for native Intl API ([51f911a](https://github.com/viewar/webpack/commit/51f911a3b3f71d10bd99cf748a84ecf8e82915c2))
+* **semantic-release:** enable publishing to NPM registry ([635bfa8](https://github.com/viewar/webpack/commit/635bfa83000b3f8f72bb17f2d95bc16afde4b6b3))
+
+# [1.3.0](https://github.com/viewar/webpack/compare/v1.2.0...v1.3.0) (2019-10-29)
+
+
+### Bug Fixes
+
+* **lint:** add 'webpack.config.resolve.js' ([cf1d9b4](https://github.com/viewar/webpack/commit/cf1d9b4bd6c283958f5611d19ccc2159069c3e0f))
+* **IDE:** add 'workingDirectories' ([75a2ab7](https://github.com/viewar/webpack/commit/75a2ab7cdd2d5299095288ab775588651693279d))
+* **CI:** fix job names ([b2c0842](https://github.com/viewar/webpack/commit/b2c084282e73d31c590c34800ec02dcf9cd00f20))
+* **CI:** use circleCI ([#12](https://github.com/viewar/webpack/issues/12)) ([4d3388a](https://github.com/viewar/webpack/commit/4d3388a3ccd4f1c2235ad6211015f21f32cfd2cc))
+* use named export `remoteConsoleInjector()` ([d8c8af7](https://github.com/viewar/webpack/commit/d8c8af7f3902544763cc93a3a4a19a372c544855))
+* **eslint:** use newer version of config "@viewar/config-eslint" ([5b27d32](https://github.com/viewar/webpack/commit/5b27d32556809590b98c4fdb898c1f9548899734))
+
+
+### Features
+
+* **polyfill:** add polyfill for native Intl API ([872cad5](https://github.com/viewar/webpack/commit/872cad5bda713d4ce93fe3452c94609dd6a224b6))
+
 # [1.2.0](https://github.com/viewar/webpack/compare/v1.1.3...v1.2.0) (2019-10-10)
 
 

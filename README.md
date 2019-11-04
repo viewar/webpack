@@ -1,8 +1,9 @@
 # @viewar/webpack
 
-[![Build Status](https://travis-ci.com/viewar/webpack.svg?token=9j4kv11sMyqyMRAPNQXm&branch=master)](https://travis-ci.com/viewar/webpack)
+[![CircleCI](https://circleci.com/gh/viewar/webpack.svg?style=shield&circle-token=89955835022246b062444ed0f36309353f919512)](https://circleci.com/gh/viewar/webpack)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
+[![NPM Release](https://img.shields.io/npm/v/%40viewar%2Fwebpack.svg?style=flat)](https://www.npmjs.com/package/%40viewar%2Fwebpack)
 [![Conventional Commits](https://img.shields.io/badge/✔-Conventional%20Commits-blue.svg)](https://conventionalcommits.org)
 [![Semantic Versioning][semantic-img]][semantic-url]
 
@@ -12,15 +13,13 @@
 [semantic-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-blue.svg
 [semantic-url]: https://semver.org/
 
-<!--
-[![CircleCI status][circle-ci-status-img]](https://circleci.com/bb/viewar_sf/viewar-webpack/tree/master)
-[circle-ci-status-img]: https://circleci.com/bb/viewar_sf/viewar-webpack.svg?style=svg
- /badge-urls -->
+<!-- /badge-urls -->
 
 ## Usage
 
 **cli**
 
+`webpack-dev --config ./node_modules/@viewar/webpack`  
 `webpack-dev-server --config ./node_modules/@viewar/webpack`
 
 **node - default**
@@ -30,7 +29,7 @@
 module.exports = require('@viewar/webpack');
 ```
 
-**node - merged**
+**node - extended**
 
 ```javascript
 // webpack.config.js
@@ -46,7 +45,7 @@ module.exports = async (...args) => {
 };
 ```
 
-### Constants
+## Constants
 
 | name        | default | env           |
 | ----------- | ------- | ------------- |
@@ -54,17 +53,75 @@ module.exports = async (...args) => {
 | PATHS.build | 'build' | WEBPACK_BUILD |
 | PORT        | 8080    | PORT          |
 
-### Features
+## Features
 
-#### `errorOnUsedPort()`
+### Integration Tests per 'karma-webpack'
+
+> may be moved to own package together with cypress setup in undefined future
+
+**Usage**  
+`npm run karma`
+
+**Explanation**  
+[Karma](https://karma-runner.github.io/latest/index.html) is a test runner for JavaScript applications with several features integrated:
+
+- **real browser instances - no fake DOM!**  
+  supports Chrome, Firefox, IE11+, Safari  
+  uses headless chrome in CI environment
+- **native webpack module bundling**  
+  '[karma-webpack](https://github.com/webpack-contrib/karma-webpack)' lets you use your projects webpack config
+- **built-in mocha runner**
+  - '[chai](https://github.com/chaijs/chai)' for unit-test assertions (expect, should, ...)
+  - '[enzyme](https://github.com/airbnb/enzyme)' for integration-tests (shallow, mount, render)
+  - '[chai-enzyme](https://github.com/producthunt/chai-enzyme)' for extended integration-tests assetions
+
+#### Configuration
+
+**karma - src/test/karma.config.js**  
+contains karma-config: file pattern, karma plugins, browser settings, usw, ...
+
+**mocha - src/test/mocha.setup.js**  
+contains mocha setup: configures chai-enzyme and sets up global assertion functions
+
+#### Writing Tests
+
+- **example integration tests**  
+  `/test/App.spec.js` and `/test/components/Test.spec.js`
+- **component related assertions** ➡️ '[chai-enzyme](https://github.com/producthunt/chai-enzyme)'
+
+### Module Resolver
+
+**enables absolute import paths like `import Header from 'components/Header'`**  
+_if you use '/src' for your webpack root, you probably don't have to change anything._
+
+**default extensions:** `['.js', '.jsx', 'json']`  
+**default module paths:** `[basename(PATHS.src), 'node_modules']`
+
+overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
+or add your own 'webpack.config.resolve.js' in your workspace root:
+
+```js
+// {workspaceRoot}/webpack.config.resolve.js
+const resolveConfig = {
+  resolve: {
+    extensions: ['.jsx', '.js', '.json'],
+    // paths are relative to workspace root
+    modules: ['myWebpackRootDir', 'node_modules'],
+  },
+};
+
+module.exports = resolveConfig;
+```
+
+### `errorOnUsedPort()`
 
 before exporting the (promised) config,  
-we check if the port is free to use and throw an Error, if not.
+**we check if the port is free to use and throw an Error, if not.**
 
-#### remote-console
+### `remoteConsoleInjector()`
 
 ```javascript
-// client
+// on client
 import { remoteConsoleInjector } from '@viewar/webpack/remoteConsole';
 remoteConsoleInjector();
 ```
@@ -72,62 +129,5 @@ remoteConsoleInjector();
 **all native console outputs are sent to** our endpoint of remote-console,  
 and get catched server-side to log them in **the terminal**.
 
-The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function: `webpackConfig.devServer.before = viewArMiddlleware;`
-
-**TODO**
-
-- [ ] use serialize instead of JSON.stringify
-- [ ] fix doubled terminal output
-- [ ] use error boundaries instead of window.on(error)
-
-### module resolver
-
-`import Header from 'components/Header'`
-
-**our default resolber config:**
-
-```javascript
-const resolveConfig = {
-  resolve: {
-    extensions: ['.js', '.jsx', 'json'],
-    modules: [
-      // PATHS.src = ROOT + WEBPACK_PATH || 'src'
-      join(path.basename(PATHS.src), 'components'),
-      basename(PATHS.src),
-      'node_modules',
-    ],
-  },
-};
-```
-
-overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
-or add your own 'webpack.config.resolve.js' in your workspace root.
-
-#### TODOS
-
-- alias config mapper for 'eslint-import-resolver-alias'
-- resolve conflict of 'eslint-config-viewar' with `errorOnUsedPort()`
-
-## ISSUES
-
-### module resolver
-
-#### aliase
-
-eslint's import-resolvers [do not recognize resolve.alias](https://github.com/benmosher/eslint-plugin-import/issues/1451) from config.  
-would need [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)
-
-#### promised config
-
-eslint-import-resolver-webpack doesn't handle Promises
-
-## TODOS
-
-- **ehance**
-  - add [redbox-react](https://github.com/commissure/redbox-react)
-  - add error boundaries (may belong to client packages)
-  - start dev-server per script
-    - add SSR!?
-- **refactor**
-  - `errorOnUsedPort()`: try to remove async fn
-  - yargs and env vars (mode, etc.)
+The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function:  
+`webpackConfig.devServer.before = viewArMiddlleware;`

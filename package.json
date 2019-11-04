@@ -1,6 +1,6 @@
 {
   "name": "@viewar/webpack",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "shared webpack config of ViewAR",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,17 @@
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
     "lint": "cross-env WEBPACK_PATH=test eslint . --format pretty --fix"
   },
+  "homepage": "https://viewar.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/viewar/webpack"
+  },
+  "bugs": {
+    "url": "https://github.com/viewar/webpack/issues"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "viewar",
@@ -64,12 +72,8 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.5.5",
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/commit-analyzer": "^6.3.0",
-    "@semantic-release/git": "^7.0.16",
-    "@semantic-release/github": "^5.4.3",
-    "@semantic-release/npm": "^5.1.15",
-    "@semantic-release/release-notes-generator": "^7.3.0",
+    "@formatjs/intl-pluralrules": "^1.3.0",
+    "@formatjs/intl-relativetimeformat": "^4.2.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
@@ -93,7 +97,6 @@
     "react-dom": "^16.9.0",
     "sass": "^1.23.0-module.beta.1",
     "sass-loader": "^8.0.0",
-    "semantic-release-cli": "^5.2.1",
     "style-loader": "^1.0.0",
     "viewar-core": "^11.41.1",
     "webpack": "^4.39.3",

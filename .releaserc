@@ -41,10 +41,7 @@
         "changelogTitle": "# Changelog\n> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)"
       }
     ],
-    ["@semantic-release/npm", {
-      "npmPublish": false,
-      "tarballDir": "releases",
-    }],
+    ["@semantic-release/npm"],
     [
       "@semantic-release/git",
       {
@@ -52,11 +49,16 @@
           "CHANGELOG.md",
           "package.json"
         ],
-        "message": "chore(release): 🔖 ${nextRelease.version} 🚀 released by 🤖 'semantic-release' via CI \n\n${nextRelease.notes}"
+        "message": "chore(release): 🔖 v${nextRelease.version} 🚀 released by 🤖 'semantic-release' via CI \n\n${nextRelease.notes}"
       }
     ],
     [
       "@semantic-release/github"
-    ]
+    ],
+    ["semantic-release-slack-bot", {
+        "notifyOnSuccess": true,
+        "notifyOnFail": false,
+        "markdownReleaseNotes": true
+      }]
   ]
 }

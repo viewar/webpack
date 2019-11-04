@@ -7,6 +7,7 @@ const ROOT    = path.resolve(process.cwd())
 const PATHS   = {
   root:  ROOT,
   build: path.join(ROOT, WEBPACK_BUILD || 'build'),
+  // TODO: rename marked as webpack root
   src:   path.join(ROOT, WEBPACK_PATH || 'src'),
 }
 
