@@ -12,10 +12,10 @@ class App extends PureComponent {
     // const foo = bar
 
     return (
-      <div id="app">
+      <>
         <h1 id="app_headline">@viewar/webpack up and running!</h1>
-        <Test />
-      </div>
+        <Test foo="bar" />
+      </>
     )
   }
 }
