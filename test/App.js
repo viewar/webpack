@@ -12,7 +12,7 @@ class App extends PureComponent {
 
     return (
       <>
-        <h1>@viewar/webpack up and running!</h1>
+        <h1 id="app_headline">@viewar/webpack up and running!</h1>
         <Test />
       </>
     )
