@@ -14,7 +14,9 @@ module.exports = (config) => {
   // preprocessors
   const preprocessors = {}
   preprocessors[karmaTestGlob] = [ 'webpack', 'sourcemap' ]
-  preprocessors['src/**/*.js'] = [ 'webpack', 'sourcemap' ]
+  preprocessors['src/**/*.js'] = [ 'webpack', 'sourcemap' ] // for development
+  // TODO: add dist/mocha.setup.js
+  preprocessors['node_modules/@viewar/webpack/**/*.js'] = [ 'webpack', 'sourcemap' ] // for module
   // ChromeHeadless - set path for binary
   // see: https://github.com/karma-runner/karma-chrome-launcher#headless-chromium-with-puppeteer
   process.env.CHROME_BIN = require('puppeteer').executablePath()
