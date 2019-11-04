@@ -1,13 +1,16 @@
+const path = require('path')
+
 const commonConfig = require('../env/common.config')
 const resolverConfig = require('../webpack.config.resolve')
 const { PATHS } = require('../utils/constants')
+
+const isModule = process.cwd().indexOf('@viewar/webpack') !== -1
 
 module.exports = (config) => {
   // PRESETS
   //
   // file pattern
-  const karmaTestGlob = 'test/**/*.spec.js'
-  // const karmaTestGlob = 'src/test/mocha.entry.js'
+  const karmaTestGlob = PATHS.src + '/**/*.spec.js'
   // preprocessors
   const preprocessors = {}
   preprocessors[karmaTestGlob] = [ 'webpack', 'sourcemap' ]
@@ -35,9 +38,9 @@ module.exports = (config) => {
     basePath:   PATHS.root,
     files:      [
       // as we ignore webpacks entries - we have to add polyfills here also
-      'node_modules/@babel/polyfill/dist/polyfill.js',
+      require.resolve('@babel/polyfill/dist/polyfill.js'),
       // process.cwd() + '/src/utils/babelRegister.js',
-      process.cwd() + '/src/test/mocha.setup.js',
+      path.join(__dirname, 'mocha.setup.js'),
       {
         pattern: karmaTestGlob,
         // set `singleRun: false` if you want to watch files
