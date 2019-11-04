@@ -5,7 +5,7 @@ process.env.NODE_ENV = 'test';
 process.env.WEBPACK_PATH = 'test';
 
 module.exports = {
-  extends: ['./node_modules/@viewar/config-eslint/env/react'],
+  extends: [require.resolve('@viewar/config-eslint/env/react')],
   rules: {
     semi: ['error', 'never'],
     "react/jsx-filename-extension": 0,
