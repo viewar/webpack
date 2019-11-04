@@ -12,6 +12,9 @@ jobs:
           name: Lint
           command: npm run lint
       - run:
+          name: Integration Tests
+          command: npm run karma
+      - run:
           name: Build
           command: npm run build
   semantic_release:
