@@ -10,6 +10,7 @@ module.exports = (config) => {
   // preprocessors
   const preprocessors = {}
   preprocessors[karmaTestGlob] = [ 'webpack', 'sourcemap' ]
+  preprocessors['src/**/*.js'] = [ 'webpack', 'sourcemap' ]
   // ChromeHeadless - set path for binary
   // see: https://github.com/karma-runner/karma-chrome-launcher#headless-chromium-with-puppeteer
   process.env.CHROME_BIN = require('puppeteer').executablePath()
@@ -34,10 +35,12 @@ module.exports = (config) => {
     files:      [
       // as we ignore webpacks entries - we have to add polyfills here also
       'node_modules/@babel/polyfill/dist/polyfill.js',
+      // process.cwd() + '/src/utils/babelRegister.js',
+      process.cwd() + '/src/test/mocha.setup.js',
       {
         pattern: karmaTestGlob,
         // set `singleRun: false` if you want to watch files
-        watched: false,
+        watched: true,
       },
     ],
     // TODO: enable dynamic object keys (karma.config.babel.js with babel/register)
@@ -54,7 +57,9 @@ module.exports = (config) => {
         // mocha - mocha config
         //
         // require specific files after Mocha is initialized
-        // require: mochaRequire,
+        // require: [
+
+        // ],
       },
     },
 
