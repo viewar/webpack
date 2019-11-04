@@ -45,7 +45,7 @@ module.exports = async (...args) => {
 };
 ```
 
-### Constants
+## Constants
 
 | name        | default | env           |
 | ----------- | ------- | ------------- |
@@ -53,12 +53,46 @@ module.exports = async (...args) => {
 | PATHS.build | 'build' | WEBPACK_BUILD |
 | PORT        | 8080    | PORT          |
 
-### Features
+## Features
 
-#### module resolver
+### Integration Tests per 'karma-webpack'
 
-enables absolute import paths like `import Header from 'components/Header'`  
-if you use '/src' for your webpack root, you probably don't have to change anything.
+> may be moved to own package together with cypress setup in undefined future
+
+**Usage**  
+`npm run karma`
+
+**Explanation**  
+[Karma](https://karma-runner.github.io/latest/index.html) is a test runner for JavaScript applications with several features integrated:
+
+- **real browser instances - no fake DOM!**  
+  supports Chrome, Firefox, IE11+, Safari  
+  uses headless chrome in CI environment
+- **native webpack module bundling**  
+  '[karma-webpack](https://github.com/webpack-contrib/karma-webpack)' lets you use your projects webpack config
+- **built-in mocha runner**
+  - '[chai](https://github.com/chaijs/chai)' for unit-test assertions (expect, should, ...)
+  - '[enzyme](https://github.com/airbnb/enzyme)' for integration-tests (shallow, mount, render)
+  - '[chai-enzyme](https://github.com/producthunt/chai-enzyme)' for extended integration-tests assetions
+
+#### Configuration
+
+**karma - src/test/karma.config.js**  
+contains karma-config: file pattern, karma plugins, browser settings, usw, ...
+
+**mocha - src/test/mocha.setup.js**  
+contains mocha setup: configures chai-enzyme and sets up global assertion functions
+
+#### Writing Tests
+
+- **example integration tests**  
+  `/test/App.spec.js` and `/test/components/Test.spec.js`
+- **component related assertions** ➡️ '[chai-enzyme](https://github.com/producthunt/chai-enzyme)'
+
+### Module Resolver
+
+**enables absolute import paths like `import Header from 'components/Header'`**  
+_if you use '/src' for your webpack root, you probably don't have to change anything._
 
 **default extensions:** `['.js', '.jsx', 'json']`  
 **default module paths:** `[basename(PATHS.src), 'node_modules']`
@@ -79,12 +113,12 @@ const resolveConfig = {
 module.exports = resolveConfig;
 ```
 
-#### `errorOnUsedPort()`
+### `errorOnUsedPort()`
 
 before exporting the (promised) config,  
-we **check if the port is free to use and throw an Error, if not.**
+**we check if the port is free to use and throw an Error, if not.**
 
-#### `remoteConsoleInjector()`
+### `remoteConsoleInjector()`
 
 ```javascript
 // on client
@@ -95,4 +129,5 @@ remoteConsoleInjector();
 **all native console outputs are sent to** our endpoint of remote-console,  
 and get catched server-side to log them in **the terminal**.
 
-The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function: `webpackConfig.devServer.before = viewArMiddlleware;`
+The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function:  
+`webpackConfig.devServer.before = viewArMiddlleware;`

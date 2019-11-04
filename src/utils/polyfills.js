@@ -1,4 +1,4 @@
-import '@babel/polyfill'
+require('@babel/polyfill')
 
 /**
  * catch errors while rendering
