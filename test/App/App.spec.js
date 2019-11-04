@@ -1,13 +1,13 @@
 /* eslint-disable node/no-unpublished-import */
 import React from 'react'
-import chai from 'chai'
-import { mount } from 'enzyme'
 
 import App from './App'
+
+const { chai: { expect }, enzyme: { mount }} = global
 
 describe('<App />', function() {
   it('renders without problems', function() {
     const wrapper = mount(<App />)
-    chai.expect(wrapper).to.have.descendants('#app_headline')
+    expect(wrapper).to.have.descendants('#app_headline')
   })
 })
