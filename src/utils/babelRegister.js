@@ -6,6 +6,7 @@ require('@babel/register', {
         modules: 'commonjs',
         targets: { esmodules: true },
       },
+      '@babel/preset-react',
     ],
   ],
 })
