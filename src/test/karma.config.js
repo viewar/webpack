@@ -53,22 +53,6 @@ module.exports = (config) => {
     //* => use {[karmaTestGlob]: ['webpack', 'sourcemap']}
     preprocessors, // uses "karmaTestGlob"
 
-
-    client:   {
-      mocha:          {
-        // mocha - overwrites (if you use multiple test runners)
-        //
-        // reporter: 'html',
-
-        // mocha - mocha config
-        //
-        // require specific files after Mocha is initialized
-        // require: [
-
-        // ],
-      },
-    },
-
     // overwrite 'webpack' configuration
     webpack: {
       ...commonConfig.config,
