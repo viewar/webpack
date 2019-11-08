@@ -53,22 +53,6 @@ module.exports = (config) => {
     //* => use {[karmaTestGlob]: ['webpack', 'sourcemap']}
     preprocessors, // uses "karmaTestGlob"
 
-
-    client:   {
-      mocha:          {
-        // mocha - overwrites (if you use multiple test runners)
-        //
-        // reporter: 'html',
-
-        // mocha - mocha config
-        //
-        // require specific files after Mocha is initialized
-        // require: [
-
-        // ],
-      },
-    },
-
     // overwrite 'webpack' configuration
     webpack: {
       ...commonConfig.config,
@@ -76,11 +60,7 @@ module.exports = (config) => {
       devtool:   'inline-source-map',
       externals: {
         domutils: 'true',
-        cheereo:  'window', // needed for 'chai-enzyme' assertions
-        // TODO: clearify 'react-addons' usage
-        // 'react/addons':                   true,
-        // 'react/lib/ExecutionEnvironment': true,
-        // 'react/lib/ReactContext':         true,
+        cheerio:  'window', // needed for 'chai-enzyme' assertions
       },
       resolve:   resolverConfig.resolve,
     },
