@@ -60,11 +60,7 @@ module.exports = (config) => {
       devtool:   'inline-source-map',
       externals: {
         domutils: 'true',
-        cheereo:  'window', // needed for 'chai-enzyme' assertions
-        // TODO: clearify 'react-addons' usage
-        // 'react/addons':                   true,
-        // 'react/lib/ExecutionEnvironment': true,
-        // 'react/lib/ReactContext':         true,
+        cheerio:  'window', // needed for 'chai-enzyme' assertions
       },
       resolve:   resolverConfig.resolve,
     },
