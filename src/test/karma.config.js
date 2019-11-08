@@ -4,8 +4,6 @@ const commonConfig = require('../env/common.config')
 const resolverConfig = require('../webpack.config.resolve')
 const { PATHS } = require('../utils/constants')
 
-const isModule = process.cwd().indexOf('@viewar/webpack') !== -1
-
 module.exports = (config) => {
   // PRESETS
   //
@@ -14,9 +12,12 @@ module.exports = (config) => {
   // preprocessors
   const preprocessors = {}
   preprocessors[karmaTestGlob] = [ 'webpack', 'sourcemap' ]
-  preprocessors['src/**/*.js'] = [ 'webpack', 'sourcemap' ] // for development
-  // TODO: add dist/mocha.setup.js
-  preprocessors['node_modules/@viewar/webpack/**/*.js'] = [ 'webpack', 'sourcemap' ] // for module
+  // for module development
+  preprocessors['src/**/*.js'] = [ 'webpack', 'sourcemap' ]
+  // for app development
+  preprocessors[PATHS.src + '/**/*.js'] = [ 'webpack', 'sourcemap' ]
+  preprocessors['node_modules/@viewar/webpack/**/*.js'] = [ 'webpack', 'sourcemap' ]
+
   // ChromeHeadless - set path for binary
   // see: https://github.com/karma-runner/karma-chrome-launcher#headless-chromium-with-puppeteer
   process.env.CHROME_BIN = require('puppeteer').executablePath()
@@ -48,8 +49,7 @@ module.exports = (config) => {
         watched: true,
       },
     ],
-    // TODO: enable dynamic object keys (karma.config.babel.js with babel/register)
-    //* => use {[karmaTestGlob]: ['webpack', 'sourcemap']}
+
     preprocessors, // uses "karmaTestGlob"
 
     // overwrite 'webpack' configuration
