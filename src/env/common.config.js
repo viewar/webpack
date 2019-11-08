@@ -65,7 +65,9 @@ exports.config = merge([
           use:  {
             loader:  'file-loader',
             options: {
-              name: '[path][name].[ext]',
+              name:       '[folder]/[name].[ext]',
+              publicPath: '', // server path in DEV
+              outputPath: '', // fs path in PROD
             },
           },
         },
