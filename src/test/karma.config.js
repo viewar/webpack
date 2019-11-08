@@ -33,7 +33,6 @@ module.exports = (config) => {
       'karma-webpack',
       'karma-mocha',
       'karma-chrome-launcher',
-      'karma-nyan-reporter',
       'karma-mocha-reporter',
     ],
     // FILE ASSOCIATIONS
@@ -67,7 +66,6 @@ module.exports = (config) => {
     // overwrite 'webpack-dev-middleware' configuration
     webpackMiddleware: { noInfo: true },
 
-    reporters:    [ process.env.CI ? 'mocha' : 'nyan' ],
-    nyanReporter: { suppressErrorHighlighting: false },
+    reporters:    [ 'mocha' ],
   })
 }
