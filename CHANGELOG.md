@@ -1,6 +1,17 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.5.3](https://github.com/viewar/webpack/compare/v1.5.2...v1.5.3) (2019-11-09)
+
+
+### Bug Fixes
+
+* **karma:** export config via '@viewar/webpack/karma' ([dc14f9d](https://github.com/viewar/webpack/commit/dc14f9dd5812b5a9d86f2f9a743a2aedf7821ae9))
+* **karma:** fix typo in karma.config ('cheereo' -> 'cheerio') ([86fed38](https://github.com/viewar/webpack/commit/86fed38dd5ea12377ceb2476c0058aeaded02275))
+* **file-loader:** load assets under "[folder]/[name].[ext]" ([f1e0e2e](https://github.com/viewar/webpack/commit/f1e0e2ec19be6ee04bfd13daadac605ae600323d))
+* **deps:** move [@formatjs](https://github.com/formatjs) polyfill modules to save-deps ([caaeac1](https://github.com/viewar/webpack/commit/caaeac1dbd7fccd1de9ceeb22ea295d57d62268b))
+* **karma:** preprocess 'PATH.src/**/*.js' with webpack ([47dbcb9](https://github.com/viewar/webpack/commit/47dbcb976a7206f68dd4818e67cc3798f9237fa6))
+
 ## [1.5.2](https://github.com/viewar/webpack/compare/v1.5.1...v1.5.2) (2019-11-08)
 
 
