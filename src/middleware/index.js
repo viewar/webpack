@@ -4,7 +4,10 @@ const { viewarCoreMiddleware } = require('./viewarCore')
 
 const viewArMiddleware = (app) => {
   remoteConsoleMiddleware(app)
-  viewarCoreMiddleware(app)
+
+  if (process.env.WEBPACK_ENV !== 'development_mock') {
+    viewarCoreMiddleware(app)
+  }
 }
 
 
