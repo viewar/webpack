@@ -2,6 +2,13 @@
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.5.4](https://github.com/viewar/webpack/compare/v1.5.3...v1.5.4) (2019-11-11)
+
+
+### Bug Fixes
+
+* **mockMode:** dont load 'viewar-core' in mock mode ([d4761b7](https://github.com/viewar/webpack/commit/d4761b7b88e447e069d38480ea86e5666af15dee)), closes [viewar/webpack#35](https://github.com/viewar/webpack/issues/35)
+
 ## [1.5.3](https://github.com/viewar/webpack/compare/v1.5.2...v1.5.3) (2019-11-09)
 
 ### Bug Fixes
