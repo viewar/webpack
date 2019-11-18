@@ -12,16 +12,13 @@ const getMergedConfig = (env) => {
   const develop = require('./env/develop.config')
 
   if (env === 'production') {
-    console.log('using production mode')
     return merge(common.config, production.config)
   }
 
   if (env === 'development_mock') {
-    console.log('using development mock mode')
     return merge(merge(common.config, develop.config), mock.config)
   }
 
-  console.log('using development core mode')
   return merge(merge(common.config, develop.config), core.config)
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * @function
  * @name remoteConsoleInjector
@@ -12,6 +13,7 @@ const remoteConsoleInjector = () => {
   if (isInjected) {
     return false
   }
+
   // Persist original console output functions.
   const original = {
     log:   console.log,

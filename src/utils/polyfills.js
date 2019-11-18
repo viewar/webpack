@@ -8,9 +8,10 @@ require('@babel/polyfill')
  * TODO: refactor: add error boundaries
  */
 window.addEventListener('unhandledrejection', (event) => {
-  console.error(event.reason)
+  console.error(event.reason) // eslint-disable-line no-console
 })
-window.addEventListener('error', (event) => console.error(event.error))
+
+window.addEventListener('error', (event) => console.error(event.error)) // eslint-disable-line no-console
 
 /**
  * @description Polyfill for "native Intl API"

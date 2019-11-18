@@ -25,10 +25,10 @@ const remoteConsoleMiddleware = (app) => {
     // catch native errors
     if (type === 'error' && args.length === 1) {
       // no spread operator! we just send Error.stack as string
-      console.error(`[${time}][App]` + chalk[colors[type]](`[${type}]`), args[0])
+      console.error(`[${time}][App]` + chalk[colors[type]](`[${type}]`), args[0]) // eslint-disable-line no-console
     }
     else {
-      console[type](`[${time}][App]` + chalk[colors[type]](`[${type}]`), ...args)
+      console[type](`[${time}][App]` + chalk[colors[type]](`[${type}]`), ...args) // eslint-disable-line no-console
     }
 
     res.send()
