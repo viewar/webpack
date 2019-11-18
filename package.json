@@ -9,7 +9,7 @@
     "build": "cross-env WEBPACK_PATH=test webpack -p --config ./webpack.config.js --mode production --env production",
     "mocha": "cross-env WEBPACK_PATH=test mocha ./test/**/*.spec.js --debug --require ./src/utils/babelRegister.js",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
-    "lint": "cross-env WEBPACK_PATH=test eslint . --format pretty --fix"
+    "lint": "prettier **/*.{css,scss,md,json} --write && cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\" --format pretty"
   },
   "homepage": "https://viewar.com/",
   "repository": {
