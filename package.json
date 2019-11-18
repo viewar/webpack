@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf build && rimraf bundle",
     "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./webpack.config.js --open --mode development --env development_mock",
-    "build": "cross-env WEBPACK_PATH=test webpack -p --config ./webpack.config.js --mode production --env production",
-    "mocha": "cross-env WEBPACK_PATH=test mocha ./test/**/*.spec.js --debug --require ./src/utils/babelRegister.js",
+    "build": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack -p --config ./webpack.config.js --mode production --env production",
+    "test": "npm run lint && npm run karma && npm run build",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
     "lint": "prettier **/*.{css,scss,md,json} --write && cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\" --format pretty"
   },
