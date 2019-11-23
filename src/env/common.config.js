@@ -54,7 +54,11 @@ exports.config = merge([
               query:  {
                 sourceMap:    true,
                 sassOptions: {
-                  includePaths: [ 'css/' ],
+                  includePaths: [
+                    './sass',
+                    `${path.basename(PATHS.src)}/sass`,
+                    `./css`, // ! compatibility with old setting
+                  ],
                 },
               },
             },
