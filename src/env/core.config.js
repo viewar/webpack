@@ -21,7 +21,7 @@ exports.config = merge([
         ],
         {
           copyUnmodified: true,
-        }
+        },
       ),
     ],
   },
