@@ -1,4 +1,23 @@
 # Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+# [1.6.0](https://github.com/viewar/webpack/compare/v1.5.4...v1.6.0) (2019-11-23)
+
+
+### Bug Fixes
+
+* **mockMode:** dont load 'viewar-core' in mock mode ([65cf0bb](https://github.com/viewar/webpack/commit/65cf0bb4b14b3771efb8068212811460cb26239d)), closes [viewar/webpack#35](https://github.com/viewar/webpack/issues/35)
+* **lint:** fix 'no-console' lint errors ([ac35364](https://github.com/viewar/webpack/commit/ac35364b23681e7a552b53838f499792fde3723a))
+* **sass:** fix global include paths ([6ca42da](https://github.com/viewar/webpack/commit/6ca42da284a2cf4dd2306c8cfeb72c063f9b9f93))
+* **scripts:** fix lint script ([12b95ca](https://github.com/viewar/webpack/commit/12b95ca4b2be34ff1afe07c4ee7313f416a8d144))
+* **CI:** use `npm install` ([f8478ea](https://github.com/viewar/webpack/commit/f8478ea9a0c323ab5700a75016e1694a954586e3))
+
+
+### Features
+
+* **CI:** use travis, as repo is now public ([a500e19](https://github.com/viewar/webpack/commit/a500e19d12622f79b90b9510cb711851e7e13fa1))
+
+# Changelog
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 

@@ -1,6 +1,6 @@
 {
   "name": "@viewar/webpack",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "description": "shared webpack config of ViewAR",
   "main": "index.js",
   "scripts": {
