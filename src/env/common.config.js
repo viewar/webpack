@@ -54,7 +54,11 @@ exports.config = merge([
               query:  {
                 sourceMap:    true,
                 sassOptions: {
-                  includePaths: [ 'css/' ],
+                  includePaths: [
+                    './sass',
+                    `${path.basename(PATHS.src)}/sass`,
+                    `./css`, // ! compatibility with old setting
+                  ],
                 },
               },
             },
@@ -65,7 +69,9 @@ exports.config = merge([
           use:  {
             loader:  'file-loader',
             options: {
-              name: '[path][name].[ext]',
+              name:       '[folder]/[name].[ext]',
+              publicPath: '', // server path in DEV
+              outputPath: '', // fs path in PROD
             },
           },
         },

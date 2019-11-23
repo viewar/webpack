@@ -20,9 +20,8 @@ const getViewARConfig = () => {
     return JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')))
   }
   catch (e) {
-    console.error(
-      '[ViewAR] ERROR: File .viewar-config not existing or invalid JSON format.'
-    )
+    // eslint-disable-next-line no-console
+    console.error('[ViewAR] ERROR: File .viewar-config not existing or invalid JSON format.')
     return {}
   }
 }

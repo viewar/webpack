@@ -49,7 +49,7 @@
           "CHANGELOG.md",
           "package.json"
         ],
-        "message": "chore(release): 🔖 v${nextRelease.version} 🚀 released by 🤖 'semantic-release' via CI \n\n${nextRelease.notes}"
+        "message": "chore(release): 🤖🔖🚀 v${nextRelease.version} \n\n${nextRelease.notes}"
       }
     ],
     [
