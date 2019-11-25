@@ -32,8 +32,6 @@ stages:
 
 jobs:
   include:
-    - stage: test
-      if: commit_message !~ /chore(release)/
     - stage: deploy
       if: branch = next AND type IN (push) AND tag IS blank
       node_js: 12
