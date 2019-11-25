@@ -1,6 +1,7 @@
 # @viewar/webpack
 
-[![CircleCI](https://circleci.com/gh/viewar/webpack.svg?style=shield&circle-token=89955835022246b062444ed0f36309353f919512)](https://circleci.com/gh/viewar/webpack)
+[![Build Status](https://travis-ci.com/viewar/webpack.svg?branch=master)](https://travis-ci.com/viewar/webpack)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
 [![NPM Release](https://img.shields.io/npm/v/%40viewar%2Fwebpack.svg?style=flat)](https://www.npmjs.com/package/%40viewar%2Fwebpack)
@@ -43,7 +44,7 @@ module.exports = async (...args) => {
     plugins: [new MySpecialPlugin()],
   });
 };
-```
+``` 
 
 ## Constants
 
