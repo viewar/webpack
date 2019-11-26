@@ -9,7 +9,7 @@
     "build": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack -p --config ./webpack.config.js --mode production --env production",
     "test": "npm run lint && npm run karma && npm run build",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
-    "lint": "prettier **/*.{css,scss,md,json} --write && cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\" --format pretty"
+    "lint": "prettier **/*.{css,scss,md,json} --write && cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\" --format=pretty"
   },
   "homepage": "https://viewar.com/",
   "repository": {
@@ -119,6 +119,7 @@
     "@viewar/config-eslint": "^1.8.0",
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^6.0.3",
+    "eslint-formatter-pretty": "^3.0.1",
     "expect": "^24.9.0",
     "husky": "^3.0.5",
     "karma": "^4.3.0",
