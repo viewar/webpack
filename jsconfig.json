@@ -6,17 +6,21 @@
  */
 {
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "checkJs": true,
+    "target": "esnext",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     // This must be specified if "paths" is set
-    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "baseUrl": "src",
     // Relative to "baseUrl"
     "paths": {
-      "*": [
-        "*",
-        "src/*",
-        // WEBPACK_PATH
-        "test/*"
-      ]
+      "*": ["./*"]
     },
     "experimentalDecorators": true
-  }
+  },
+  "exclude": ["node_modules"]
 }
