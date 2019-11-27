@@ -44,7 +44,7 @@ module.exports = async (...args) => {
     plugins: [new MySpecialPlugin()],
   });
 };
-``` 
+```
 
 ## Constants
 
