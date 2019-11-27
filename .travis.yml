@@ -19,6 +19,8 @@ os:
   - linux
   - osx
   - windows
+
+dist: trusty
 language: node_js
 node_js:
   - 12
@@ -58,8 +60,6 @@ jobs:
       node_js: 12
       allow_failures: true
       fast_finish: true
-    - os: linux
-      dist: trusty
     - stage: release
       if: branch = next AND type IN (push) AND tag IS blank
       node_js: 12
