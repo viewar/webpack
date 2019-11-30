@@ -25,5 +25,6 @@ exports.config = merge([
       ),
     ],
   },
+  // TODO: process.env.NODE_ENV should be (development | production)
   utils.setFreeVariable('process.env.NODE_ENV', 'core'),
 ])
