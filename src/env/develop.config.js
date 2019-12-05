@@ -2,14 +2,14 @@ const merge = require('webpack-merge')
 const ip = require('ip').address()
 const webpack = require('webpack')
 
-const viewArMiddlleware = require('../middleware')
+const viewArMiddlleware = require('../middlewares')
 const { setFreeVariable } = require('../utils')
 const { PATHS, PORT } = require('../utils/constants')
 
 exports.config = merge([
   {
     devServer: {
-      'public':    ip ? `${ip}:${PORT}` : null,
+      'public':      ip ? `${ip}:${PORT}` : null,
       host:        process.env.HOST || '0.0.0.0',
       port:        PORT,
       contentBase: PATHS.build,
@@ -18,7 +18,7 @@ exports.config = merge([
         warnings: false,
         errors:   true,
       },
-      before:      viewArMiddlleware,
+      before: viewArMiddlleware,
     },
     devtool: 'inline-source-map',
     output:  {

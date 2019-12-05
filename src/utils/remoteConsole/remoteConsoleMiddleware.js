@@ -35,4 +35,4 @@ const remoteConsoleMiddleware = (app) => {
   })
 }
 
-module.exports = { remoteConsoleMiddleware }
+module.exports = remoteConsoleMiddleware

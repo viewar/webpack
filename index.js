@@ -1,3 +1,3 @@
-const viewarWebpackConfigAsync = require('./src/webpack.config.js')
+const viewarWebpackConfig = require('./src/webpack.config.js')
 
-module.exports = viewarWebpackConfigAsync
+module.exports = viewarWebpackConfig
