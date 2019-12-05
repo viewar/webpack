@@ -27,8 +27,7 @@ node_js:
   - 11
   - 10
 
-# explicit add default 'install' and 'script'
-install: npm ci
+install: npm install
 script: npm test
 
 stages:
