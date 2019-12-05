@@ -119,11 +119,12 @@ module.exports = resolveConfig;
 before exporting the (promised) config,  
 **we check if the port is free to use and throw an Error, if not.**
 
-### `remoteConsoleInjector()`
+### remote console
 
 ```javascript
 // on client
-import { remoteConsoleInjector } from '@viewar/webpack/remoteConsole';
+import { remoteConsoleInjector } from '@viewar/webpack';
+
 remoteConsoleInjector();
 ```
 
