@@ -8,7 +8,7 @@ const rootElement = document.getElementById('app-root') || document.getElementBy
 
 const render = (Component) => {
   ReactDOM.render(
-    <Component />, rootElement
+    <Component />, rootElement,
   )
 }
 

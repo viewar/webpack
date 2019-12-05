@@ -7,10 +7,7 @@ const { PATHS } = require('../utils/constants')
 const { getViewARConfig } = require('../utils')
 const { resolve } = require('../webpack.config.resolve.js')
 
-const {
-  appId, appVersion,
-} = getViewARConfig()
-
+const { appId, appVersion } = getViewARConfig()
 
 exports.config = merge([
   {
@@ -36,8 +33,8 @@ exports.config = merge([
             {
               loader:  'css-loader',
               options: {
-                importLoaders:  1,
-                modules:        {
+                importLoaders: 1,
+                modules:       {
                   localIdentName: '[name]-[local]',
                 },
               },
@@ -52,12 +49,12 @@ exports.config = merge([
             {
               loader: 'sass-loader',
               query:  {
-                sourceMap:    true,
+                sourceMap:   true,
                 sassOptions: {
                   includePaths: [
                     './sass',
                     `${path.basename(PATHS.src)}/sass`,
-                    `./css`, // ! compatibility with old setting
+                    './css', // ! compatibility with old setting
                   ],
                 },
               },

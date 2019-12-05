@@ -8,24 +8,33 @@ const UAParser = require('express-useragent')
  * delivers '/viewar-core.js' on dev server (only for web version)
  * @memberof @viewar/webpack
  *
- * @param {ExpressInstance} app - instance of express.js server
+ * @param {Express.Application} app - instance of express.js server
  * @return {void}
  */
 const viewarCoreMiddleware = (app) => {
+  // * skip mock mode
+  if (process.env.WEBPACK_ENV !== 'development_mock') {
+    return false
+  }
+  // * listen to route
   app.get('/viewar-core.js', (req, res) => {
-    const { headers: { 'user-agent': userAgentString }} = req
+    const {
+      headers: { 'user-agent': userAgentString },
+    } = req
     const { isMobile, isTablet } = UAParser.parse(userAgentString)
 
     if (isMobile || isTablet) {
+      // * send empty 200 response
       res.status(200).end()
     }
     else {
+      // * deliver compiled 'viewar-core.js'
       res.set('Content-Type', 'application/javascript')
-      res.status(200).sendFile(path.join(process.cwd(), 'node_modules', 'viewar-core/viewar-core.js'))
+      res
+        .status(200)
+        .sendFile(path.join(process.cwd(), 'node_modules', 'viewar-core/viewar-core.js'))
     }
   })
 }
 
-module.exports = {
-  viewarCoreMiddleware,
-}
+module.exports = viewarCoreMiddleware

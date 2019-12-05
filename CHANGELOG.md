@@ -1,21 +1,35 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
-# [1.6.0](https://github.com/viewar/webpack/compare/v1.5.4...v1.6.0) (2019-11-23)
+# [1.7.0](https://github.com/viewar/webpack/compare/v1.6.0...v1.7.0) (2019-12-05)
 
 
 ### Bug Fixes
 
-* **mockMode:** dont load 'viewar-core' in mock mode ([65cf0bb](https://github.com/viewar/webpack/commit/65cf0bb4b14b3771efb8068212811460cb26239d)), closes [viewar/webpack#35](https://github.com/viewar/webpack/issues/35)
-* **lint:** fix 'no-console' lint errors ([ac35364](https://github.com/viewar/webpack/commit/ac35364b23681e7a552b53838f499792fde3723a))
-* **sass:** fix global include paths ([6ca42da](https://github.com/viewar/webpack/commit/6ca42da284a2cf4dd2306c8cfeb72c063f9b9f93))
-* **scripts:** fix lint script ([12b95ca](https://github.com/viewar/webpack/commit/12b95ca4b2be34ff1afe07c4ee7313f416a8d144))
-* **CI:** use `npm install` ([f8478ea](https://github.com/viewar/webpack/commit/f8478ea9a0c323ab5700a75016e1694a954586e3))
+* **errorOnUsedPort:** make '@viewar/webpack' SYNC! ([8bf5520](https://github.com/viewar/webpack/commit/8bf5520e03670aa14fb90e1f91815f8ccabd69e9))
 
 
 ### Features
 
-* **CI:** use travis, as repo is now public ([a500e19](https://github.com/viewar/webpack/commit/a500e19d12622f79b90b9510cb711851e7e13fa1))
+* **middlewares:** provide '@viewar/webpack/middlewares' ([#68](https://github.com/viewar/webpack/issues/68)) ([25fb80e](https://github.com/viewar/webpack/commit/25fb80ef475908aa8d6385a884f37d305fe4de54))
+
+# Changelog
+
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+# [1.6.0](https://github.com/viewar/webpack/compare/v1.5.4...v1.6.0) (2019-11-23)
+
+### Bug Fixes
+
+- **mockMode:** dont load 'viewar-core' in mock mode ([65cf0bb](https://github.com/viewar/webpack/commit/65cf0bb4b14b3771efb8068212811460cb26239d)), closes [viewar/webpack#35](https://github.com/viewar/webpack/issues/35)
+- **lint:** fix 'no-console' lint errors ([ac35364](https://github.com/viewar/webpack/commit/ac35364b23681e7a552b53838f499792fde3723a))
+- **sass:** fix global include paths ([6ca42da](https://github.com/viewar/webpack/commit/6ca42da284a2cf4dd2306c8cfeb72c063f9b9f93))
+- **scripts:** fix lint script ([12b95ca](https://github.com/viewar/webpack/commit/12b95ca4b2be34ff1afe07c4ee7313f416a8d144))
+- **CI:** use `npm install` ([f8478ea](https://github.com/viewar/webpack/commit/f8478ea9a0c323ab5700a75016e1694a954586e3))
+
+### Features
+
+- **CI:** use travis, as repo is now public ([a500e19](https://github.com/viewar/webpack/commit/a500e19d12622f79b90b9510cb711851e7e13fa1))
 
 # Changelog
 
@@ -25,7 +39,7 @@
 
 ### Bug Fixes
 
-* **mockMode:** dont load 'viewar-core' in mock mode ([d4761b7](https://github.com/viewar/webpack/commit/d4761b7b88e447e069d38480ea86e5666af15dee)), closes [viewar/webpack#35](https://github.com/viewar/webpack/issues/35)
+- **mockMode:** dont load 'viewar-core' in mock mode ([d4761b7](https://github.com/viewar/webpack/commit/d4761b7b88e447e069d38480ea86e5666af15dee)), closes [viewar/webpack#35](https://github.com/viewar/webpack/issues/35)
 
 ## [1.5.3](https://github.com/viewar/webpack/compare/v1.5.2...v1.5.3) (2019-11-09)
 
