@@ -109,16 +109,16 @@ before exporting the config,
 > may be moved to own package together with cypress setup in undefined future
 
 **Usage**  
-`npm run karma`
+`npx karma --config ./node_modules/@viewar/webpack/karma`
 
 **Explanation**  
 [Karma](https://karma-runner.github.io/latest/index.html) is a test runner for JavaScript applications with several features integrated:
 
-- **real browser instances - no fake DOM!**  
+- **real browser instances - no fake DOM**  
   supports Chrome, Firefox, IE11+, Safari  
   uses headless chrome in CI environment
 - **native webpack module bundling**  
-  '[karma-webpack](https://github.com/webpack-contrib/karma-webpack)' lets you use your projects webpack config
+  '[karma-webpack](https://github.com/webpack-contrib/karma-webpack)' lets you use our webpack config
 - **built-in mocha runner**
   - '[chai](https://github.com/chaijs/chai)' for unit-test assertions (expect, should, ...)
   - '[enzyme](https://github.com/airbnb/enzyme)' for integration-tests (shallow, mount, render)
