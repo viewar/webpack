@@ -1,9 +1,9 @@
-const viewareMiddleware = require('./src/middlewares')
+const viewarMiddleware = require('./src/middlewares') // combined middlewares
 const viewarCoreMiddleware = require('./src/middlewares/viewarCoreMiddleware')
 const remoteConsoleMiddleware = require('./src/utils/remoteConsole/remoteConsoleMiddleware')
 
 module.exports = {
-  viewareMiddleware,
+  viewarMiddleware,
   viewarCoreMiddleware,
   remoteConsoleMiddleware,
 }
