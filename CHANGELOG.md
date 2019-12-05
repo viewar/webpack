@@ -1,4 +1,19 @@
 # Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+# [1.7.0](https://github.com/viewar/webpack/compare/v1.6.0...v1.7.0) (2019-12-05)
+
+
+### Bug Fixes
+
+* **errorOnUsedPort:** make '@viewar/webpack' SYNC! ([8bf5520](https://github.com/viewar/webpack/commit/8bf5520e03670aa14fb90e1f91815f8ccabd69e9))
+
+
+### Features
+
+* **middlewares:** provide '@viewar/webpack/middlewares' ([#68](https://github.com/viewar/webpack/issues/68)) ([25fb80e](https://github.com/viewar/webpack/commit/25fb80ef475908aa8d6385a884f37d305fe4de54))
+
+# Changelog
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
