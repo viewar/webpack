@@ -1,6 +1,19 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.8.0](https://github.com/viewar/webpack/compare/v1.7.0...v1.8.0) (2019-12-16)
+
+
+### Bug Fixes
+
+* **css-loader:** change `localIdentName` to '[folder]-[local]' ([a47bc83](https://github.com/viewar/webpack/commit/a47bc83f84f711260ac1ef0ec722763ea4a668a7))
+* **errorOnUsedPort:** make '@viewar/webpack' SYNC! ([115a4e0](https://github.com/viewar/webpack/commit/115a4e02b8e48ecce5e73ffd5103b0dab087b4db))
+
+
+### Features
+
+* **middlewares:** provide '@viewar/webpack/middlewares' ([#68](https://github.com/viewar/webpack/issues/68)) ([c9c42fa](https://github.com/viewar/webpack/commit/c9c42facac736495fca5ed83c98b6907ff754503))
+
 # [1.7.0](https://github.com/viewar/webpack/compare/v1.6.0...v1.7.0) (2019-12-05)
 
 
