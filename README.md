@@ -109,7 +109,7 @@ before exporting the config,
 > may be moved to own package together with cypress setup in undefined future
 
 **Usage**  
-`npm run karma`
+`npx karma --config ./node_modules/@viewar/webpack/karma`
 
 **Explanation**  
 [Karma](https://karma-runner.github.io/latest/index.html) is a test runner for JavaScript applications with several features integrated:

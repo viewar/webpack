@@ -35,7 +35,7 @@ exports.config = merge([
               options: {
                 importLoaders: 1,
                 modules:       {
-                  localIdentName: '[name]-[local]',
+                  localIdentName: '[folder]-[local]',
                 },
               },
             },
