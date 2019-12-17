@@ -36,7 +36,9 @@ const getCommonConfig = (env) => {
                 options: {
                   importLoaders: 1,
                   modules:       {
-                    localIdentName: '[folder]-[local]',
+                    localIdentName: env !== 'production'
+                      ? '[folder]-[local]'
+                      : '[hash]',
                   },
                 },
               },
