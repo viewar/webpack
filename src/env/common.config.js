@@ -52,6 +52,7 @@ exports.config = merge([
                 sourceMap:   true,
                 sassOptions: {
                   includePaths: [
+                    '@viewar/components/dist/sass', // location of 'viewar-styles'
                     './sass',
                     `${path.basename(PATHS.src)}/sass`,
                     './css', // ! compatibility with old setting
