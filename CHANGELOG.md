@@ -1,6 +1,15 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.8.1](https://github.com/viewar/webpack/compare/v1.8.0...v1.8.1) (2019-12-18)
+
+
+### Bug Fixes
+
+* **sass:** add '@viewar/components/dist/sass' to `sass.includePaths` ([5633a44](https://github.com/viewar/webpack/commit/5633a44829c12ae0e9f929f31d319868327739e0)), closes [#79](https://github.com/viewar/webpack/issues/79) [viewar/components#1](https://github.com/viewar/components/issues/1)
+* **CI:** fix commonConfig usage in 'karma.config' ([0666bae](https://github.com/viewar/webpack/commit/0666baeb8c2708ba323a0f5b7bebb8f896a11551))
+* **localIdentName:** use '[hash]' for production mode ([2117ee6](https://github.com/viewar/webpack/commit/2117ee696fc4eefb73632ff63626ae3ce831cc0a)), closes [#80](https://github.com/viewar/webpack/issues/80)
+
 # [1.8.0](https://github.com/viewar/webpack/compare/v1.7.0...v1.8.0) (2019-12-16)
 
 
