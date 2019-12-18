@@ -1,8 +1,15 @@
 const path = require('path')
 
-const commonConfig = require('../env/common.config')
+const getConfigCommon = require('../env/common.config')
 const resolverConfig = require('../webpack.config.resolve')
 const { PATHS } = require('../utils/constants')
+
+
+const env = process.env.NODE_ENV === 'production'
+  ? 'production'
+  : 'development'
+
+const configCommon = getConfigCommon(env)
 
 module.exports = (config) => {
   // PRESETS
@@ -54,7 +61,7 @@ module.exports = (config) => {
 
     // overwrite 'webpack' configuration
     webpack: {
-      ...commonConfig.config,
+      ...configCommon,
       mode:      'development',
       devtool:   'inline-source-map',
       externals: {
