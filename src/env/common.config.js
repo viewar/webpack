@@ -55,10 +55,12 @@ const getCommonConfig = (env) => {
                   sourceMap:   true,
                   sassOptions: {
                     includePaths: [
-                      '@viewar/components/dist/sass', // enables `@import 'viewar-styles'`
                       './sass', // default viewar structure
                       `${path.basename(PATHS.src)}/sass`,
                       './css', // ! compatibility with old setting
+                      // enables `@import 'viewar-styles'`
+                      // TODO: ? use sass-resource-loader
+                      './node_modules/@viewar/components/dist/sass',
                     ],
                   },
                 },
