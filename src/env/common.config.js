@@ -72,9 +72,9 @@ const getCommonConfig = (env) => {
             use:  {
               loader:  'file-loader',
               options: {
-                name:       '[folder]/[name].[ext]',
-                publicPath: '', // server path in DEV
-                outputPath: '', // fs path in PROD
+                name:       '[path]/[name].[ext]',
+                publicPath: '/', // server path in DEV
+                outputPath: '/', // fs path in PROD
               },
             },
           },
