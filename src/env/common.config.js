@@ -1,4 +1,5 @@
 const path = require('path')
+const loaderUtils = require('loader-utils')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -36,9 +37,18 @@ const getCommonConfig = (env) => {
                 options: {
                   importLoaders: 1,
                   modules:       {
-                    localIdentName: env !== 'production'
-                      ? '[folder]-[local]'
-                      : '[hash]',
+                    // development - prefix css classnames
+                    // of SCSS files in @viewar packages which are compiled at runtime
+                    // f.e. @viewar/components/dist/sass/viewar-styles
+                    getLocalIdent: (context, localIdentName, localName, options) => {
+                      const isViewar = ~context.resourcePath.indexOf('@viewar')
+
+                      let name = `[folder]-${localName}`
+                      name = (isViewar ? 'viewar-' : '') + name
+                      return loaderUtils.interpolateName(context, name, options)
+                    },
+                    // TODO: production - use hash
+                    // localIdentName: env === 'production' ? '[hash:base64:5]' : null,
                   },
                 },
               },
