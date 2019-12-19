@@ -37,9 +37,8 @@ const getCommonConfig = (env) => {
                 options: {
                   importLoaders: 1,
                   modules:       {
-                    // development - prefix css classnames
-                    // of SCSS files in @viewar packages which are compiled at runtime
-                    // f.e. @viewar/components/dist/sass/viewar-styles
+                    // development - prefix css classnames of @viewar modules
+                    // which are compiled at runtime - f.e. @viewar/components/dist/sass/viewar-styles
                     getLocalIdent: (context, localIdentName, localName, options) => {
                       const isViewar = ~context.resourcePath.indexOf('@viewar')
 
