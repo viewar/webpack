@@ -1,4 +1,17 @@
 # Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+## [1.8.2](https://github.com/viewar/webpack/compare/v1.8.1...v1.8.2) (2019-12-19)
+
+
+### Bug Fixes
+
+* **ci:** fix asset test ([8dfdd7a](https://github.com/viewar/webpack/commit/8dfdd7ade177e745c978d992dd977fa1b5a455fc))
+* look up module as last ([1f2f316](https://github.com/viewar/webpack/commit/1f2f31666a49888407e1d83c75999d61e180f505))
+* **localIdentName:** prefix '[@viewar](https://github.com/viewar)' module classes with 'viewar'fixes [#80](https://github.com/viewar/webpack/issues/80) ([f3dffdb](https://github.com/viewar/webpack/commit/f3dffdb8ae2e307869188fb2ecc740a9a82d9f17))
+* **file-loader:** use '[path]' instead of '[folder]' ([d28f541](https://github.com/viewar/webpack/commit/d28f541173c17d7cfe722a8bcb9544d7173eee6f))
+
+# Changelog
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
