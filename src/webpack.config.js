@@ -2,7 +2,6 @@ const merge = require('webpack-merge')
 
 const { errorOnUsedPort } = require('./utils')
 const getCommonConfig = require('./env/common.config')
-const core = require('./env/core.config')
 const develop = require('./env/develop.config')
 const production = require('./env/production.config')
 const mock = require('./env/mock.config')
@@ -23,7 +22,7 @@ const getMergedConfig = (env) => {
     return merge(merge(configCommon, develop.config), mock.config)
   }
 
-  return merge(merge(configCommon, develop.config), core.config)
+  return merge(configCommon, develop.config)
 }
 
 (async () => {

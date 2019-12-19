@@ -1,4 +1,5 @@
 const path = require('path')
+const loaderUtils = require('loader-utils')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -36,9 +37,17 @@ const getCommonConfig = (env) => {
                 options: {
                   importLoaders: 1,
                   modules:       {
-                    localIdentName: env !== 'production'
-                      ? '[folder]-[local]'
-                      : '[hash]',
+                    // development - prefix css classnames of @viewar modules
+                    // which are compiled at runtime - f.e. @viewar/components/dist/sass/viewar-styles
+                    getLocalIdent: (context, localIdentName, localName, options) => {
+                      const isViewar = ~context.resourcePath.indexOf('@viewar')
+
+                      let name = `[folder]-${localName}`
+                      name = (isViewar ? 'viewar-' : '') + name
+                      return loaderUtils.interpolateName(context, name, options)
+                    },
+                    // TODO: production - use hash
+                    // localIdentName: env === 'production' ? '[hash:base64:5]' : null,
                   },
                 },
               },
@@ -55,10 +64,12 @@ const getCommonConfig = (env) => {
                   sourceMap:   true,
                   sassOptions: {
                     includePaths: [
-                      '@viewar/components/dist/sass', // enables `@import 'viewar-styles'`
                       './sass', // default viewar structure
                       `${path.basename(PATHS.src)}/sass`,
                       './css', // ! compatibility with old setting
+                      // enables `@import 'viewar-styles'`
+                      // TODO: ? use sass-resource-loader
+                      './node_modules/@viewar/components/dist/sass',
                     ],
                   },
                 },
@@ -70,9 +81,9 @@ const getCommonConfig = (env) => {
             use:  {
               loader:  'file-loader',
               options: {
-                name:       '[folder]/[name].[ext]',
-                publicPath: '', // server path in DEV
-                outputPath: '', // fs path in PROD
+                name:       '[path][name].[ext]',
+                publicPath: '/', // server path in DEV
+                outputPath: '/', // fs path in PROD
               },
             },
           },

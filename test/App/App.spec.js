@@ -2,7 +2,7 @@ import React from 'react'
 
 import App from './App'
 import Test from '../components/Test'
-import * as assets from '../assets'
+import * as assets from '../../assets'
 
 const { enzyme: { mount }, chai: { expect }} = global
 
@@ -23,6 +23,8 @@ describe('<App />', function() {
 
 describe('Assets - file-loader', function() {
   it('should export-default-from and import as namespace', () => {
+    console.log('assets', assets)
+
     // check export-default-from
     expect(assets.__esModule).to.be.equal(true) // eslint-disable-line import/namespace
     // check import - import-namespace combined with export-default-from
