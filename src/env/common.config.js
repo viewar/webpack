@@ -4,7 +4,7 @@ const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const { PATHS } = require('../utils/constants')
+const { PATHS, REGEXPS } = require('../constants')
 const { getViewARConfig } = require('../utils')
 const { resolve } = require('../webpack.config.resolve.js')
 
@@ -69,7 +69,7 @@ const getCommonConfig = (env) => {
                       './css', // ! compatibility with old setting
                       // enables `@import 'viewar-styles'`
                       // TODO: ? use sass-resource-loader
-                      './node_modules/@viewar/components/dist/sass',
+                      PATHS.componentSass,
                     ],
                   },
                 },
@@ -77,13 +77,29 @@ const getCommonConfig = (env) => {
             ],
           },
           {
-            test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|svg|gif|ico|mp4$/,
-            use:  {
+            test:    REGEXPS.assets,
+            exclude: PATHS.componentAssets,
+            use:     {
               loader:  'file-loader',
               options: {
                 name:       '[path][name].[ext]',
-                publicPath: '/', // server path in DEV
-                outputPath: '/', // fs path in PROD
+                publicPath: '', // server path in DEV
+                outputPath: '', // fs path in PROD
+              },
+            },
+          },
+          {
+            test:    REGEXPS.assets,
+            include: PATHS.componentAssets,
+            use:     {
+              loader:  'url-loader',
+              options: {
+                limit:      1024 * 8 / 2,
+                fallback:   'file-loader',
+                // fallback options
+                name:       '[path][name].[ext]',
+                publicPath: '', // server path in DEV
+                outputPath: '', // fs path in PROD
               },
             },
           },

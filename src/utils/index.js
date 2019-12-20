@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const chalk = require('chalk')
 const { isFreePort } = require('node-port-check')
 
-const { PORT, PATHS } = require('./constants')
+const { PORT, PATHS } = require('../constants')
 
 const setFreeVariable = (key, value) => {
   const env = {}

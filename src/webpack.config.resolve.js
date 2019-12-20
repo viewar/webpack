@@ -1,6 +1,6 @@
 const { basename, join } = require('path')
 
-const { PATHS } = require('./utils/constants')
+const { PATHS } = require('./constants')
 // TODO: check for 'resolver.config.js' in root/configs
 
 const resolveConfig = {
