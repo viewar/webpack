@@ -4,7 +4,7 @@ const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const { PATHS } = require('../utils/constants')
+const { PATHS, REGEXPS } = require('../constants')
 const { getViewARConfig } = require('../utils')
 const { resolve } = require('../webpack.config.resolve.js')
 
@@ -68,8 +68,8 @@ const getCommonConfig = (env) => {
                       `${path.basename(PATHS.src)}/sass`,
                       './css', // ! compatibility with old setting
                       // enables `@import 'viewar-styles'`
-                      './node_modules/@viewar/components/dist/sass',
                       // TODO: ? use sass-resource-loader
+                      PATHS.componentSass,
                     ],
                   },
                 },
@@ -77,9 +77,9 @@ const getCommonConfig = (env) => {
             ],
           },
           {
-            test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|gif|svg|ico|mp4$/,
-            exclude: path.resolve(process.cwd(), 'node_modules/@viewar/components/dist/assets'),
-            use:  {
+            test:    REGEXPS.assets,
+            exclude: PATHS.componentAssets,
+            use:     {
               loader:  'file-loader',
               options: {
                 name:       '[path][name].[ext]',
@@ -89,18 +89,18 @@ const getCommonConfig = (env) => {
             },
           },
           {
-            test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|gif|svg|ico|mp4$/,
-            include: path.resolve(process.cwd(), 'node_modules/@viewar/components/dist/assets'),
-            use:  {
+            test:    REGEXPS.assets,
+            include: PATHS.componentAssets,
+            use:     {
               loader:  'url-loader',
               options: {
-                limit: 1024 * 8 / 2,
-                fallback: 'file-loader',
+                limit:      1024 * 8 / 2,
+                fallback:   'file-loader',
                 // fallback options
                 name:       '[path][name].[ext]',
                 publicPath: '', // server path in DEV
                 outputPath: '', // fs path in PROD
-              }
+              },
             },
           },
         ],

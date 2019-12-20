@@ -4,7 +4,7 @@ const webpack = require('webpack')
 
 const viewArMiddlleware = require('../middlewares')
 const { setFreeVariable } = require('../utils')
-const { PATHS, PORT } = require('../utils/constants')
+const { PATHS, PORT } = require('../constants')
 
 exports.config = merge([
   {

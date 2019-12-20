@@ -2,8 +2,7 @@ const path = require('path')
 
 const getConfigCommon = require('../env/common.config')
 const resolverConfig = require('../webpack.config.resolve')
-const { PATHS } = require('../utils/constants')
-
+const { PATHS } = require('../constants')
 
 const env = process.env.NODE_ENV === 'production'
   ? 'production'
