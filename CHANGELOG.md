@@ -1,6 +1,18 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.9.0](https://github.com/viewar/webpack/compare/v1.8.2...v1.9.0) (2019-12-20)
+
+
+### Bug Fixes
+
+* **file-loader:** fix public paths (use rel) ([02fdc44](https://github.com/viewar/webpack/commit/02fdc4439812ce82e90eef6457d46133bc1bcf1d))
+
+
+### Features
+
+* **urlLoader:** load assets of '@viewar/components' as base64 (<0.5MB) ([2569470](https://github.com/viewar/webpack/commit/25694705e42e54d8bc43aca361865a624ca2d5ac)), closes [viewar/components#52](https://github.com/viewar/components/issues/52)
+
 ## [1.8.2](https://github.com/viewar/webpack/compare/v1.8.1...v1.8.2) (2019-12-19)
 
 
