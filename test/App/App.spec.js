@@ -21,10 +21,9 @@ describe('<App />', function() {
   })
 })
 
+// TODO: move asset test to __tests__
 describe('Assets - file-loader', function() {
   it('should export-default-from and import as namespace', () => {
-    console.log('assets', assets)
-
     // check export-default-from
     expect(assets.__esModule).to.be.equal(true) // eslint-disable-line import/namespace
     // check import - import-namespace combined with export-default-from
