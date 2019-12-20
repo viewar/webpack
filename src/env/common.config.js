@@ -68,8 +68,8 @@ const getCommonConfig = (env) => {
                       `${path.basename(PATHS.src)}/sass`,
                       './css', // ! compatibility with old setting
                       // enables `@import 'viewar-styles'`
-                      // TODO: ? use sass-resource-loader
                       './node_modules/@viewar/components/dist/sass',
+                      // TODO: ? use sass-resource-loader
                     ],
                   },
                 },
@@ -77,7 +77,8 @@ const getCommonConfig = (env) => {
             ],
           },
           {
-            test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|svg|gif|ico|mp4$/,
+            test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|gif|svg|ico|mp4$/,
+            exclude: path.resolve(process.cwd(), 'node_modules/@viewar/components/dist/assets'),
             use:  {
               loader:  'file-loader',
               options: {
@@ -85,6 +86,21 @@ const getCommonConfig = (env) => {
                 publicPath: '', // server path in DEV
                 outputPath: '', // fs path in PROD
               },
+            },
+          },
+          {
+            test: /\.(eot|ttf|otf|woff2?)(\?v=\d+\.\d+\.\d+)?|png|jpe?g|gif|svg|ico|mp4$/,
+            include: path.resolve(process.cwd(), 'node_modules/@viewar/components/dist/assets'),
+            use:  {
+              loader:  'url-loader',
+              options: {
+                limit: 1024 * 8 / 2,
+                fallback: 'file-loader',
+                // fallback options
+                name:       '[path][name].[ext]',
+                publicPath: '', // server path in DEV
+                outputPath: '', // fs path in PROD
+              }
             },
           },
         ],
