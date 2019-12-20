@@ -1,22 +1,28 @@
 const merge = require('webpack-merge')
 
 const { errorOnUsedPort } = require('./utils')
-const common = require('./env/common.config')
-const core = require('./env/core.config')
+const getCommonConfig = require('./env/common.config')
 const develop = require('./env/develop.config')
 const production = require('./env/production.config')
 const mock = require('./env/mock.config')
 
 const getMergedConfig = (env) => {
+  if (process.NODE_ENV === 'production') {
+    // workaround for issue #35
+    env = 'production'
+  }
+
+  const configCommon = getCommonConfig(env)
+
   if (env === 'production') {
-    return merge(common.config, production.config)
+    return merge(configCommon, production.config)
   }
 
   if (env === 'development_mock') {
-    return merge(merge(common.config, develop.config), mock.config)
+    return merge(merge(configCommon, develop.config), mock.config)
   }
 
-  return merge(merge(common.config, develop.config), core.config)
+  return merge(configCommon, develop.config)
 }
 
 (async () => {

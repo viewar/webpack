@@ -1,8 +1,7 @@
 const merge = require('webpack-merge')
 
 const { setFreeVariable } = require('../utils')
-const { PATHS } = require('../utils/constants')
-
+const { PATHS } = require('../constants')
 
 exports.config = merge([
   {

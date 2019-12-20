@@ -1,17 +1,63 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
-# [1.7.0](https://github.com/viewar/webpack/compare/v1.6.0...v1.7.0) (2019-12-05)
+# [1.9.0](https://github.com/viewar/webpack/compare/v1.8.2...v1.9.0) (2019-12-20)
 
 
 ### Bug Fixes
 
-* **errorOnUsedPort:** make '@viewar/webpack' SYNC! ([8bf5520](https://github.com/viewar/webpack/commit/8bf5520e03670aa14fb90e1f91815f8ccabd69e9))
+* **file-loader:** fix public paths (use rel) ([02fdc44](https://github.com/viewar/webpack/commit/02fdc4439812ce82e90eef6457d46133bc1bcf1d))
 
 
 ### Features
 
-* **middlewares:** provide '@viewar/webpack/middlewares' ([#68](https://github.com/viewar/webpack/issues/68)) ([25fb80e](https://github.com/viewar/webpack/commit/25fb80ef475908aa8d6385a884f37d305fe4de54))
+* **urlLoader:** load assets of '@viewar/components' as base64 (<0.5MB) ([2569470](https://github.com/viewar/webpack/commit/25694705e42e54d8bc43aca361865a624ca2d5ac)), closes [viewar/components#52](https://github.com/viewar/components/issues/52)
+
+## [1.8.2](https://github.com/viewar/webpack/compare/v1.8.1...v1.8.2) (2019-12-19)
+
+
+### Bug Fixes
+
+* **ci:** fix asset test ([8dfdd7a](https://github.com/viewar/webpack/commit/8dfdd7ade177e745c978d992dd977fa1b5a455fc))
+* look up module as last ([1f2f316](https://github.com/viewar/webpack/commit/1f2f31666a49888407e1d83c75999d61e180f505))
+* **localIdentName:** prefix '[@viewar](https://github.com/viewar)' module classes with 'viewar'fixes [#80](https://github.com/viewar/webpack/issues/80) ([f3dffdb](https://github.com/viewar/webpack/commit/f3dffdb8ae2e307869188fb2ecc740a9a82d9f17))
+* **file-loader:** use '[path]' instead of '[folder]' ([d28f541](https://github.com/viewar/webpack/commit/d28f541173c17d7cfe722a8bcb9544d7173eee6f))
+
+# Changelog
+
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+## [1.8.1](https://github.com/viewar/webpack/compare/v1.8.0...v1.8.1) (2019-12-18)
+
+
+### Bug Fixes
+
+* **sass:** add '@viewar/components/dist/sass' to `sass.includePaths` ([5633a44](https://github.com/viewar/webpack/commit/5633a44829c12ae0e9f929f31d319868327739e0)), closes [#79](https://github.com/viewar/webpack/issues/79) [viewar/components#1](https://github.com/viewar/components/issues/1)
+* **CI:** fix commonConfig usage in 'karma.config' ([0666bae](https://github.com/viewar/webpack/commit/0666baeb8c2708ba323a0f5b7bebb8f896a11551))
+* **localIdentName:** use '[hash]' for production mode ([2117ee6](https://github.com/viewar/webpack/commit/2117ee696fc4eefb73632ff63626ae3ce831cc0a)), closes [#80](https://github.com/viewar/webpack/issues/80)
+
+# [1.8.0](https://github.com/viewar/webpack/compare/v1.7.0...v1.8.0) (2019-12-16)
+
+
+### Bug Fixes
+
+* **css-loader:** change `localIdentName` to '[folder]-[local]' ([a47bc83](https://github.com/viewar/webpack/commit/a47bc83f84f711260ac1ef0ec722763ea4a668a7))
+* **errorOnUsedPort:** make '@viewar/webpack' SYNC! ([115a4e0](https://github.com/viewar/webpack/commit/115a4e02b8e48ecce5e73ffd5103b0dab087b4db))
+
+
+### Features
+
+* **middlewares:** provide '@viewar/webpack/middlewares' ([#68](https://github.com/viewar/webpack/issues/68)) ([c9c42fa](https://github.com/viewar/webpack/commit/c9c42facac736495fca5ed83c98b6907ff754503))
+
+# [1.7.0](https://github.com/viewar/webpack/compare/v1.6.0...v1.7.0) (2019-12-05)
+
+### Bug Fixes
+
+- **errorOnUsedPort:** make '@viewar/webpack' SYNC! ([8bf5520](https://github.com/viewar/webpack/commit/8bf5520e03670aa14fb90e1f91815f8ccabd69e9))
+
+### Features
+
+- **middlewares:** provide '@viewar/webpack/middlewares' ([#68](https://github.com/viewar/webpack/issues/68)) ([25fb80e](https://github.com/viewar/webpack/commit/25fb80ef475908aa8d6385a884f37d305fe4de54))
 
 # Changelog
 
