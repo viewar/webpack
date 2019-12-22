@@ -8,7 +8,7 @@ const PATHS   = {
   build:           path.join(ROOT, WEBPACK_BUILD || 'build'),
   // TODO: rename marked as webpack root
   src:             path.join(ROOT, WEBPACK_PATH || 'src'),
-  componentAssets: path.resolve(process.cwd(), 'node_modules/@viewar/components/dist/assets'),
+  componentAssets: path.join(ROOT, 'node_modules/@viewar/components/dist/assets'),
   componentSass:   './node_modules/@viewar/components/dist/sass',
 }
 
