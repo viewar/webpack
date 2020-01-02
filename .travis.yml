@@ -1,5 +1,3 @@
-# dist: trusty # needed for headles chrome
-
 cache:
   npm: true
   directories:
@@ -60,9 +58,8 @@ jobs:
       allow_failures: true
       fast_finish: true
     - stage: release
-      if: branch = next AND type IN (push) AND tag IS blank
+      if: branch = next AND type IN (push) AND tag IS blank AND (commit_message !~ /chore\(release\)/)
       node_js: 12
-      env: NODE_ENV=production
       script: skip
       install: npm i -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github semantic-release-slack-bot
       deploy:
