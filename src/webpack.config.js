@@ -6,7 +6,13 @@ const develop = require('./env/develop.config')
 const production = require('./env/production.config')
 const mock = require('./env/mock.config')
 
-const getMergedConfig = (env) => {
+const getMergedConfig = (env, args) => {
+  // TODO: switch env and mode usage (see issue #35)
+  // * env should match NODE_ENV (development|production)
+  // * -> move '_mock' mark to mode
+  process.env.NODE_ENV = args.env !== 'production' ? 'development' : 'production'
+  process.env.WEBPACK_ENV = args.env
+
   if (process.NODE_ENV === 'production') {
     // workaround for issue #35
     env = 'production'
@@ -18,11 +24,11 @@ const getMergedConfig = (env) => {
     return merge(configCommon, production.config)
   }
 
-  if (env === 'development_mock') {
-    return merge(merge(configCommon, develop.config), mock.config)
-  }
+  const configDev = merge(configCommon, develop.config)
 
-  return merge(configCommon, develop.config)
+  return env === 'development_mock'
+    ? merge(configDev, mock.config)
+    : configDev
 }
 
 (async () => {

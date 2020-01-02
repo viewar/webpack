@@ -62,11 +62,9 @@ jobs:
     - stage: release
       if: branch = next AND type IN (push) AND tag IS blank
       node_js: 12
+      env: NODE_ENV=production
       script: skip
-      install: skip
-      before_deploy:
-        - npm i -g semantic-release
-        - npm i -g @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github semantic-release-slack-bot
+      install: npm i -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github semantic-release-slack-bot
       deploy:
         tags: false
         provider: script

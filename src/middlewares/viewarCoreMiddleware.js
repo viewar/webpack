@@ -12,10 +12,6 @@ const UAParser = require('express-useragent')
  * @return {void}
  */
 const viewarCoreMiddleware = (app) => {
-  // * skip mock mode
-  if (process.env.WEBPACK_ENV !== 'development_mock') {
-    return false
-  }
   // * listen to route
   app.get('/viewar-core.js', (req, res) => {
     const {
@@ -23,7 +19,7 @@ const viewarCoreMiddleware = (app) => {
     } = req
     const { isMobile, isTablet } = UAParser.parse(userAgentString)
 
-    if (isMobile || isTablet) {
+    if (isMobile || isTablet || process.env.WEBPACK_ENV === 'development_mock') {
       // * send empty 200 response
       res.status(200).end()
     }
