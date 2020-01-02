@@ -139,12 +139,12 @@
     "puppeteer": "^2.0.0",
     "rimraf": "^3.0.0",
     "viewar-api": "^1.1.0",
-    "viewar-core": "^11.60.14"
+    "viewar-core": "^11.66.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.7.4",
     "puppeteer": "^2.0.0",
     "viewar-api": "^1.1.0",
-    "viewar-core": "^11.60.14"
+    "viewar-core": "^11.66.0"
   }
 }
