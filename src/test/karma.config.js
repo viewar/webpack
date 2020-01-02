@@ -67,11 +67,11 @@ module.exports = (config) => {
         domutils: 'true',
         cheerio:  'window', // needed for 'chai-enzyme' assertions
       },
-      resolve:   resolverConfig.resolve,
+      resolve: resolverConfig.resolve,
     },
     // overwrite 'webpack-dev-middleware' configuration
     webpackMiddleware: { noInfo: true },
 
-    reporters:    [ 'mocha' ],
+    reporters: [ 'mocha' ],
   })
 }
