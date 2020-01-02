@@ -1,3 +1,13 @@
+# Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+## [1.9.2](https://github.com/viewar/webpack/compare/v1.9.1...v1.9.2) (2020-01-02)
+
+
+### Bug Fixes
+
+* **viewarCore:** dont skip core endpoint ([6f154d0](https://github.com/viewar/webpack/commit/6f154d08cbb158c2aac8ef9fb6270a03ce413936)), closes [#35](https://github.com/viewar/webpack/issues/35)
+
 ## [1.9.1](https://github.com/viewar/webpack/compare/v1.9.0...v1.9.1) (2019-12-22)
 
 ### Bug Fixes
