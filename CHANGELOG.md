@@ -1,6 +1,13 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.9.3](https://github.com/viewar/webpack/compare/v1.9.2...v1.9.3) (2020-01-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies and fix peer deps ([#90](https://github.com/viewar/webpack/issues/90)) ([85f7c49](https://github.com/viewar/webpack/commit/85f7c493fec5b21ae5c07d43e03923c8ab9ae1f2))
+
 ## [1.9.2](https://github.com/viewar/webpack/compare/v1.9.1...v1.9.2) (2020-01-02)
 
 
