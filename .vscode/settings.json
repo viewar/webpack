@@ -13,9 +13,7 @@
   },
   // shared
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "editor.formatOnSaveTimeout": 500,
+  "editor.formatOnType": false,
   // eslint
   "eslint.alwaysShowStatus": true,
   "eslint.run": "onType",
