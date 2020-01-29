@@ -20,6 +20,7 @@ const viewarCoreMiddleware = (app) => {
     const { isMobile, isTablet } = UAParser.parse(userAgentString)
 
     if (isMobile || isTablet || process.env.WEBPACK_ENV === 'development_mock') {
+      // TODO: add explanation to requests respond
       // * send empty 200 response
       res.status(200).end()
     }
