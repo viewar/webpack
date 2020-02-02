@@ -1,33 +1,33 @@
-const fs = require('fs');
-const path = require('path');
-const webpack = require('webpack');
-const chalk = require('chalk');
-const { isFreePort } = require('node-port-check');
+const fs = require('fs')
+const path = require('path')
+const webpack = require('webpack')
+const chalk = require('chalk')
+const { isFreePort } = require('node-port-check')
+const QRCode = require('qrcode')
 
-const QRCode = require('qrcode');
-
-const { PORT, PATHS } = require('../constants');
+const { PORT, PATHS } = require('../constants')
 
 const setFreeVariable = (key, value) => {
-  const env = {};
-  env[key] = JSON.stringify(value);
+  const env = {}
+  env[key] = JSON.stringify(value)
 
   return {
-    plugins: [new webpack.DefinePlugin(env)],
-  };
-};
+    plugins: [ new webpack.DefinePlugin(env) ],
+  }
+}
 
 const getViewARConfig = () => {
   try {
-    return JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')));
-  } catch (e) {
+    return JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')))
+  }
+  catch (e) {
     // eslint-disable-next-line no-console
     console.error(
-      '[ViewAR] ERROR: File .viewar-config not existing or invalid JSON format.'
-    );
-    return {};
+      '[ViewAR] ERROR: File .viewar-config not existing or invalid JSON format.',
+    )
+    return {}
   }
-};
+}
 
 /* eslint-disable */
 // TODO: reject promise with error?
@@ -46,16 +46,21 @@ const errorOnUsedPort = (port) =>
 /* eslint-enable */
 
 const printLaunchQRCode = (ip, port) => {
-  const { appId, appVersion } = getViewARConfig();
-  const url = `viewarsdk://sdk/ID:${appId}/version:${appVersion}/debug:true/debugIP:${ip}//debugPort:${port}/#/startXYZ`;
+  const { appId, appVersion } = getViewARConfig()
+  const url = `viewarsdk://sdk/ID:${appId}/version:${appVersion}/debug:true/debugIP:${ip}//debugPort:${port}/#/startXYZ`
   QRCode.toString(url, { type: 'terminal' }, (err, url) => {
-    console.log(url);
-  });
-};
+    if (err) {
+      console.log(err)
+      return
+    }
+
+    console.log(url)
+  })
+}
 
 module.exports = {
   errorOnUsedPort,
   getViewARConfig,
   printLaunchQRCode,
   setFreeVariable,
-};
+}
