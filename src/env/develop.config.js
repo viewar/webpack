@@ -5,6 +5,9 @@ const webpack = require('webpack')
 const viewArMiddlleware = require('../middlewares')
 const { setFreeVariable } = require('../utils')
 const { PATHS, PORT } = require('../constants')
+const { printLaunchQRCode } = require('../utils')
+
+printLaunchQRCode(ip, PORT)
 
 exports.config = merge([
   {
