@@ -11,7 +11,8 @@
     "watch": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack --watch -p --config ./webpack.config.js --mode production --env production",
     "test": "npm run lint && npm run build && npm run karma",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
-    "lint": "prettier **/*.{css,scss,md,json} --write && cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\" --format=pretty"
+    "lint": "cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\"",
+    "format": "prettier **/*.{css,scss,md,json} --write"
   },
   "homepage": "https://viewar.com/",
   "repository": {
@@ -58,13 +59,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged",
-      "pre-push": "npm run test"
+      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged"
     }
   },
   "lint-staged": {
-    "*.{css,scss,md,json}": [
-      "pretty-quick --staged"
+    "*.{js,css,scss,json,md}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "author": "Stefan Friedl <sf@viewar.com>",
