@@ -7,13 +7,16 @@ const QRCode = require('qrcode')
 
 const { PORT, PATHS } = require('../constants')
 
-const setFreeVariable = (key, value) => {
-  const env = {}
-  env[key] = JSON.stringify(value)
+let envVariable = {};
 
+const addEnvVariables = () => {
   return {
-    plugins: [ new webpack.DefinePlugin(env) ],
+    plugins: [ new webpack.DefinePlugin(envVariable) ],
   }
+}
+
+const setEnvVariable = (key, value) => {
+  envVariable[key] = JSON.stringify(value)
 }
 
 const getViewARConfig = () => {
@@ -62,5 +65,6 @@ module.exports = {
   errorOnUsedPort,
   getViewARConfig,
   printLaunchQRCode,
-  setFreeVariable,
+  addEnvVariables,
+  setEnvVariable,
 }
