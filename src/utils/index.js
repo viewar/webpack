@@ -1,36 +1,35 @@
-const fs = require('fs')
-const path = require('path')
-const webpack = require('webpack')
-const chalk = require('chalk')
-const { isFreePort } = require('node-port-check')
-const QRCode = require('qrcode')
+const fs = require('fs');
+const path = require('path');
+const webpack = require('webpack');
+const chalk = require('chalk');
+const { isFreePort } = require('node-port-check');
+const QRCode = require('qrcode');
 
-const { PORT, PATHS } = require('../constants')
+const { PORT, PATHS } = require('../constants');
 
 let envVariable = {};
 
 const addEnvVariables = () => {
   return {
-    plugins: [ new webpack.DefinePlugin(envVariable) ],
-  }
-}
+    plugins: [new webpack.DefinePlugin(envVariable)],
+  };
+};
 
 const setEnvVariable = (key, value) => {
-  envVariable[key] = JSON.stringify(value)
-}
+  envVariable[key] = JSON.stringify(value);
+};
 
 const getViewARConfig = () => {
   try {
-    return JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')))
-  }
-  catch (e) {
+    return JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')));
+  } catch (e) {
     // eslint-disable-next-line no-console
     console.error(
-      '[ViewAR] ERROR: File .viewar-config not existing or invalid JSON format.',
-    )
-    return {}
+      '[ViewAR] ERROR: File .viewar-config not existing or invalid JSON format.'
+    );
+    return {};
   }
-}
+};
 
 /* eslint-disable */
 // TODO: reject promise with error?
@@ -49,17 +48,17 @@ const errorOnUsedPort = (port) =>
 /* eslint-enable */
 
 const printLaunchQRCode = (ip, port) => {
-  const { appId, appVersion } = getViewARConfig()
-  const url = `viewarsdk://sdk/ID:${appId}/version:${appVersion}/debug:true/debugIP:${ip}//debugPort:${port}/#/startXYZ`
+  const { appId, appVersion } = getViewARConfig();
+  const url = `viewarsdk://sdk/ID:${appId}/version:${appVersion}/debug:true/debugIP:${ip}//debugPort:${port}/#/startXYZ`;
   QRCode.toString(url, { type: 'terminal' }, (err, url) => {
     if (err) {
-      console.log(err)
-      return
+      console.log(err);
+      return;
     }
 
-    console.log(url)
-  })
-}
+    console.log(url);
+  });
+};
 
 module.exports = {
   errorOnUsedPort,
@@ -67,4 +66,4 @@ module.exports = {
   printLaunchQRCode,
   addEnvVariables,
   setEnvVariable,
-}
+};
