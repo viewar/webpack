@@ -126,7 +126,7 @@
     "@babel/core": "^7.7.4",
     "@viewar/config-eslint": "^1.10.0",
     "cheerio": "^1.0.0-rc.3",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.0",
     "husky": "^3.1.0",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
