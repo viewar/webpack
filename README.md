@@ -97,7 +97,7 @@ remoteConsoleInjector();
 and get catched server-side to log them in **the terminal**.
 
 The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function:  
-`webpackConfig.devServer.before = viewArMiddlleware;`
+`webpackConfig.devServer.before = viewArMiddleware;`
 
 ### errorOnUsedPort()
 

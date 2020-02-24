@@ -1,6 +1,6 @@
 const merge = require('webpack-merge')
 
-const { setFreeVariable } = require('../utils')
+const { setEnvVariable } = require('../utils')
 const { PATHS } = require('../constants')
 
 exports.config = merge([
@@ -22,5 +22,5 @@ exports.config = merge([
       },
     },
   },
-  setFreeVariable('process.env.NODE_ENV', 'production'),
+  setEnvVariable('process.env.NODE_ENV', 'production'),
 ])

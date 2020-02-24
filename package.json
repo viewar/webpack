@@ -1,6 +1,6 @@
 {
   "name": "@viewar/webpack",
-  "version": "1.9.3",
+  "version": "1.10.3",
   "description": "shared webpack config of ViewAR",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,11 @@
     "start": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./webpack.config.js --open --mode development --env development_core",
     "start:mock": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./webpack.config.js --open --mode development --env development_mock",
     "build": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack -p --config ./webpack.config.js --mode production --env production",
+    "watch": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack --watch -p --config ./webpack.config.js --mode production --env production",
     "test": "npm run lint && npm run build && npm run karma",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
-    "lint": "prettier **/*.{css,scss,md,json} --write && cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\" --format=pretty"
+    "lint": "cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\"",
+    "format": "prettier **/*.{css,scss,md,json} --write"
   },
   "homepage": "https://viewar.com/",
   "repository": {
@@ -57,13 +59,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged",
-      "pre-push": "npm run test"
+      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged"
     }
   },
   "lint-staged": {
-    "*.{css,scss,md,json}": [
-      "pretty-quick --staged"
+    "*.{js,css,scss,json,md}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "author": "Stefan Friedl <sf@viewar.com>",
@@ -83,6 +85,7 @@
     "chalk": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
+    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "express-useragent": "^1.0.13",
@@ -100,12 +103,13 @@
     "karma-webpack": "^4.0.2",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.9.0",
-    "mocha": "^6.2.2",
+    "mocha": "^7.0.1",
     "node-port-check": "^2.0.1",
     "node-sass": "^4.13.0",
     "normalize.css": "^8.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
+    "qrcode": "^1.4.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "sass": "^1.23.7",
@@ -118,12 +122,12 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
     "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
     "@viewar/config-eslint": "^1.10.0",
     "cheerio": "^1.0.0-rc.3",
-    "cross-env": "^6.0.3",
     "husky": "^4.2.1",
+    "cross-env": "^7.0.0",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
