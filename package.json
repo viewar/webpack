@@ -138,7 +138,7 @@
     "karma-nyan-reporter": "^0.2.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.0.2",
     "pretty-quick": "^2.0.1",
     "puppeteer": "^2.0.0",
     "rimraf": "^3.0.0",
