@@ -6,7 +6,15 @@ const getDevelopConfig = require('./env/develop.config');
 const production = require('./env/production.config');
 const mock = require('./env/mock.config');
 
+/**
+ * @function
+ * @file @viewar/webpack/webpack.config.js
+ * @name getMergedConfig
+ * @returns {Promise} webpack config
+ */
 const getMergedConfig = (env, args) => {
+  const configCommon = getCommonConfig(env);
+
   // TODO: switch env and mode usage (see issue #35)
   // * env should match NODE_ENV (development|production)
   // * -> move '_mock' mark to mode
@@ -18,11 +26,10 @@ const getMergedConfig = (env, args) => {
     env = 'production';
   }
 
+  // inject process.env vars
   for (let [key, value] of Object.entries(process.env)) {
     setEnvVariable(`process.env.${key}`, value);
   }
-
-  const configCommon = getCommonConfig(env);
 
   if (env === 'production') {
     return merge(configCommon, production.config, addEnvVariables());
@@ -36,15 +43,11 @@ const getMergedConfig = (env, args) => {
     : merge(configDev, addEnvVariables());
 };
 
+// TODO: fix to sync instead of async (for 3rd party usage like nextjs and others)
 (async () => {
   if (process.env.NODE_ENV !== 'production') {
     await errorOnUsedPort();
   }
 })();
 
-/**
- * @function
- * @name @viewar/webpack/webpack.config.js
- * @returns {Promise} webpack config
- */
 module.exports = getMergedConfig;
