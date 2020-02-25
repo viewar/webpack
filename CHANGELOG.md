@@ -1,4 +1,15 @@
 # Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+## [1.10.4](https://github.com/viewar/webpack/compare/v1.10.3...v1.10.4) (2020-02-25)
+
+
+### Bug Fixes
+
+* **lint-staged:** use eslint for js files ([e619336](https://github.com/viewar/webpack/commit/e61933695042e42785f1b372bb4d29fa9cce632b))
+* version tags and release process ([95e51cc](https://github.com/viewar/webpack/commit/95e51cc293059c2eeba9de03bb94086e3f2327e0))
+
+# Changelog
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
