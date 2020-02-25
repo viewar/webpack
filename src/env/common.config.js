@@ -1,68 +1,68 @@
-const path = require('path');
-const loaderUtils = require('loader-utils');
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
+const path = require('path')
+const loaderUtils = require('loader-utils')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 
-const { PATHS, REGEXPS } = require('../constants');
-const { getViewARConfig } = require('../utils');
-const { resolve } = require('../webpack.config.resolve.js');
+const { PATHS, REGEXPS } = require('../constants')
+const { getViewARConfig } = require('../utils')
+const { resolve } = require('../webpack.config.resolve.js')
 
-const { appId, appVersion } = getViewARConfig();
+const { appId, appVersion } = getViewARConfig()
 
 const getCommonConfig = (env) =>
   merge([
     {
       entry: {
-        index: [path.join(__dirname, '..', 'utils', 'polyfills.js'), PATHS.src],
+        index: [ path.join(__dirname, '..', 'utils', 'polyfills.js'), PATHS.src ],
       },
       module: {
         rules: [
           {
-            test: /\.(js|jsx)$/,
+            test:    /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use: ['babel-loader'],
+            use:     [ 'babel-loader' ],
           },
           {
             test: /\.s?css$/,
-            use: [
+            use:  [
               {
-                loader: 'style-loader',
+                loader:  'style-loader',
                 options: {
                   injectType: 'singletonStyleTag',
                 },
               },
               {
-                loader: 'css-loader',
+                loader:  'css-loader',
                 options: {
                   importLoaders: 1,
-                  modules: {
+                  modules:       {
                     // development - prefix css classnames of @viewar modules
                     // which are compiled at runtime - f.e. @viewar/components/dist/sass/viewar-styles
-                    getLocalIdent: (context, localIdentName, localName, options) => {
-                      const isViewar = ~context.resourcePath.indexOf('@viewar');
-
-                      let name = `[name]-${localName}`;
-                      name = (isViewar ? 'viewar-' : '') + name;
-                      return loaderUtils.interpolateName(context, name, options);
-                    },
                     // TODO: production - use hash
                     // localIdentName: env === 'production' ? '[hash:base64:5]' : null,
+                    getLocalIdent: (context, localIdentName, localName, options) => {
+                      const isViewar = ~context.resourcePath.indexOf('@viewar')
+
+                      let name = `[name]-${localName}`
+                      name = (isViewar ? 'viewar-' : '') + name
+                      return loaderUtils.interpolateName(context, name, options)
+                    },
                   },
                 },
               },
               {
-                loader: 'postcss-loader',
+                loader:  'postcss-loader',
                 options: {
-                  ident: 'postcss',
-                  plugins: (loader) => [require('postcss-preset-env')()],
+                  ident:   'postcss',
+                  plugins: (loader) => [ require('postcss-preset-env')() ],
                 },
               },
               {
                 loader: 'sass-loader',
-                query: {
-                  sourceMap: true,
+                query:  {
+                  sourceMap:   true,
                   sassOptions: {
                     includePaths: [
                       './sass', // default viewar structure
@@ -78,27 +78,27 @@ const getCommonConfig = (env) =>
             ],
           },
           {
-            test: REGEXPS.assets,
+            test:    REGEXPS.assets,
             exclude: PATHS.componentAssets,
-            use: {
-              loader: 'file-loader',
+            use:     {
+              loader:  'file-loader',
               options: {
-                name: '[path][name].[ext]',
+                name:       '[path][name].[ext]',
                 publicPath: '', // server path in DEV
                 outputPath: '', // fs path in PROD
               },
             },
           },
           {
-            test: REGEXPS.assets,
+            test:    REGEXPS.assets,
             include: PATHS.componentAssets,
-            use: {
-              loader: 'url-loader',
+            use:     {
+              loader:  'url-loader',
               options: {
-                limit: (1024 * 8) / 2,
-                fallback: 'file-loader',
+                limit:      (1024 * 8) / 2,
+                fallback:   'file-loader',
                 // fallback options
-                name: '[path][name].[ext]',
+                name:       '[path][name].[ext]',
                 publicPath: '', // server path in DEV
                 outputPath: '', // fs path in PROD
               },
@@ -112,14 +112,14 @@ const getCommonConfig = (env) =>
           filename: '[name].scss',
         }),
         new HtmlWebpackPlugin({
-          template: path.join(PATHS.src, 'index.html'),
-          inject: true,
+          template:         path.join(PATHS.src, 'index.html'),
+          inject:           true,
           bundleIdentifier: appId,
-          bundleVersion: appVersion,
+          bundleVersion:    appVersion,
         }),
         new Dotenv(),
       ],
     },
-  ]);
+  ])
 
-module.exports = getCommonConfig;
+module.exports = getCommonConfig
