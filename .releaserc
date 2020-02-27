@@ -1,5 +1,5 @@
 {
-  "branch": "latest",
+  "branches": ["latest"],
   "repositoryUrl": "https://github.com/viewar/webpack",
   "plugins": [
    [
