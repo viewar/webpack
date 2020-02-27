@@ -12,14 +12,8 @@ branches:
   except:
     - /^v[0-9]+\.[0-9]+$/
 
-env: NODE_ENV=develop
-os:
-  - linux
-  - osx
-  - windows
-
-dist: trusty
 language: node_js
+
 node_js:
   - 12
   - 11
@@ -32,40 +26,32 @@ stages:
   - test
   - release
 
-matrix:
-  fast_finish: true
-  allow_failures:
-    - node_js: 10
-    - os: osx
-    - os: windows
+env: NODE_ENV=develop
 
 jobs:
   fast_finish: true
   allow_failures:
     - node_js: 10
-    - os: osx
-    - os: windows
-  exclude:
-    - os: osx
-    - os: windows
+    # - os: osx
+    # - os: windows
   include:
+    - os: linux
+      node_js:
+        - 12
+        - 11
+        - 10
     - os: osx
       node_js: 12
-      allow_failures: true
-      fast_finish: true
     - os: windows
       node_js: 12
-      allow_failures: true
-      fast_finish: true
     - stage: release
       if: branch = latest AND type IN (push) AND tag IS blank AND (commit_message !~ /chore\(release\)/)
       node_js: 12
       script: skip
       install: npm i -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github semantic-release-slack-bot
       deploy:
-        tags: false
         provider: script
-        skip_cleanup: true
+        cleanup: false
         script: npx semantic-release
         on:
           branch: latest
