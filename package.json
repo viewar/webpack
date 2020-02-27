@@ -24,7 +24,8 @@
   },
   "private": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "latest"
   },
   "keywords": [
     "viewar",
