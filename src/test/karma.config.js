@@ -23,6 +23,7 @@ module.exports = (config) => {
   // for app development
   preprocessors[PATHS.src + '/**/*.js'] = [ 'webpack', 'sourcemap' ]
   preprocessors['node_modules/@viewar/webpack/**/*.js'] = [ 'webpack', 'sourcemap' ]
+  preprocessors['node_modules/core-js/**/index.js'] = [ 'webpack', 'sourcemap' ]
 
   // ChromeHeadless - set path for binary
   // see: https://github.com/karma-runner/karma-chrome-launcher#headless-chromium-with-puppeteer
@@ -45,9 +46,12 @@ module.exports = (config) => {
     // FILE ASSOCIATIONS
     basePath:   PATHS.root,
     files:      [
+      // FYI: @babel/polyfill is deprecated, so we migrated to core-js@3
+      // see: https://babeljs.io/docs/en/babel-polyfill
+      // require.resolve('@babel/polyfill/dist/polyfill.js'),
+      path.join('./node_modules/regenerator-runtime/runtime.js'),
+      path.join('./node_modules/core-js/stable/index.js'),
       // as we ignore webpacks entries - we have to add polyfills here also
-      require.resolve('@babel/polyfill/dist/polyfill.js'),
-      // process.cwd() + '/src/utils/babelRegister.js',
       path.join(__dirname, 'mocha.setup.js'),
       {
         pattern: karmaTestGlob,

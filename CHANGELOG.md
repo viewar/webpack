@@ -7,11 +7,8 @@
 ### Bug Fixes
 
 * **release-process:** deploy and release on latest branch ([feb007d](https://github.com/viewar/webpack/commit/feb007dcd8fa81856e772c8aef5d72411c044394))
-* **release-process:** deploy and release on latest branch ([c88a110](https://github.com/viewar/webpack/commit/c88a1105f2d3b0bfe6752aa57c45ae77f8be2a13))
-* **release-process:** deploy on master and release on lastest ([21da41e](https://github.com/viewar/webpack/commit/21da41e3eba2448b19a2159caf2cff2539d05576))
 * **release-process:** fix travis config and release configs ([2c4144c](https://github.com/viewar/webpack/commit/2c4144c556d4a9ef03dbede2157993152a9a640e))
-* release process ([3cf1e43](https://github.com/viewar/webpack/commit/3cf1e430b1756dbd73b4eb65c88a3448ba4dcf5d))
-* **npm-release-tag:** set release-tag to "latest" ([b2cc66a](https://github.com/viewar/webpack/commit/b2cc66ad3fbdfb31d3df89153083913b948ceb70))
+
 
 ## [1.10.4](https://github.com/viewar/webpack/compare/v1.10.3...v1.10.4) (2020-02-25)
 
