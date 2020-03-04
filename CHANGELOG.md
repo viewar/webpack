@@ -1,6 +1,13 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.10.6](https://github.com/viewar/webpack/compare/v1.10.5...v1.10.6) (2020-03-04)
+
+
+### Bug Fixes
+
+* **polyfills:** migrate from babel/polyfill to core-js3 ([232c765](https://github.com/viewar/webpack/commit/232c76556db648555dfa046de6435606830397b3)), closes [#111](https://github.com/viewar/webpack/issues/111)
+
 ## [1.10.5](https://github.com/viewar/webpack/compare/v1.10.4...v1.10.5) (2020-02-27)
 
 
