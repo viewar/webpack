@@ -1,6 +1,15 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.10.5](https://github.com/viewar/webpack/compare/v1.10.4...v1.10.5) (2020-02-27)
+
+
+### Bug Fixes
+
+* **release-process:** deploy and release on latest branch ([feb007d](https://github.com/viewar/webpack/commit/feb007dcd8fa81856e772c8aef5d72411c044394))
+* **release-process:** fix travis config and release configs ([2c4144c](https://github.com/viewar/webpack/commit/2c4144c556d4a9ef03dbede2157993152a9a640e))
+
+
 ## [1.10.4](https://github.com/viewar/webpack/compare/v1.10.3...v1.10.4) (2020-02-25)
 
 
