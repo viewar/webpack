@@ -1,10 +1,26 @@
-const merge = require('webpack-merge')
-
 const { errorOnUsedPort, setEnvVariable, addEnvVariables } = require('./utils')
-const getCommonConfig = require('./env/common.config')
-const getDevelopConfig = require('./env/develop.config')
-const production = require('./env/production.config')
-const mock = require('./env/mock.config')
+const reactJs = require('./types/react-js');
+const reactTs = require('./types/react-ts');
+
+const TYPE = {
+  TYPE_REACT_JS: "react-js",    // Default (fallback) value.
+  TYPE_REACT_TS: "react-ts",
+  TYPE_ANGULAR: "angular",
+  TYPE_ANGULAR_JS: "angular-js",
+}
+
+const setEnvironment = (env) => {
+  // TODO: switch env and mode usage (see issue #35)
+  // * env should match NODE_ENV (development|production)
+  // * -> move '_mock' mark to mode
+  process.env.NODE_ENV = env !== 'production' ? 'development' : 'production'
+  process.env.WEBPACK_ENV = env
+
+  // inject process.env vars
+  for (let [ key, value ] of Object.entries(process.env)) {
+    setEnvVariable(`process.env.${key}`, value)
+  }
+}
 
 /**
  * @function
@@ -12,42 +28,35 @@ const mock = require('./env/mock.config')
  * @name getMergedConfig
  * @returns {Promise} webpack config
  */
-const getMergedConfig = (env, args) => {
-  const configCommon = getCommonConfig(env)
-
-  // TODO: switch env and mode usage (see issue #35)
-  // * env should match NODE_ENV (development|production)
-  // * -> move '_mock' mark to mode
-  process.env.NODE_ENV = env !== 'production' ? 'development' : 'production'
-  process.env.WEBPACK_ENV = env
-
+const getWebpackConfig = (env, args = {}) => {
+  // workaround for issue #35
   if (process.NODE_ENV === 'production') {
-    // workaround for issue #35
     env = 'production'
   }
 
-  // inject process.env vars
-  for (let [ key, value ] of Object.entries(process.env)) {
-    setEnvVariable(`process.env.${key}`, value)
+  setEnvironment(env);
+
+
+  // Decide which config to load according to app.
+  const type = args.type || TYPE.TYPE_REACT_JS;
+  switch(type) {
+    case TYPE.TYPE_REACT_JS:
+      return reactJs(env);
+      break;
+    case TYPE.TYPE_REACT_TS:
+      return reactTs(env);
+      break;
+    default:
+      throw new Error(`type ${args.type} not supported yet.`);
   }
-
-  if (env === 'production') {
-    return merge(configCommon, production.config, addEnvVariables())
-  }
-
-  const developConfig = getDevelopConfig(env)
-  const configDev = merge(configCommon, developConfig)
-
-  return env === 'development_mock'
-    ? merge(configDev, mock.config, addEnvVariables())
-    : merge(configDev, addEnvVariables())
 };
 
 // TODO: fix to sync instead of async (for 3rd party usage like nextjs and others)
+// TODO: don't check in production mode? (don't want to kill the watcher every time on deploy)
 (async () => {
   if (process.env.NODE_ENV !== 'production') {
     await errorOnUsedPort()
   }
 })()
 
-module.exports = getMergedConfig
+module.exports = getWebpackConfig

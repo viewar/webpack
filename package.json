@@ -135,6 +135,7 @@
     "@babel/traverse": "^7.8.6",
     "@babel/types": "^7.8.6",
     "@viewar/config-eslint": "^1.10.0",
+    "awesome-typescript-loader": "^5.2.1",
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^7.0.1",
     "husky": "^4.2.3",
@@ -152,6 +153,7 @@
     "pretty-quick": "^2.0.1",
     "puppeteer": "^2.1.1",
     "rimraf": "^3.0.2",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "viewar-api": "^1.6.0",
     "viewar-core": "^11.68.1"
   },
