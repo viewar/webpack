@@ -36,7 +36,12 @@ const getCommonConfig = (env) =>
                       targets:     {
                         node:      'current',
                         esmodules: true,
-                        browsers:  'last 2 versions',
+                        // when specifying the esmodules target, browsers targets will be ignored.
+                        // browsers:  [
+                        //   'last 2 versions',
+                        //   '> 1%',
+                        //   'IE 10',
+                        // ],
                       },
                     },
                   ],
