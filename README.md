@@ -1,8 +1,6 @@
 # @viewar/webpack
 
 [![Build Status](https://travis-ci.com/viewar/webpack.svg?branch=master)](https://travis-ci.com/viewar/webpack)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
 [![NPM Release](https://img.shields.io/npm/v/%40viewar%2Fwebpack.svg?style=flat)](https://www.npmjs.com/package/%40viewar%2Fwebpack)
 [![Conventional Commits](https://img.shields.io/badge/✔-Conventional%20Commits-blue.svg)](https://conventionalcommits.org)
@@ -22,6 +20,10 @@
 `npm i puppeteer` _- if you use karma_
 
 ### Usage
+
+> **Info:** no need to add babel config to your package.json,  
+> as it is already included in webpacks babel-loader options  
+> **also** removes necessity to install babel plugins and presets
 
 **node - default**
 
@@ -67,6 +69,8 @@ module.exports = (env) => {
 default extensions: `['.js', '.jsx', 'json', '*']`  
 default module paths: `[basename(PATHS.src), 'node_modules']`
 
+_TODO:_ change to aliases to use `~components/*` (see issue #108)
+
 **modify resolve directories**  
 overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
 or add your own 'webpack.config.resolve.js' in your workspace root:
@@ -98,6 +102,8 @@ and get catched server-side to log them in **the terminal**.
 
 The endpoint '/remote-console' is injected per webpack-dev-server's 'before' function:  
 `webpackConfig.devServer.before = viewArMiddleware;`
+
+_TODO:_ see issues #17 and #39
 
 ### errorOnUsedPort()
 
