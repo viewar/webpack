@@ -60,7 +60,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged"
+      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged",
+      "pre-push": "npm run test"
     }
   },
   "lint-staged": {
