@@ -33,34 +33,13 @@
     "config",
     "shared"
   ],
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": "commonjs",
-          "targets": {
-            "esmodules": true,
-            "browsers": [
-              "> 1%",
-              "last 2 versions",
-              "not ie <= 8"
-            ]
-          }
-        }
-      ],
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-export-default-from"
-    ]
-  },
   "engines": {
     "node": ">=10.13.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged"
+      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged",
+      "pre-push": "npm run test"
     }
   },
   "lint-staged": {
@@ -76,13 +55,18 @@
   "author": "Stefan Friedl <sf@viewar.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/plugin-transform-react-constant-elements": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@babel/register": "^7.8.6",
     "@formatjs/intl-pluralrules": "^1.5.2",
     "@formatjs/intl-relativetimeformat": "^4.5.9",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",

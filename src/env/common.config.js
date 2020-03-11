@@ -23,7 +23,42 @@ const getCommonConfig = (env) =>
           {
             test:    /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use:     [ 'babel-loader' ],
+            use:     {
+              loader:  'babel-loader',
+              options: {
+                presets: [
+                  [
+                    '@babel/preset-env',
+                    {
+                      modules:     'auto',
+                      useBuiltIns: 'entry', // uses utils/polyfills
+                      corejs:      3,
+                      targets:     {
+                        node:      'current',
+                        esmodules: true,
+                        browsers:  'last 2 versions',
+                      },
+                    },
+                  ],
+                  '@babel/preset-react',
+                ],
+                plugins: [
+                  '@babel/plugin-transform-runtime',
+                  '@babel/plugin-proposal-export-default-from',
+                  [
+                    '@babel/plugin-proposal-decorators',
+                    {
+                      legacy: true,
+                    },
+                  ],
+                  [ 'transform-class-properties' ],
+                  '@babel/plugin-transform-react-constant-elements',
+                  [
+                    'transform-inline-environment-variables',
+                  ],
+                ],
+              },
+            },
           },
           {
             test: /\.s?css$/,
