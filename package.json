@@ -55,6 +55,8 @@
   "author": "Stefan Friedl <sf@viewar.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
     "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/plugin-transform-react-constant-elements": "^7.8.3",
@@ -62,6 +64,8 @@
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@babel/register": "^7.8.6",
+    "@babel/traverse": "^7.8.6",
+    "@babel/types": "^7.8.6",
     "@formatjs/intl-pluralrules": "^1.5.2",
     "@formatjs/intl-relativetimeformat": "^4.5.9",
     "babel-loader": "^8.0.6",
@@ -114,10 +118,6 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.6",
-    "@babel/traverse": "^7.8.6",
-    "@babel/types": "^7.8.6",
     "@viewar/config-eslint": "^1.10.0",
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^7.0.1",
