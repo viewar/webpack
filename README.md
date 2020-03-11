@@ -16,10 +16,11 @@
 
 ### Installation
 
-`npm i @viewar/webpack`
+`npm i @viewar/webpack`  
+`npm i karma --save-dev` if you use karma ([issue #130](https://github.com/viewar/webpack/issues/130))
 
 > **includes all packages related to webpack:**  
-> \*-loader's, babel, react, karma + puppeteer, sass/postcss, etc.
+> \*-loader's, babel, react, karma-plugins + puppeteer, sass/postcss, etc.
 
 ### Usage
 
@@ -116,7 +117,7 @@ before exporting the config,
 > may be moved to own package together with cypress setup in undefined future
 
 **Usage**  
-`npx karma --config ./node_modules/@viewar/webpack/karma`
+`npx karma start ./node_modules/@viewar/webpack/karma`
 
 **Explanation**  
 [Karma](https://karma-runner.github.io/latest/index.html) is a test runner for JavaScript applications with several features integrated:
