@@ -16,14 +16,15 @@
 
 ### Installation
 
-`npm i @viewar/webpack`  
-`npm i puppeteer` _- if you use karma_
+`npm i @viewar/webpack`
+
+> **includes all packages related to webpack:**  
+> \*-loader's, babel, react, karma + puppeteer, sass/postcss, etc.
 
 ### Usage
 
 > **Info:** no need to add babel config to your package.json,  
-> as it is already included in webpacks babel-loader options  
-> **also** removes necessity to install babel plugins and presets
+> as it is already included in webpacks babel-loader options
 
 **node - default**
 
