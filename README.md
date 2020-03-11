@@ -21,6 +21,10 @@
 
 ### Usage
 
+> **Info:** no need to add babel config to your package.json,  
+> as it is already included in webpacks babel-loader options  
+> **also** removes necessity to install babel plugins and presets
+
 **node - default**
 
 ```javascript
