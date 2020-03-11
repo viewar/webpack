@@ -1,6 +1,13 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+## [1.11.1](https://github.com/viewar/webpack/compare/v1.11.0...v1.11.1) (2020-03-11)
+
+
+### Bug Fixes
+
+* **config:** add ALL webpack related packages to 'dependencies' ([#129](https://github.com/viewar/webpack/issues/129)) ([9cd5f26](https://github.com/viewar/webpack/commit/9cd5f2608ca7ac9ef9d8f234fdc4959135449dc6))
+
 # [1.11.0](https://github.com/viewar/webpack/compare/v1.10.6...v1.11.0) (2020-03-11)
 
 
