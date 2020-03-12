@@ -4,12 +4,14 @@ const getCommonConfig = require('./common.config')
 const getDevelopConfig = require('./develop.config')
 const production = require('./production.config')
 const mock = require('./mock.config')
+const { addEnvVariables } = require('../../utils')
 
-module.exports = () => {
+module.exports = (env) => {
+  addEnvVariables()
   const configCommon = getCommonConfig(env)
 
   if (env === 'production') {
-    return merge(configCommon, production.config, addEnvVariables())
+    return merge(configCommon, production.config)
   }
 
   const developConfig = getDevelopConfig(env)

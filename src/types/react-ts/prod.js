@@ -6,7 +6,7 @@ const { PATHS } = require('../../constants')
 
 const commonConfig = require("./common");
 
-module.exports = merge(
+module.exports = () => merge(
   commonConfig(),
   {
     mode: "production",

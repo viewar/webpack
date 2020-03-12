@@ -16,7 +16,7 @@ const getCommonConfig = (env) =>
   merge([
     {
       entry: {
-        index: [ path.join(__dirname, '..', 'utils', 'polyfills.js'), PATHS.src ],
+        index: [ path.join(__dirname, '../..', 'utils', 'polyfills.js'), PATHS.src ],
       },
       module: {
         rules: [

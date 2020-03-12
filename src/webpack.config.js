@@ -1,6 +1,4 @@
 const { errorOnUsedPort, setEnvVariable, addEnvVariables } = require('./utils')
-const reactJs = require('./types/react-js');
-const reactTs = require('./types/react-ts');
 
 const TYPE = {
   TYPE_REACT_JS: "react-js",    // Default (fallback) value.
@@ -36,14 +34,15 @@ const getWebpackConfig = (env, args = {}) => {
 
   setEnvironment(env);
 
-
   // Decide which config to load according to app.
   const type = args.type || TYPE.TYPE_REACT_JS;
   switch(type) {
     case TYPE.TYPE_REACT_JS:
+      const reactJs = require('./types/react-js');
       return reactJs(env);
       break;
-    case TYPE.TYPE_REACT_TS:
+      case TYPE.TYPE_REACT_TS:
+      const reactTs = require('./types/react-ts');
       return reactTs(env);
       break;
     default:
