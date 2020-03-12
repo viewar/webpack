@@ -65,12 +65,10 @@
   },
   "lint-staged": {
     "*.{css,scss,json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{js}": [
-      "eslint --fix --quiet",
-      "git add"
+      "eslint --fix --quiet"
     ]
   },
   "author": "Stefan Friedl <sf@viewar.com>",
