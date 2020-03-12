@@ -1,8 +1,6 @@
 # @viewar/webpack
 
 [![Build Status](https://travis-ci.com/viewar/webpack.svg?branch=master)](https://travis-ci.com/viewar/webpack)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=viewar/webpack&identifier=214175000)](https://dependabot.com)
 [![PRs Welcome][pr-welcome]](http://makeapullrequest.com)<br />
 [![NPM Release](https://img.shields.io/npm/v/%40viewar%2Fwebpack.svg?style=flat)](https://www.npmjs.com/package/%40viewar%2Fwebpack)
 [![Conventional Commits](https://img.shields.io/badge/✔-Conventional%20Commits-blue.svg)](https://conventionalcommits.org)
@@ -44,6 +42,27 @@ module.exports = (env) => {
 };
 ```
 
+**node - project types**
+
+@viewar/webpack is able to handle different types of projects:
+
+- "react-js": React with Javascript (default)
+- "react-ts": React with Typescript
+- "angular": Angular - not available yet
+- "angularjs: AngularJS - not available yet
+
+```jsx
+// webpack.config.js
+const configViewAr = require('@viewar/webpack');
+
+module.exports = (env) => {
+  // Use react with typescript as project type.
+  return configViewAr(env, {
+    type: 'react-ts',
+  });
+};
+```
+
 **cli**
 
 `webpack-dev --config ./node_modules/@viewar/webpack` or  
@@ -51,11 +70,12 @@ module.exports = (env) => {
 
 ### Constants
 
-| name        | default | env overwrite |
-| ----------- | ------- | ------------- |
-| PATHS.src   | 'src'   | WEBPACK_PATH  |
-| PATHS.build | 'build' | WEBPACK_BUILD |
-| PORT        | 8080    | PORT          |
+| name         | default  | env overwrite  |
+| ------------ | -------- | -------------- |
+| PATHS.src    | 'src'    | WEBPACK_PATH   |
+| PATHS.assets | 'assets' | WEBPACK_ASSETS |
+| PATHS.build  | 'build'  | WEBPACK_BUILD  |
+| PORT         | 8080     | PORT           |
 
 ## Features
 

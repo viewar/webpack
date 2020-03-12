@@ -1,6 +1,6 @@
 const path = require('path')
 // refactor: ? use yargs
-const { WEBPACK_PATH, WEBPACK_BUILD, WEBPACK_PORT } = process.env
+const { WEBPACK_PATH, WEBPACK_BUILD, WEBPACK_ASSETS, WEBPACK_PORT } = process.env
 
 const ROOT    = path.resolve(process.cwd())
 const PATHS   = {
@@ -8,7 +8,7 @@ const PATHS   = {
   build:           path.join(ROOT, WEBPACK_BUILD || 'build'),
   // TODO: rename marked as webpack root
   src:             path.join(ROOT, WEBPACK_PATH || 'src'),
-  assets:             path.join(ROOT, WEBPACK_PATH || 'assets'),
+  assets:             path.join(ROOT, WEBPACK_ASSETS || 'assets'),
   componentAssets: path.join(ROOT, 'node_modules/@viewar/components/dist/assets'),
   componentSass:   './node_modules/@viewar/components/dist/sass',
 }

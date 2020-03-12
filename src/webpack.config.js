@@ -4,7 +4,7 @@ const TYPE = {
   TYPE_REACT_JS: "react-js",    // Default (fallback) value.
   TYPE_REACT_TS: "react-ts",
   TYPE_ANGULAR: "angular",
-  TYPE_ANGULAR_JS: "angular-js",
+  TYPE_ANGULAR_JS: "angularjs",
 }
 
 const setEnvironment = (env) => {
