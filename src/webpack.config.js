@@ -1,10 +1,10 @@
 const { errorOnUsedPort, setEnvVariable, addEnvVariables } = require('./utils')
 
 const TYPE = {
-  TYPE_REACT_JS: "react-js",    // Default (fallback) value.
-  TYPE_REACT_TS: "react-ts",
-  TYPE_ANGULAR: "angular",
-  TYPE_ANGULAR_JS: "angularjs",
+  TYPE_REACT_JS:   'react-js', // Default (fallback) value.
+  TYPE_REACT_TS:   'react-ts',
+  TYPE_ANGULAR:    'angular',
+  TYPE_ANGULAR_JS: 'angularjs',
 }
 
 const setEnvironment = (env) => {
@@ -32,21 +32,21 @@ const getWebpackConfig = (env, args = {}) => {
     env = 'production'
   }
 
-  setEnvironment(env);
+  setEnvironment(env)
 
   // Decide which config to load according to app.
-  const type = args.type || TYPE.TYPE_REACT_JS;
-  switch(type) {
+  const type = args.type || TYPE.TYPE_REACT_JS
+  switch (type) {
     case TYPE.TYPE_REACT_JS:
-      const reactJs = require('./types/react-js');
-      return reactJs(env);
-      break;
-      case TYPE.TYPE_REACT_TS:
-      const reactTs = require('./types/react-ts');
-      return reactTs(env);
-      break;
+      const reactJs = require('./types/react-js')
+      return reactJs(env)
+      break
+    case TYPE.TYPE_REACT_TS:
+      const reactTs = require('./types/react-ts')
+      return reactTs(env)
+      break
     default:
-      throw new Error(`type ${args.type} not supported yet.`);
+      throw new Error(`type ${args.type} not supported yet.`)
   }
 };
 

@@ -1,6 +1,8 @@
 const path = require('path')
 // refactor: ? use yargs
-const { WEBPACK_PATH, WEBPACK_BUILD, WEBPACK_ASSETS, WEBPACK_PORT } = process.env
+const {
+  WEBPACK_PATH, WEBPACK_BUILD, WEBPACK_ASSETS, WEBPACK_PORT,
+} = process.env
 
 const ROOT    = path.resolve(process.cwd())
 const PATHS   = {

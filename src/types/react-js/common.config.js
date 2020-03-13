@@ -1,5 +1,4 @@
 const path = require('path')
-
 const loaderUtils = require('loader-utils')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
