@@ -1,12 +1,10 @@
 // development config
 const merge = require('webpack-merge')
 const webpack = require('webpack')
-
-const commonConfig = require('./common')
-
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ip = require('ip').address()
 
+const commonConfig = require('./common')
 const { setEnvVariable, printLaunchQRCode } = require('../../utils')
 const viewArMiddleware = require('../../middlewares')
 
@@ -31,7 +29,7 @@ module.exports = () => {
       ],
       devServer: {
         hot:      true, // enable HMR on the server
-        'public': ip ? `${ip}:${PORT}` : undefined,
+        'public': ip ? `${ip}:${PORT}` : true,
         host:     process.env.HOST || '0.0.0.0',
         port:     PORT,
         before:   viewArMiddleware,
