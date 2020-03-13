@@ -44,12 +44,10 @@
   },
   "lint-staged": {
     "*.{css,scss,json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{js}": [
-      "eslint --fix --quiet",
-      "git add"
+      "eslint --fix --quiet"
     ]
   },
   "author": "Stefan Friedl <sf@viewar.com>",
@@ -122,12 +120,14 @@
   },
   "devDependencies": {
     "@viewar/config-eslint": "^1.10.0",
+    "awesome-typescript-loader": "^5.2.1",
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^7.0.1",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "pretty-quick": "^2.0.1",
     "rimraf": "^3.0.2",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "viewar-api": "^1.6.0",
     "viewar-core": "^11.68.1"
   },
