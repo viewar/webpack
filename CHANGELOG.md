@@ -1,6 +1,29 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.11.0](https://github.com/viewar/webpack/compare/v1.10.6...v1.11.0) (2020-03-11)
+
+
+### Features
+
+* **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([#126](https://github.com/viewar/webpack/issues/126)) ([4d843df](https://github.com/viewar/webpack/commit/4d843df01c0fa739e0ffbdf117c7e6c71f51efe4))
+
+## [1.10.6](https://github.com/viewar/webpack/compare/v1.10.5...v1.10.6) (2020-03-04)
+
+
+### Bug Fixes
+
+* **polyfills:** migrate from babel/polyfill to core-js3 ([232c765](https://github.com/viewar/webpack/commit/232c76556db648555dfa046de6435606830397b3)), closes [#111](https://github.com/viewar/webpack/issues/111)
+
+## [1.10.5](https://github.com/viewar/webpack/compare/v1.10.4...v1.10.5) (2020-02-27)
+
+
+### Bug Fixes
+
+* **release-process:** deploy and release on latest branch ([feb007d](https://github.com/viewar/webpack/commit/feb007dcd8fa81856e772c8aef5d72411c044394))
+* **release-process:** fix travis config and release configs ([2c4144c](https://github.com/viewar/webpack/commit/2c4144c556d4a9ef03dbede2157993152a9a640e))
+
+
 ## [1.10.4](https://github.com/viewar/webpack/compare/v1.10.3...v1.10.4) (2020-02-25)
 
 
