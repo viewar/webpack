@@ -1,6 +1,13 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.12.0](https://github.com/viewar/webpack/compare/v1.11.1...v1.12.0) (2020-03-13)
+
+
+### Features
+
+* **config:** move babels config to babel-loader.options ([9715601](https://github.com/viewar/webpack/commit/9715601e41b60fbfd652eeb0ad1e29dce01af1dd))
+
 ## [1.11.1](https://github.com/viewar/webpack/compare/v1.11.0...v1.11.1) (2020-03-11)
 
 
