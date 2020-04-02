@@ -51,9 +51,9 @@ const getWebpackConfig = (env, args = {}) => {
 };
 
 // TODO: fix to sync instead of async (for 3rd party usage like nextjs and others)
-// TODO: don't check in production mode? (don't want to kill the watcher every time on deploy)
 (async () => {
-  if (process.env.NODE_ENV !== 'production') {
+  // process.NODE_ENV might not be set. Checking for WEBPACK_DEV_SERVER is safer.
+  if (process.env.WEBPACK_DEV_SERVER) {
     await errorOnUsedPort()
   }
 })()
