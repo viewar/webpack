@@ -52,7 +52,8 @@ const getWebpackConfig = (env, args = {}) => {
 
 // TODO: fix to sync instead of async (for 3rd party usage like nextjs and others)
 (async () => {
-  if (env !== 'production') {
+  // process.NODE_ENV might not be set. Checking for WEBPACK_DEV_SERVER is safer.
+  if (process.env.WEBPACK_DEV_SERVER) {
     await errorOnUsedPort()
   }
 })()

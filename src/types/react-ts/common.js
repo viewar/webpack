@@ -75,6 +75,7 @@ module.exports = () => {
               loader:  'svgo-loader',
               options: {
                 plugins: [
+                  { removeViewBox: false },
                   { removeTitle: true },
                   { convertColors: { shorthex: false }},
                   { convertPathData: false },
@@ -96,6 +97,7 @@ module.exports = () => {
               loader:  'svgo-loader',
               options: {
                 plugins: [
+                  { removeViewBox: false },
                   { removeTitle: true },
                   { convertColors: { shorthex: false }},
                   { convertPathData: false },
