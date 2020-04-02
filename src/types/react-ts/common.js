@@ -76,6 +76,7 @@ module.exports = () => {
               options: {
                 plugins: [
                   { removeViewBox: false },
+                  { removeAttributes: false },
                   { removeTitle: true },
                   { convertColors: { shorthex: false }},
                   { convertPathData: false },
@@ -92,16 +93,17 @@ module.exports = () => {
           use:     [
             {
               loader: 'react-svg-loader',
-            },
-            {
-              loader:  'svgo-loader',
               options: {
-                plugins: [
-                  { removeViewBox: false },
-                  { removeTitle: true },
-                  { convertColors: { shorthex: false }},
-                  { convertPathData: false },
-                ],
+                jsx: false,
+                svgo: {
+                  plugins: [
+                    { removeViewBox: false },
+                    { removeAttributes: false },
+                    { removeTitle: true },
+                    { convertColors: { shorthex: false }},
+                    { convertPathData: false },
+                  ],
+                }
               },
             },
           ],
