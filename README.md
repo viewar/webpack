@@ -48,6 +48,27 @@ module.exports = (env) => {
 };
 ```
 
+**node - project types**
+
+@viewar/webpack is able to handle different types of projects:
+
+- "react-js": React with Javascript (default)
+- "react-ts": React with Typescript
+- "angular": Angular - not available yet
+- "angularjs: AngularJS - not available yet
+
+```jsx
+// webpack.config.js
+const configViewAr = require('@viewar/webpack');
+
+module.exports = (env) => {
+  // Use react with typescript as project type.
+  return configViewAr(env, {
+    type: 'react-ts',
+  });
+};
+```
+
 **cli**
 
 `webpack-dev --config ./node_modules/@viewar/webpack` or  
@@ -55,11 +76,12 @@ module.exports = (env) => {
 
 ### Constants
 
-| name        | default | env overwrite |
-| ----------- | ------- | ------------- |
-| PATHS.src   | 'src'   | WEBPACK_PATH  |
-| PATHS.build | 'build' | WEBPACK_BUILD |
-| PORT        | 8080    | PORT          |
+| name         | default  | env overwrite  |
+| ------------ | -------- | -------------- |
+| PATHS.src    | 'src'    | WEBPACK_PATH   |
+| PATHS.assets | 'assets' | WEBPACK_ASSETS |
+| PATHS.build  | 'build'  | WEBPACK_BUILD  |
+| PORT         | 8080     | PORT           |
 
 ## Features
 

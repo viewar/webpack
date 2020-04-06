@@ -1,7 +1,7 @@
 const merge = require('webpack-merge')
 
-const { setEnvVariable } = require('../utils')
-const { PATHS } = require('../constants')
+const { setEnvVariable } = require('../../utils')
+const { PATHS } = require('../../constants')
 
 exports.config = merge([
   {

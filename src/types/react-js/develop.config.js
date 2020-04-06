@@ -2,10 +2,9 @@ const merge = require('webpack-merge')
 const ip = require('ip').address()
 const webpack = require('webpack')
 
-const viewArMiddleware = require('../middlewares')
-const { setEnvVariable } = require('../utils')
-const { PATHS, PORT } = require('../constants')
-const { printLaunchQRCode } = require('../utils')
+const viewArMiddleware = require('../../middlewares')
+const { setEnvVariable, printLaunchQRCode } = require('../../utils')
+const { PATHS, PORT } = require('../../constants')
 
 const getDevelopConfig = () => {
   printLaunchQRCode(ip, PORT)
