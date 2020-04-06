@@ -1,52 +1,49 @@
 # Changelog
+
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+# [1.12.1](https://github.com/viewar/webpack/compare/v1.12.0...v1.12.1) (2020-04-06)
+
+### Bug Fixes
+
+- **release-process:** fixed tag and version
+- **release-process:** release on 'master' ([26e1c08](https://github.com/viewar/webpack/commit/26e1c08109951db06066f381a5cd673a16518317)), closes [#122](https://github.com/viewar/webpack/issues/122) [#113](https://github.com/viewar/webpack/issues/113)
+- **build:** Correctly load svgs for react-ts ([8361e5a](https://github.com/viewar/webpack/commit/8361e5a4561a1d5f3aa765e96b4307d9a0919801))
+- **deploy:** Don't check if port is in use for deploy ([5353dd9](https://github.com/viewar/webpack/commit/5353dd9cb5643fb65f7f4cf95150f4193388c58d))
+- **build:** don't remove viewbox from svgs ([3cd8c79](https://github.com/viewar/webpack/commit/3cd8c79155a561125f400b47fe87b3b3cd097059))
 
 # [1.12.0](https://github.com/viewar/webpack/compare/v1.11.0...v1.12.0) (2020-04-06)
 
-
-### Bug Fixes
-
-* **build:** Correctly load svgs for react-ts ([8361e5a](https://github.com/viewar/webpack/commit/8361e5a4561a1d5f3aa765e96b4307d9a0919801))
-* **deploy:** Don't check if port is in use for deploy ([5353dd9](https://github.com/viewar/webpack/commit/5353dd9cb5643fb65f7f4cf95150f4193388c58d))
-* **build:** don't remove viewbox from svgs ([3cd8c79](https://github.com/viewar/webpack/commit/3cd8c79155a561125f400b47fe87b3b3cd097059))
-* **release-process:** release on 'master' ([26e1c08](https://github.com/viewar/webpack/commit/26e1c08109951db06066f381a5cd673a16518317)), closes [#122](https://github.com/viewar/webpack/issues/122) [#113](https://github.com/viewar/webpack/issues/113)
-
-
 ### Features
 
-* **config:** move babels config to babel-loader.options ([9715601](https://github.com/viewar/webpack/commit/9715601e41b60fbfd652eeb0ad1e29dce01af1dd))
-* **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([de4b70d](https://github.com/viewar/webpack/commit/de4b70d571be867b9811597cc837e35bcbd83e39))
+- **config:** move babels config to babel-loader.options ([9715601](https://github.com/viewar/webpack/commit/9715601e41b60fbfd652eeb0ad1e29dce01af1dd))
+- **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([de4b70d](https://github.com/viewar/webpack/commit/de4b70d571be867b9811597cc837e35bcbd83e39))
 
 # [1.11.0](https://github.com/viewar/webpack/compare/v1.10.6...v1.11.0) (2020-03-11)
 
-
 ### Features
 
-* **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([#126](https://github.com/viewar/webpack/issues/126)) ([4d843df](https://github.com/viewar/webpack/commit/4d843df01c0fa739e0ffbdf117c7e6c71f51efe4))
+- **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([#126](https://github.com/viewar/webpack/issues/126)) ([4d843df](https://github.com/viewar/webpack/commit/4d843df01c0fa739e0ffbdf117c7e6c71f51efe4))
 
 ## [1.10.6](https://github.com/viewar/webpack/compare/v1.10.5...v1.10.6) (2020-03-04)
 
-
 ### Bug Fixes
 
-* **polyfills:** migrate from babel/polyfill to core-js3 ([232c765](https://github.com/viewar/webpack/commit/232c76556db648555dfa046de6435606830397b3)), closes [#111](https://github.com/viewar/webpack/issues/111)
+- **polyfills:** migrate from babel/polyfill to core-js3 ([232c765](https://github.com/viewar/webpack/commit/232c76556db648555dfa046de6435606830397b3)), closes [#111](https://github.com/viewar/webpack/issues/111)
 
 ## [1.10.5](https://github.com/viewar/webpack/compare/v1.10.4...v1.10.5) (2020-02-27)
 
-
 ### Bug Fixes
 
-* **release-process:** deploy and release on latest branch ([feb007d](https://github.com/viewar/webpack/commit/feb007dcd8fa81856e772c8aef5d72411c044394))
-* **release-process:** fix travis config and release configs ([2c4144c](https://github.com/viewar/webpack/commit/2c4144c556d4a9ef03dbede2157993152a9a640e))
-
+- **release-process:** deploy and release on latest branch ([feb007d](https://github.com/viewar/webpack/commit/feb007dcd8fa81856e772c8aef5d72411c044394))
+- **release-process:** fix travis config and release configs ([2c4144c](https://github.com/viewar/webpack/commit/2c4144c556d4a9ef03dbede2157993152a9a640e))
 
 ## [1.10.4](https://github.com/viewar/webpack/compare/v1.10.3...v1.10.4) (2020-02-25)
 
-
 ### Bug Fixes
 
-* **lint-staged:** use eslint for js files ([e619336](https://github.com/viewar/webpack/commit/e61933695042e42785f1b372bb4d29fa9cce632b))
-* version tags and release process ([95e51cc](https://github.com/viewar/webpack/commit/95e51cc293059c2eeba9de03bb94086e3f2327e0))
+- **lint-staged:** use eslint for js files ([e619336](https://github.com/viewar/webpack/commit/e61933695042e42785f1b372bb4d29fa9cce632b))
+- version tags and release process ([95e51cc](https://github.com/viewar/webpack/commit/95e51cc293059c2eeba9de03bb94086e3f2327e0))
 
 # Changelog
 
