@@ -7,7 +7,6 @@ cache:
 branches:
   only:
     - master
-    - latest
     - develop
   except:
     - /^v[0-9]+\.[0-9]+$/
@@ -25,6 +24,7 @@ script: npm test
 stages:
   - test
   - release
+  - merge
 
 env: NODE_ENV=develop
 
@@ -45,7 +45,7 @@ jobs:
     - os: windows
       node_js: 12
     - stage: release
-      if: branch = latest AND type IN (push) AND tag IS blank AND (commit_message !~ /chore\(release\)/)
+      if: branch = master AND type IN (push) AND tag IS blank AND (commit_message !~ /chore\(release\)/)
       node_js: 12
       script: skip
       install: npm i -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/npm @semantic-release/git @semantic-release/github semantic-release-slack-bot
@@ -54,5 +54,10 @@ jobs:
         cleanup: false
         script: npx semantic-release
         on:
-          branch: latest
+          branch: master
           tags: false
+    - stage: merge
+      if: branch = master AND type IN (push) AND (commit_message ~ /chore\(release\)/)
+      node_js: 12
+      install: skip
+      script: git push origin develop

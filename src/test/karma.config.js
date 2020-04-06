@@ -1,6 +1,6 @@
 const path = require('path')
 
-const getConfigCommon = require('../env/common.config')
+const getConfigCommon = require('../types/react-js/common.config')
 const resolverConfig = require('../webpack.config.resolve')
 const { PATHS } = require('../constants')
 

@@ -6,9 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Dotenv = require('dotenv-webpack')
 
-const { PATHS, REGEXPS } = require('../constants')
-const { getViewARConfig } = require('../utils')
-const { resolve } = require('../webpack.config.resolve.js')
+const { PATHS, REGEXPS } = require('../../constants')
+const { getViewARConfig } = require('../../utils')
+const { resolve } = require('../../webpack.config.resolve.js')
 
 const { appId, appVersion } = getViewARConfig()
 
@@ -16,7 +16,7 @@ const getCommonConfig = (env) =>
   merge([
     {
       entry: {
-        index: [ path.join(__dirname, '..', 'utils', 'polyfills.js'), PATHS.src ],
+        index: [ path.join(__dirname, '../..', 'utils', 'polyfills.js'), PATHS.src ],
       },
       module: {
         rules: [

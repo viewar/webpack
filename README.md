@@ -16,10 +16,11 @@
 
 ### Installation
 
-`npm i @viewar/webpack`
+`npm i @viewar/webpack`  
+`npm i karma --save-dev` if you use karma ([issue #130](https://github.com/viewar/webpack/issues/130))
 
 > **includes all packages related to webpack:**  
-> \*-loader's, babel, react, karma + puppeteer, sass/postcss, etc.
+> \*-loader's, babel, react, karma-plugins + puppeteer, sass/postcss, etc.
 
 ### Usage
 
@@ -47,6 +48,27 @@ module.exports = (env) => {
 };
 ```
 
+**node - project types**
+
+@viewar/webpack is able to handle different types of projects:
+
+- "react-js": React with Javascript (default)
+- "react-ts": React with Typescript
+- "angular": Angular - not available yet
+- "angularjs: AngularJS - not available yet
+
+```jsx
+// webpack.config.js
+const configViewAr = require('@viewar/webpack');
+
+module.exports = (env) => {
+  // Use react with typescript as project type.
+  return configViewAr(env, {
+    type: 'react-ts',
+  });
+};
+```
+
 **cli**
 
 `webpack-dev --config ./node_modules/@viewar/webpack` or  
@@ -54,11 +76,12 @@ module.exports = (env) => {
 
 ### Constants
 
-| name        | default | env overwrite |
-| ----------- | ------- | ------------- |
-| PATHS.src   | 'src'   | WEBPACK_PATH  |
-| PATHS.build | 'build' | WEBPACK_BUILD |
-| PORT        | 8080    | PORT          |
+| name         | default  | env overwrite  |
+| ------------ | -------- | -------------- |
+| PATHS.src    | 'src'    | WEBPACK_PATH   |
+| PATHS.assets | 'assets' | WEBPACK_ASSETS |
+| PATHS.build  | 'build'  | WEBPACK_BUILD  |
+| PORT         | 8080     | PORT           |
 
 ## Features
 
@@ -116,7 +139,7 @@ before exporting the config,
 > may be moved to own package together with cypress setup in undefined future
 
 **Usage**  
-`npx karma --config ./node_modules/@viewar/webpack/karma`
+`npx karma start ./node_modules/@viewar/webpack/karma`
 
 **Explanation**  
 [Karma](https://karma-runner.github.io/latest/index.html) is a test runner for JavaScript applications with several features integrated:
