@@ -1,6 +1,22 @@
 # Changelog
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.12.0](https://github.com/viewar/webpack/compare/v1.11.0...v1.12.0) (2020-04-06)
+
+
+### Bug Fixes
+
+* **build:** Correctly load svgs for react-ts ([8361e5a](https://github.com/viewar/webpack/commit/8361e5a4561a1d5f3aa765e96b4307d9a0919801))
+* **deploy:** Don't check if port is in use for deploy ([5353dd9](https://github.com/viewar/webpack/commit/5353dd9cb5643fb65f7f4cf95150f4193388c58d))
+* **build:** don't remove viewbox from svgs ([3cd8c79](https://github.com/viewar/webpack/commit/3cd8c79155a561125f400b47fe87b3b3cd097059))
+* **release-process:** release on 'master' ([26e1c08](https://github.com/viewar/webpack/commit/26e1c08109951db06066f381a5cd673a16518317)), closes [#122](https://github.com/viewar/webpack/issues/122) [#113](https://github.com/viewar/webpack/issues/113)
+
+
+### Features
+
+* **config:** move babels config to babel-loader.options ([9715601](https://github.com/viewar/webpack/commit/9715601e41b60fbfd652eeb0ad1e29dce01af1dd))
+* **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([de4b70d](https://github.com/viewar/webpack/commit/de4b70d571be867b9811597cc837e35bcbd83e39))
+
 # [1.11.0](https://github.com/viewar/webpack/compare/v1.10.6...v1.11.0) (2020-03-11)
 
 
