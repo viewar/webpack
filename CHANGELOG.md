@@ -1,4 +1,14 @@
 # Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+## [1.12.2](https://github.com/viewar/webpack/compare/v1.12.1...v1.12.2) (2020-04-06)
+
+
+### Bug Fixes
+
+* **release:** test merge stage after fixing versions and tags ([7ee65fd](https://github.com/viewar/webpack/commit/7ee65fd5317d11f8817cb0d0320ef4272be01be7))
+
+# Changelog
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
