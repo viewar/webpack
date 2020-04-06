@@ -1,10 +1,9 @@
 // shared config (dev and prod)
 const { join } = require('path')
-const { CheckerPlugin } = require('awesome-typescript-loader')
-const fs = require('fs')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const path = require('path')
 
+const { CheckerPlugin } = require('awesome-typescript-loader')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
