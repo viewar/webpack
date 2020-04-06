@@ -28,6 +28,7 @@ stages:
 
 env: NODE_ENV=develop
 
+# stage test - no need to define
 jobs:
   fast_finish: true
   allow_failures:
@@ -60,4 +61,4 @@ jobs:
       if: branch = master AND type IN (push) AND (commit_message ~ /chore\(release\)/)
       node_js: 12
       install: skip
-      script: git push origin develop
+      script: git push origin master:develop
