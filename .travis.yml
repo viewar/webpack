@@ -28,6 +28,7 @@ stages:
 
 env: NODE_ENV=develop
 
+# stage test - no need to define
 jobs:
   fast_finish: true
   allow_failures:
