@@ -14,10 +14,12 @@
 
 <!-- /badge-urls -->
 
+> **latest [CHANGELOG](https://github.com/viewar/webpack/blob/master/CHANGELOG.md)**
+
 ### Installation
 
 `npm i @viewar/webpack`  
-`npm i karma --save-dev` if you use karma ([issue #130](https://github.com/viewar/webpack/issues/130))
+`npm i karma --save-dev` if you use karma
 
 > **includes all packages related to webpack:**  
 > \*-loader's, babel, react, karma-plugins + puppeteer, sass/postcss, etc.
