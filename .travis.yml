@@ -58,7 +58,7 @@ jobs:
           branch: master
           tags: false
     - stage: merge
-      if: branch = master AND type IN (push) AND (commit_message ~ /chore\(release\)/)
+      if: branch = master AND type IN (push) AND (commit_message =~ /chore\(release\)/)
       node_js: 12
       install: skip
       script: git push origin master:develop
