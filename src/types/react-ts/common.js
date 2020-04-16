@@ -1,6 +1,5 @@
 // shared config (dev and prod)
 const { join } = require('path')
-const path = require('path')
 
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
