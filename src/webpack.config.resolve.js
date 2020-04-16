@@ -24,14 +24,9 @@ const resolveConfig = {
     alias:      { // ? already included into tsconfigs paths
       assets: PATHS.assets,
     },
-    plugins: (function() {
-      // TBD: use viewar/webpacks tsconfig if not installed as node_module
-      if (process.env.WEBPACK_TYPE === 'react-ts') {
-        return [ new TsconfigPathsPlugin({
-          configFile: join(PATHS.root, 'tsconfig.json'),
-        }) ]
-      }
-    })(),
+    plugins: [ new TsconfigPathsPlugin({
+      configFile: join(PATHS.root, 'tsconfig.json'),
+    }) ],
   },
 }
 
