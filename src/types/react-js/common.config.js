@@ -8,6 +8,7 @@ const Dotenv = require('dotenv-webpack')
 
 const { PATHS, REGEXPS } = require('../../constants')
 const { getViewARConfig } = require('../../utils')
+const babelLoader = require('../../babel-loader.config') // also includes 'source-map-loader'
 const { resolve } = require('../../webpack.config.resolve.js')
 
 const { appId, appVersion } = getViewARConfig()
@@ -23,35 +24,8 @@ const getCommonConfig = (env) =>
           {
             test:    /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use:     {
-              loader:  'babel-loader',
-              options: {
-                presets: [
-                  [
-                    '@babel/preset-env',
-                    {
-                      modules:     'auto',
-                      useBuiltIns: 'entry', // uses utils/polyfills
-                      corejs:      3,
-                      targets:     {
-                        node:      'current',
-                        esmodules: true,
-                        // when specifying the esmodules target, browsers targets will be ignored.
-                        // browsers:  [
-                        //   'last 2 versions',
-                        //   '> 1%',
-                        //   'IE 10',
-                        // ],
-                      },
-                    },
-                  ],
-                  '@babel/preset-react',
-                ],
-                plugins: [
-                  '@babel/plugin-transform-runtime',
-                  '@babel/plugin-proposal-export-default-from',
-                  [
-                    '@babel/plugin-proposal-decorators',
+            use:     babelLoader,
+          },
                     {
                       legacy: true,
                     },
