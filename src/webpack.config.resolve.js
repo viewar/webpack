@@ -21,15 +21,16 @@ const { PATHS } = require('./constants')
 const resolveConfig = {
   resolve: {
     extensions: [ '.ts', '.tsx', '.js', '.jsx' ],
-    // ? already included into tsconfigs paths
-    // alias:      {
-    //   assets: PATHS.assets,
-    // },
-    plugins:    [
-      new TsconfigPathsPlugin({
-        configFile: join(PATHS.root, 'tsconfig.json'),
-      }),
-    ],
+    alias:      { // ? already included into tsconfigs paths
+      assets: PATHS.assets,
+    },
+    plugins: (function() {
+      if (process.env.WEBPACK_TYPE === 'react-ts') {
+        return [ new TsconfigPathsPlugin({
+          configFile: join(PATHS.root, 'tsconfig.json'),
+        }) ]
+      }
+    })(),
   },
 }
 

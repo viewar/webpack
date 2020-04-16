@@ -36,6 +36,8 @@ const getWebpackConfig = (env, args = {}) => {
 
   // Decide which config to load according to app.
   const type = args.type || TYPE.TYPE_REACT_JS
+  process.env.WEBPACK_TYPE = type
+
   let reactJs
   let reactTs
   switch (type) {
