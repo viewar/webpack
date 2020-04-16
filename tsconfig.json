@@ -4,23 +4,13 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
-    "target": "es5",
+    "target": "ES5",
     "jsx": "react",
-    "lib": ["es5", "es6", "dom"],
+    "lib": ["ES5", "ES6", "dom"],
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "*",
-        "src/*",
-        // WEBPACK_PATH
-        "test/*"
-      ],
-      "components/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "pages/*": ["./src/pages/*"],
-      "css/*": ["./css/*"],
-      "assets/*": ["./assets/*"]
+      "components/*": ["./test/src/components/*"]
     }
   },
   "include": ["./src/**/*"],
