@@ -120,7 +120,15 @@ const getCommonConfig = (env) =>
           filename: '[name].scss',
         }),
         new HtmlWebpackPlugin({
-          template:         path.join(PATHS.src, 'index.html'),
+          template: (function() {
+            try {
+              // provide compatibility for old usage
+              return require.resolve(path.join(PATHS.src, 'index.html'))
+            }
+            catch (err) {
+              return require.resolve(path.join(PATHS.src, 'index.html.ejs'))
+            }
+          })(),
           inject:           true,
           bundleIdentifier: appId,
           bundleVersion:    appVersion,
