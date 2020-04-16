@@ -1,4 +1,6 @@
 // development config
+const { join } = require('path')
+
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -24,7 +26,7 @@ module.exports = () => {
           ip ? `${ip}:${PORT}` : 'localhost:8080'
         }`, // bundle the client for webpack-dev-server and connect to the provided endpoint
         'webpack/hot/only-dev-server', // bundle the client for hot reloading, only- means to only hot reload for successful updates
-        './polyfills.tsx', // polyfills
+        join(__dirname, '../..', 'utils', 'polyfills.js'),
         './src/index.tsx', // the entry point of our app
       ],
       devServer: {
