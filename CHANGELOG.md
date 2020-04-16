@@ -1,4 +1,14 @@
 # Changelog
+> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+
+## [1.12.3](https://github.com/viewar/webpack/compare/v1.12.2...v1.12.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **react-js:** remove need to use type 'react-ts' ([#141](https://github.com/viewar/webpack/issues/141)) ([d96a5a8](https://github.com/viewar/webpack/commit/d96a5a8b7e77ae8b08fcd25fec3936d8e9a8b28b)), closes [#142](https://github.com/viewar/webpack/issues/142) [#108](https://github.com/viewar/webpack/issues/108) [#133](https://github.com/viewar/webpack/issues/133) [#137](https://github.com/viewar/webpack/issues/137) [#138](https://github.com/viewar/webpack/issues/138) [#139](https://github.com/viewar/webpack/issues/139) [#140](https://github.com/viewar/webpack/issues/140)
+
+# Changelog
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
