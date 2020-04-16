@@ -1,6 +1,6 @@
-import Test from 'components/Test.jsx'
 import React, { PureComponent } from 'react'
 
+import Test from '../components/Test.jsx'
 import styles from './App.scss' // eslint-disable-line no-unused-vars
 
 require('../../remoteConsole').remoteConsoleInjector()
