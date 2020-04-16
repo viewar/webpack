@@ -1,5 +1,3 @@
-const merge = require('webpack-merge')
-
 const prod = require('./prod')
 const devMock = require('./dev_mock')
 const devCore = require('./dev_core')

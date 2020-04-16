@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "ES5",
+    "jsx": "react",
+    "lib": ["ES5", "ES6", "dom"],
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["./test/src/components/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "awesomeTypescriptLoaderOptions": {
+    "reportFiles": ["./src/**/*"]
+  }
+}
