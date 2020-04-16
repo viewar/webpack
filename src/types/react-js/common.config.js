@@ -4,6 +4,7 @@ const loaderUtils = require('loader-utils')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 const Dotenv = require('dotenv-webpack')
 
 const { PATHS, REGEXPS } = require('../../constants')
@@ -26,18 +27,9 @@ const getCommonConfig = (env) =>
             exclude: /node_modules/,
             use:     babelLoader,
           },
-                    {
-                      legacy: true,
-                    },
-                  ],
-                  [ 'transform-class-properties' ],
-                  '@babel/plugin-transform-react-constant-elements',
-                  [
-                    'transform-inline-environment-variables',
-                  ],
-                ],
-              },
-            },
+          {
+            test: /\.(ts|tsx)$/,
+            use:  [ ...babelLoader, 'awesome-typescript-loader' ],
           },
           {
             test: /\.s?css$/,
@@ -123,6 +115,7 @@ const getCommonConfig = (env) =>
       },
       resolve,
       plugins: [
+        new CheckerPlugin(),
         new MiniCssExtractPlugin({
           filename: '[name].scss',
         }),
