@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const { PATHS } = require('../../constants')
 const { getViewARConfig } = require('../../utils')
+const babelLoader = require('../../babel-loader.config') // also includes 'source-map-loader'
 const { resolve } = require('../../webpack.config.resolve.js')
 
 const { appId, appVersion } = getViewARConfig()
@@ -17,13 +18,13 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test:    /\.js$/,
-          use:     [ 'babel-loader', 'source-map-loader' ],
+          test:    /\.(js|jsx)$/,
           exclude: /node_modules/,
+          use:     babelLoader,
         },
         {
-          test: /\.tsx?$/,
-          use:  [ 'babel-loader', 'awesome-typescript-loader' ],
+          test: /\.(ts|tsx)$/,
+          use:  [ ...babelLoader, 'awesome-typescript-loader' ],
         },
         {
           test: /\.s?css$/,
