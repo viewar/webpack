@@ -3,28 +3,18 @@ const { join } = require('path')
 const path = require('path')
 
 const { CheckerPlugin } = require('awesome-typescript-loader')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const { getViewARConfig } = require('../../utils')
 const { PATHS } = require('../../constants')
+const { getViewARConfig } = require('../../utils')
+const { resolve } = require('../../webpack.config.resolve.js')
 
 const { appId, appVersion } = getViewARConfig()
 
 module.exports = () => {
   return {
-    resolve: {
-      extensions: [ '.ts', '.tsx', '.js', '.jsx' ],
-      alias:      {
-        assets: PATHS.assets,
-      },
-      plugins: [
-        new TsconfigPathsPlugin({
-          configFile: path.join(PATHS.root, './tsconfig.json'),
-        }),
-      ],
-    },
+    resolve,
     module: {
       rules: [
         {
