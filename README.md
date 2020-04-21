@@ -16,7 +16,18 @@
 
 > **latest [CHANGELOG](https://github.com/viewar/webpack/blob/master/CHANGELOG.md)**
 
-### Installation
+- [Installation](#installation)
+- [Usage](#usage)
+- [Constants](#constants)
+- [Features](#features)
+  - [Module Resolver](#module-resolver)
+  - [remote console](#remote-console)
+  - [errorOnUsedPort()](#erroronusedport)
+  - [Integration Tests per 'karma-webpack'](#integration-tests-per-karma-webpack)
+    - [Configuration](#configuration)
+    - [Writing Tests](#writing-tests)
+
+## Installation
 
 `npm i @viewar/webpack`  
 `npm i karma --save-dev` if you use karma
@@ -24,7 +35,7 @@
 > **includes all packages related to webpack:**  
 > \*-loader's, babel, react, karma-plugins + puppeteer, sass/postcss, etc.
 
-### Usage
+## Usage
 
 > **Info:** no need to add babel config to your package.json,  
 > as it is already included in webpacks babel-loader options
@@ -76,7 +87,7 @@ module.exports = (env) => {
 `webpack-dev --config ./node_modules/@viewar/webpack` or  
 `webpack-dev-server --config ./node_modules/@viewar/webpack`
 
-### Constants
+## Constants
 
 | name         | default  | env overwrite  |
 | ------------ | -------- | -------------- |
