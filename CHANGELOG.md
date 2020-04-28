@@ -18,13 +18,6 @@
 - **deploy:** Don't check if port is in use for deploy ([5353dd9](https://github.com/viewar/webpack/commit/5353dd9cb5643fb65f7f4cf95150f4193388c58d))
 - **build:** don't remove viewbox from svgs ([3cd8c79](https://github.com/viewar/webpack/commit/3cd8c79155a561125f400b47fe87b3b3cd097059))
 
-# [1.12.0](https://github.com/viewar/webpack/compare/v1.11.0...v1.12.0) (2020-04-06)
-
-### Features
-
-- **config:** move babels config to babel-loader.options ([9715601](https://github.com/viewar/webpack/commit/9715601e41b60fbfd652eeb0ad1e29dce01af1dd))
-- **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([de4b70d](https://github.com/viewar/webpack/commit/de4b70d571be867b9811597cc837e35bcbd83e39))
-
 # [1.11.0](https://github.com/viewar/webpack/compare/v1.10.6...v1.11.0) (2020-03-11)
 
 ### Features
@@ -50,10 +43,6 @@
 
 - **lint-staged:** use eslint for js files ([e619336](https://github.com/viewar/webpack/commit/e61933695042e42785f1b372bb4d29fa9cce632b))
 - version tags and release process ([95e51cc](https://github.com/viewar/webpack/commit/95e51cc293059c2eeba9de03bb94086e3f2327e0))
-
-# Changelog
-
-> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
 ## [1.9.3](https://github.com/viewar/webpack/compare/v1.9.2...v1.9.3) (2020-01-02)
 
