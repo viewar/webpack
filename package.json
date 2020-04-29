@@ -101,7 +101,6 @@
     "mocha": "^7.1.0",
     "node-port-check": "^2.0.1",
     "node-sass": "^4.13.1",
-    "normalize.css": "^8.0.1",
     "npm": "^6.14.2",
     "postcss": "^7.0.27",
     "postcss-import": "^12.0.1",
@@ -128,15 +127,19 @@
   "devDependencies": {
     "@viewar/config-eslint": "^1.10.0",
     "cheerio": "^1.0.0-rc.3",
+    "classnames": "^2.2.6",
     "cross-env": "^7.0.1",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
+    "normalize.css": "^8.0.1",
     "pretty-quick": "^2.0.1",
     "rimraf": "^3.0.2",
     "viewar-api": "^1.6.0",
     "viewar-core": "^11.68.1"
   },
   "peerDependencies": {
+    "classnames": "^2.2.6",
+    "normalize.css": "^8.0.1",
     "viewar-api": "^1.6.0",
     "viewar-core": "^11.68.1"
   }
