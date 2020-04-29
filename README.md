@@ -31,8 +31,7 @@
 
 ## Installation
 
-`npm i @viewar/webpack`  
-`npm i karma --save-dev` if you use karma
+`npm i @viewar/webpack`
 
 > **includes all packages related to webpack:**  
 > \*-loader's, babel-presets/plugins, typescript-presets/plugins, karma-plugins + puppeteer, sass/postcss, etc.
@@ -172,6 +171,7 @@ before exporting the config,
 > may be moved to own package together with cypress setup in undefined future
 
 **Usage**  
+`npm i karma --save-dev`
 `npx karma start ./node_modules/@viewar/webpack/karma`
 
 **Explanation**  
