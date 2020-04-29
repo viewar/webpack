@@ -68,7 +68,7 @@ module.exports = (env) => {
 @viewar/webpack is able to handle different types of projects:
 
 - "react-js": React with Javascript (default)
-- "react-ts": React with Typescript
+- ~~"react-ts": React with Typescript~~ (deprecated)
 - "angular": Angular - not available yet
 - "angularjs: AngularJS - not available yet
 
@@ -79,7 +79,7 @@ const configViewAr = require('@viewar/webpack');
 module.exports = (env) => {
   // Use react with typescript as project type.
   return configViewAr(env, {
-    type: 'react-ts',
+    type: 'react-js',
   });
 };
 ```
