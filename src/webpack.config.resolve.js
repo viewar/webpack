@@ -34,7 +34,7 @@ if (tsconfigIsPresent) {
   }) ]
 }
 else {
-  // use default module resolve config
+  // use default resolve config
   resolveConfig.resolve.alias = { assets: PATHS.assets }
   resolveConfig.resolve.modules = [
     basename(PATHS.src), 'node_modules',

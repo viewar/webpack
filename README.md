@@ -130,9 +130,7 @@ module.exports = (env) => {
   const configViewAr = require('@viewar/webpack');
 
   module.exports = (env) => {
-    const config = configViewAr(env, {
-      type: 'react-js',
-    });
+    const config = configViewAr(env);
     // modify resolve config
     config.resolve = {
       extensions: ['.jsx', '.js', '.json'],
