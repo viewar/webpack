@@ -102,30 +102,35 @@ module.exports = (env) => {
 
 ### Module Resolver
 
-> **enables absolute import paths like `import Header from 'components/Header'`**  
-> _if you use '/src' for your webpack root, you probably don't have to change anything._
+- **enables absolute import paths**  
+  like `import Header from 'components/Header'`
 
-default extensions: `['.js', '.jsx', 'json', '*']`  
-default module paths: `[basename(PATHS.src), 'node_modules']`
+- **uses '[tsconfig-paths-webpack-plugin](https://github.com/dividab/tsconfig-paths-webpack-plugin#readme)'** to resolve import paths  
+  **requires:** workspaceRoot/tsconfig.json
+- **if tsconfig.json is not present** it won't use that plugin  
+  but you can modify the resolve config to fit your project:
 
-_TODO:_ change to aliases to use `~components/*` (see issue #108)
+  ```js
+  // webpack.config.js
+  const configViewAr = require('@viewar/webpack');
 
-**modify resolve directories**  
-overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
-or add your own 'webpack.config.resolve.js' in your workspace root:
+  module.exports = (env) => {
+    // Use react with typescript as project type.
+    const config = configViewAr(env, {
+      type: 'react-js',
+    });
 
-```js
-// {workspaceRoot}/webpack.config.resolve.js
-const resolveConfig = {
-  resolve: {
-    extensions: ['.jsx', '.js', '.json'],
-    // paths are relative to workspace root
-    modules: [PATHS.src, 'node_modules'],
-  },
-};
+    config.resolve = {
+      extensions: ['.jsx', '.js', '.json'],
+      modules: [YOUR - MODULE - PATHS, 'node_modules'],
+      alias: [YOUR - ALIAS - CONFIG],
+    };
 
-module.exports = resolveConfig;
-```
+    return config;
+  };
+  ```
+
+  for more information see [webpack's resolve config](https://webpack.js.org/configuration/resolve/)
 
 ### remote console
 
