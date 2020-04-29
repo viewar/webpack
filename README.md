@@ -15,18 +15,30 @@
 <!-- /badge-urls -->
 
 > **latest [CHANGELOG](https://github.com/viewar/webpack/blob/master/CHANGELOG.md)**
+>
+> **ATTENTION:** All [conventional-commits](https://conventionalcommits.org) merged into master will trigger a new release!
 
-### Installation
+- [Installation](#installation)
+- [Usage](#usage)
+- [Constants](#constants)
+- [Features](#features)
+  - [Module Resolver](#module-resolver)
+  - [remote console](#remote-console)
+  - [errorOnUsedPort()](#erroronusedport)
+  - [Integration Tests per 'karma-webpack'](#integration-tests-per-karma-webpack)
+    - [Configuration](#configuration)
+    - [Writing Tests](#writing-tests)
 
-`npm i @viewar/webpack`  
-`npm i karma --save-dev` if you use karma
+## Installation
+
+`npm i @viewar/webpack`
 
 > **includes all packages related to webpack:**  
-> \*-loader's, babel, react, karma-plugins + puppeteer, sass/postcss, etc.
+> \*-loader's, babel-presets/plugins, typescript-presets/plugins, karma-plugins + puppeteer, sass/postcss, etc.
 
-### Usage
+## Usage
 
-> **Info:** no need to add babel config to your package.json,  
+> **Info:** no need to add babel config for webpack usage,  
 > as it is already included in webpacks babel-loader options
 
 **node - default**
@@ -55,7 +67,7 @@ module.exports = (env) => {
 @viewar/webpack is able to handle different types of projects:
 
 - "react-js": React with Javascript (default)
-- "react-ts": React with Typescript
+- ~~"react-ts": React with Typescript~~ (deprecated)
 - "angular": Angular - not available yet
 - "angularjs: AngularJS - not available yet
 
@@ -66,7 +78,7 @@ const configViewAr = require('@viewar/webpack');
 module.exports = (env) => {
   // Use react with typescript as project type.
   return configViewAr(env, {
-    type: 'react-ts',
+    type: 'react-js',
   });
 };
 ```
@@ -76,7 +88,7 @@ module.exports = (env) => {
 `webpack-dev --config ./node_modules/@viewar/webpack` or  
 `webpack-dev-server --config ./node_modules/@viewar/webpack`
 
-### Constants
+## Constants
 
 | name         | default  | env overwrite  |
 | ------------ | -------- | -------------- |
@@ -89,30 +101,31 @@ module.exports = (env) => {
 
 ### Module Resolver
 
-> **enables absolute import paths like `import Header from 'components/Header'`**  
-> _if you use '/src' for your webpack root, you probably don't have to change anything._
+- **enables absolute import paths**  
+  like `import Header from 'components/Header'`
 
-default extensions: `['.js', '.jsx', 'json', '*']`  
-default module paths: `[basename(PATHS.src), 'node_modules']`
+- **uses '[tsconfig-paths-webpack-plugin](https://github.com/dividab/tsconfig-paths-webpack-plugin#readme)'** to resolve import paths  
+  **requires:** workspaceRoot/tsconfig.json
+- **if tsconfig.json is not present** it won't use that plugin  
+  and uses the **default resolve config**:
 
-_TODO:_ change to aliases to use `~components/*` (see issue #108)
+  ```js
+    resolve: {
+      extensions: ['.jsx', '.js', '.ts', '.tsx', '.json'],
+      // paths are relative to workspace root
+      alias:      { assets: PATHS.assets },
+      modules: [PATHS.src, 'node_modules'],
+    }
+  ```
 
-**modify resolve directories**  
-overwrite PATHS.src with `WEBPACK_PATH` (see [constants](#constants)),  
-or add your own 'webpack.config.resolve.js' in your workspace root:
+  - **if you use '/src'** you probably don't have to change anything
+  - **overwrite PATHS.src** with `WEBPACK_PATH` (see [constants](#constants))
 
-```js
-// {workspaceRoot}/webpack.config.resolve.js
-const resolveConfig = {
-  resolve: {
-    extensions: ['.jsx', '.js', '.json'],
-    // paths are relative to workspace root
-    modules: [PATHS.src, 'node_modules'],
-  },
-};
-
-module.exports = resolveConfig;
-```
+- **you can overwrite this config** to fit your projects module resolvement,  
+  if you **add 'webpack.config.resolve.js'** to your workspaceRoot  
+  _(use format of '[src/webpack.config.resolve.js](https://github.com/viewar/webpack/blob/master/src/webpack.config.resolve.js)')_
+  - This config will also be used by '[@viewar/config-eslint](https://github.com/viewar/config-eslint)'
+  - for more information see [webpack's resolve config](https://webpack.js.org/configuration/resolve/)
 
 ### remote console
 
@@ -141,6 +154,7 @@ before exporting the config,
 > may be moved to own package together with cypress setup in undefined future
 
 **Usage**  
+`npm i karma --save-dev`
 `npx karma start ./node_modules/@viewar/webpack/karma`
 
 **Explanation**  

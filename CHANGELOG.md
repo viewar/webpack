@@ -1,27 +1,12 @@
 # Changelog
+
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
 ## [1.12.3](https://github.com/viewar/webpack/compare/v1.12.2...v1.12.3) (2020-04-16)
 
-
 ### Bug Fixes
 
-* **react-js:** remove need to use type 'react-ts' ([#141](https://github.com/viewar/webpack/issues/141)) ([d96a5a8](https://github.com/viewar/webpack/commit/d96a5a8b7e77ae8b08fcd25fec3936d8e9a8b28b)), closes [#142](https://github.com/viewar/webpack/issues/142) [#108](https://github.com/viewar/webpack/issues/108) [#133](https://github.com/viewar/webpack/issues/133) [#137](https://github.com/viewar/webpack/issues/137) [#138](https://github.com/viewar/webpack/issues/138) [#139](https://github.com/viewar/webpack/issues/139) [#140](https://github.com/viewar/webpack/issues/140)
-
-# Changelog
-
-> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
-
-## [1.12.2](https://github.com/viewar/webpack/compare/v1.12.1...v1.12.2) (2020-04-06)
-
-### Bug Fixes
-
-- **release-process:** no relevant changes in code  
-  _fix merge stage condition after fixing versions and tags ([7ee65fd](https://github.com/viewar/webpack/commit/7ee65fd5317d11f8817cb0d0320ef4272be01be7) [2710988](https://github.com/viewar/webpack/commit/2710988cb02f5916ace696be2fd02e2829fb3abf))_
-
-# Changelog
-
-> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
+- **react-js:** remove need to use type 'react-ts' ([#141](https://github.com/viewar/webpack/issues/141)) ([d96a5a8](https://github.com/viewar/webpack/commit/d96a5a8b7e77ae8b08fcd25fec3936d8e9a8b28b)), closes [#142](https://github.com/viewar/webpack/issues/142) [#108](https://github.com/viewar/webpack/issues/108) [#133](https://github.com/viewar/webpack/issues/133) [#137](https://github.com/viewar/webpack/issues/137) [#138](https://github.com/viewar/webpack/issues/138) [#139](https://github.com/viewar/webpack/issues/139) [#140](https://github.com/viewar/webpack/issues/140)
 
 # [1.12.1](https://github.com/viewar/webpack/compare/v1.12.0...v1.12.1) (2020-04-06)
 
@@ -32,13 +17,6 @@
 - **build:** Correctly load svgs for react-ts ([8361e5a](https://github.com/viewar/webpack/commit/8361e5a4561a1d5f3aa765e96b4307d9a0919801))
 - **deploy:** Don't check if port is in use for deploy ([5353dd9](https://github.com/viewar/webpack/commit/5353dd9cb5643fb65f7f4cf95150f4193388c58d))
 - **build:** don't remove viewbox from svgs ([3cd8c79](https://github.com/viewar/webpack/commit/3cd8c79155a561125f400b47fe87b3b3cd097059))
-
-# [1.12.0](https://github.com/viewar/webpack/compare/v1.11.0...v1.12.0) (2020-04-06)
-
-### Features
-
-- **config:** move babels config to babel-loader.options ([9715601](https://github.com/viewar/webpack/commit/9715601e41b60fbfd652eeb0ad1e29dce01af1dd))
-- **config:** move babels config to babel-loader.options ([#125](https://github.com/viewar/webpack/issues/125)) ([de4b70d](https://github.com/viewar/webpack/commit/de4b70d571be867b9811597cc837e35bcbd83e39))
 
 # [1.11.0](https://github.com/viewar/webpack/compare/v1.10.6...v1.11.0) (2020-03-11)
 
@@ -65,10 +43,6 @@
 
 - **lint-staged:** use eslint for js files ([e619336](https://github.com/viewar/webpack/commit/e61933695042e42785f1b372bb4d29fa9cce632b))
 - version tags and release process ([95e51cc](https://github.com/viewar/webpack/commit/95e51cc293059c2eeba9de03bb94086e3f2327e0))
-
-# Changelog
-
-> generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
 ## [1.9.3](https://github.com/viewar/webpack/compare/v1.9.2...v1.9.3) (2020-01-02)
 
