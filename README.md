@@ -38,7 +38,7 @@
 
 ## Usage
 
-> **Info:** no need to add babel config to your package.json,  
+> **Info:** no need to add babel config for webpack usage,  
 > as it is already included in webpacks babel-loader options
 
 **node - default**
@@ -121,28 +121,11 @@ module.exports = (env) => {
   - **if you use '/src'** you probably don't have to change anything
   - **overwrite PATHS.src** with `WEBPACK_PATH` (see [constants](#constants))
 
-- **you can also modify the resolve config** to fit your project:  
-  for more information see [webpack's resolve config](https://webpack.js.org/configuration/resolve/)
-
-  ```js
-  // webpack.config.js
-  const configViewAr = require('@viewar/webpack');
-
-  module.exports = (env) => {
-    const config = configViewAr(env);
-    // modify resolve config
-    config.resolve = {
-      extensions: ['.jsx', '.js', '.json'],
-      modules: [YOUR - MODULE - PATHS, 'node_modules'],
-      alias: [YOUR - ALIAS - CONFIG],
-    };
-
-    return config;
-  };
-  ```
-
-- **TODO:** overwrite resolve config  
-  with 'workspaceRoot/webpack.resolve.config'
+- **you can overwrite this config** to fit your projects module resolvement,  
+  if you **add 'webpack.config.resolve.js'** to your workspaceRoot  
+  _(use format of '[src/webpack.config.resolve.js](https://github.com/viewar/webpack/blob/master/src/webpack.config.resolve.js)')_
+  - This config will also be used by '[@viewar/config-eslint](https://github.com/viewar/config-eslint)'
+  - for more information see [webpack's resolve config](https://webpack.js.org/configuration/resolve/)
 
 ### remote console
 
