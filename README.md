@@ -108,18 +108,32 @@ module.exports = (env) => {
 - **uses '[tsconfig-paths-webpack-plugin](https://github.com/dividab/tsconfig-paths-webpack-plugin#readme)'** to resolve import paths  
   **requires:** workspaceRoot/tsconfig.json
 - **if tsconfig.json is not present** it won't use that plugin  
-  but you can modify the resolve config to fit your project:
+  and uses the **default resolve config**:
+
+  ```js
+    resolve: {
+      extensions: ['.jsx', '.js', '.ts', '.tsx', '.json'],
+      // paths are relative to workspace root
+      alias:      { assets: PATHS.assets },
+      modules: [PATHS.src, 'node_modules'],
+    }
+  ```
+
+  - **if you use '/src'** you probably don't have to change anything
+  - **overwrite PATHS.src** with `WEBPACK_PATH` (see [constants](#constants))
+
+- **you can also modify the resolve config** to fit your project:  
+  for more information see [webpack's resolve config](https://webpack.js.org/configuration/resolve/)
 
   ```js
   // webpack.config.js
   const configViewAr = require('@viewar/webpack');
 
   module.exports = (env) => {
-    // Use react with typescript as project type.
     const config = configViewAr(env, {
       type: 'react-js',
     });
-
+    // modify resolve config
     config.resolve = {
       extensions: ['.jsx', '.js', '.json'],
       modules: [YOUR - MODULE - PATHS, 'node_modules'],
@@ -130,7 +144,8 @@ module.exports = (env) => {
   };
   ```
 
-  for more information see [webpack's resolve config](https://webpack.js.org/configuration/resolve/)
+- **TODO:** overwrite resolve config  
+  with 'workspaceRoot/webpack.resolve.config'
 
 ### remote console
 

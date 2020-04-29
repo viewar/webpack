@@ -16,6 +16,7 @@ let tsconfigIsPresent = false
 try {
   require(tsconfigPath)
   tsconfigIsPresent = true
+
   if (process.env.DEBUG) {
     console.log('\n[@viewar/webpack] tsconfig is PRESENT, so we USE \'tsconfig-paths-webpack-plugin\'\n\n')
   }
