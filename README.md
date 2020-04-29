@@ -15,6 +15,8 @@
 <!-- /badge-urls -->
 
 > **latest [CHANGELOG](https://github.com/viewar/webpack/blob/master/CHANGELOG.md)**
+>
+> **ATTENTION:** All [conventional-commits](https://conventionalcommits.org) merged into master will trigger a new release!
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -33,7 +35,7 @@
 `npm i karma --save-dev` if you use karma
 
 > **includes all packages related to webpack:**  
-> \*-loader's, babel, react, karma-plugins + puppeteer, sass/postcss, etc.
+> \*-loader's, babel-presets/plugins, typescript-presets/plugins, karma-plugins + puppeteer, sass/postcss, etc.
 
 ## Usage
 
