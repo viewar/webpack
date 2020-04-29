@@ -32,11 +32,9 @@ const babelLoader = [{
           legacy: true,
         },
       ],
-      [ 'transform-class-properties' ],
+      '@babel/plugin-proposal-class-properties',
       '@babel/plugin-transform-react-constant-elements',
-      [
-        'transform-inline-environment-variables',
-      ],
+      'transform-inline-environment-variables',
     ],
   },
 }, { loader: 'source-map-loader' }]
