@@ -24,7 +24,7 @@ script: npm test
 stages:
   - test
   - release
-  - merge
+  # - merge
 
 env: NODE_ENV=develop
 
@@ -57,8 +57,8 @@ jobs:
         on:
           branch: master
           tags: false
-    - stage: merge
-      if: branch = master AND type IN (push) AND (commit_message =~ /chore\(release\)/)
-      node_js: 12
-      install: skip
-      script: git push origin master:develop
+    # - stage: merge
+    #   if: branch = master AND type IN (push) AND (commit_message =~ /chore\(release\)/)
+    #   node_js: 12
+    #   install: skip
+    #   script: git push origin master:develop
