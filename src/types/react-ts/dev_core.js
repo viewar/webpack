@@ -26,7 +26,7 @@ module.exports = () => {
           ip ? `${ip}:${PORT}` : 'localhost:8080'
         }`, // bundle the client for webpack-dev-server and connect to the provided endpoint
         'webpack/hot/only-dev-server', // bundle the client for hot reloading, only- means to only hot reload for successful updates
-        join(__dirname, '../..', 'utils', 'polyfills.js'),
+        join(PATHS.root, 'polyfills.tsx'),
         './src/index.tsx', // the entry point of our app
       ],
       devServer: {

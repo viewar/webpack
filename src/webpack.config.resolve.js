@@ -44,13 +44,24 @@ if (!resolveConfigIsPresent) {
   }
 
   if (tsconfigIsPresent) {
-  // use tsconfig-paths-webpack-plugin
+    // use tsconfig-paths-webpack-plugin
     resolveConfig.resolve.plugins = [ new TsconfigPathsPlugin({
       configFile: tsconfigPath,
     }) ]
+
+    // somehow tsconfig-paths-webpack-plugin wasn't working, so adding the paths manually.
+    resolveConfig.resolve.alias = {
+      modules: join(PATHS.src, 'modules'),
+      components: join(PATHS.src, 'components'),
+      hooks: join(PATHS.src, 'hooks'),
+      pages: join(PATHS.src, 'pages'),
+      css: join(PATHS.root, 'css'),
+      appfiles: join(PATHS.root, 'appfiles'),
+      assets: PATHS.assets,
+    }
   }
   else {
-  // use default resolve config
+    // use default resolve config
     resolveConfig.resolve.alias = { assets: PATHS.assets }
     resolveConfig.resolve.modules = [
       basename(PATHS.src), 'node_modules',

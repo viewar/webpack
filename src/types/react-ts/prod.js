@@ -12,7 +12,7 @@ module.exports = () => merge(
   commonConfig(),
   {
     mode:   'production',
-    entry:  [ join(__dirname, '../..', 'utils', 'polyfills.js'), './src/index.tsx' ],
+    entry:  [ join(PATHS.root, 'polyfills.tsx'), './src/index.tsx' ],
     output: {
       path:          PATHS.build,
       chunkFilename: 'vendor~index.js',
