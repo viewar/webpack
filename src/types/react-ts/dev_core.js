@@ -9,6 +9,7 @@ const ip = require('ip').address()
 const commonConfig = require('./common')
 const { setEnvVariable, printLaunchQRCode } = require('../../utils')
 const viewArMiddleware = require('../../middlewares')
+const { PATHS } = require('../../constants')
 
 const PORT = process.env.PORT || '8080'
 
