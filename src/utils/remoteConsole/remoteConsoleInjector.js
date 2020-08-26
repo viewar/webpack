@@ -1,3 +1,6 @@
+
+let isInjected = false
+
 /* eslint-disable no-console */
 /**
  * @function
@@ -53,6 +56,5 @@ const remoteConsoleInjector = () => {
 
   return remoteConsole
 }
-let isInjected = false
 
 module.exports = remoteConsoleInjector
