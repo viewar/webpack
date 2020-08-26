@@ -38,8 +38,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged",
-      "pre-push": "npm run test"
+      "pre-commit": "cross-env WEBPACK_PATH=test lint-staged"
     }
   },
   "lint-staged": {
@@ -68,6 +67,7 @@
     "@babel/types": "^7.9.5",
     "@formatjs/intl-pluralrules": "^1.5.7",
     "@formatjs/intl-relativetimeformat": "^4.5.14",
+    "autoprefixer": "^9.8.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
@@ -120,7 +120,7 @@
     "url-loader": "^3.0.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {

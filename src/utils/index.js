@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-
 const webpack = require('webpack')
 const chalk = require('chalk')
 const { isFreePort } = require('node-port-check')
@@ -51,7 +50,7 @@ const errorOnUsedPort = (port) =>
 
 const printLaunchQRCode = (ip, port) => {
   const { appId, appVersion } = getViewARConfig()
-  const url = `viewarsdk://sdk/ID:${appId}/version:${appVersion}/debug:true/debugIP:${ip}//debugPort:${port}/#/startXYZ`
+  const url = `viewarsdk://sdk/ID:${appId}/version:${appVersion}/debug:true/debugIP:${ip}//debugPort:${port}`
 
   qrcode.generate(url, { small: true })
 }
