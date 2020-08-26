@@ -1,6 +1,5 @@
 // development config
 const { join } = require('path')
-
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const ip = require('ip').address()

@@ -1,6 +1,5 @@
 // development config
 const { join } = require('path')
-
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')

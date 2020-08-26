@@ -1,5 +1,4 @@
 const { basename, join } = require('path')
-
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const { PATHS } = require('./constants')
@@ -51,13 +50,13 @@ if (!resolveConfigIsPresent) {
 
     // somehow tsconfig-paths-webpack-plugin wasn't working, so adding the paths manually.
     resolveConfig.resolve.alias = {
-      modules: join(PATHS.src, 'modules'),
+      modules:    join(PATHS.src, 'modules'),
       components: join(PATHS.src, 'components'),
-      hooks: join(PATHS.src, 'hooks'),
-      pages: join(PATHS.src, 'pages'),
-      css: join(PATHS.root, 'css'),
-      appfiles: join(PATHS.root, 'appfiles'),
-      assets: PATHS.assets,
+      hooks:      join(PATHS.src, 'hooks'),
+      pages:      join(PATHS.src, 'pages'),
+      css:        join(PATHS.root, 'css'),
+      appfiles:   join(PATHS.root, 'appfiles'),
+      assets:     PATHS.assets,
     }
   }
   else {
