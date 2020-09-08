@@ -83,9 +83,9 @@ module.exports = () => {
           include: [ PATHS.src ],
           use:     [
             {
-              loader: 'react-svg-loader',
+              loader:  'react-svg-loader',
               options: {
-                jsx: false,
+                jsx:  false,
                 svgo: {
                   plugins: [
                     { removeViewBox: false },
@@ -94,7 +94,7 @@ module.exports = () => {
                     { convertColors: { shorthex: false }},
                     { convertPathData: false },
                   ],
-                }
+                },
               },
             },
           ],
