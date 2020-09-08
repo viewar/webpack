@@ -1,12 +1,14 @@
 // shared config (dev and prod)
 const { join } = require('path')
 const { CheckerPlugin } = require('awesome-typescript-loader')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const fs = require('fs')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const path = require('path')
 
-const { PATHS } = require('../../constants')
 const { getViewARConfig } = require('../../utils')
-const babelLoader = require('../../babel-loader.config') // also includes 'source-map-loader'
+const { PATHS } = require('../../constants')
 const { resolve } = require('../../webpack.config.resolve.js')
 
 const { appId, appVersion } = getViewARConfig()
@@ -17,13 +19,13 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test:    /\.(js|jsx)$/,
+          test:    /\.js$/,
           exclude: /node_modules/,
-          use:     babelLoader,
+          use:     [ 'babel-loader', 'source-map-loader' ],
         },
         {
-          test: /\.(ts|tsx)$/,
-          use:  [ ...babelLoader, 'awesome-typescript-loader' ],
+          test: /\.(ts|tsx)?$/,
+          use:  [ 'babel-loader', 'awesome-typescript-loader' ],
         },
         {
           test: /\.s?css$/,
@@ -81,9 +83,9 @@ module.exports = () => {
           include: [ PATHS.src ],
           use:     [
             {
-              loader:  'react-svg-loader',
+              loader: 'react-svg-loader',
               options: {
-                jsx:  false,
+                jsx: false,
                 svgo: {
                   plugins: [
                     { removeViewBox: false },
@@ -92,7 +94,7 @@ module.exports = () => {
                     { convertColors: { shorthex: false }},
                     { convertPathData: false },
                   ],
-                },
+                }
               },
             },
           ],
