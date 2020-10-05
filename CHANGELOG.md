@@ -2,6 +2,19 @@
 
 > generated with [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 
+# [1.13.0](https://github.com/viewar/webpack/compare/v1.12.3...v1.13.0) (2020-04-29)
+
+
+### Bug Fixes
+
+* **resolve-config:** check if tsconfig is present ([f7ca3da](https://github.com/viewar/webpack/commit/f7ca3da80f247ad608da3f22f858c7e2d06eb3b5))
+* **deps:** ship missing dependencies ([#149](https://github.com/viewar/webpack/issues/149)) ([126c790](https://github.com/viewar/webpack/commit/126c790847b31c7e90f55a65dec8a30e4a4c6dc9)), closes [#124](https://github.com/viewar/webpack/issues/124) [#148](https://github.com/viewar/webpack/issues/148)
+
+
+### Features
+
+* **resolve-config:** enable to overwrite default resolve config ([bba60af](https://github.com/viewar/webpack/commit/bba60afdd4c40567021ffa5ad39009f922042818)), closes [#52](https://github.com/viewar/webpack/issues/52)
+
 ## [1.12.3](https://github.com/viewar/webpack/compare/v1.12.2...v1.12.3) (2020-04-16)
 
 ### Bug Fixes

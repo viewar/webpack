@@ -47,7 +47,7 @@ const getViewARConfig = () => {
   }
 
   return config
-}
+};
 
 /* eslint-disable */
 // TODO: reject promise with error?
