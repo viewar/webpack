@@ -20,27 +20,33 @@ const setEnvVariable = (key, value) => {
 }
 
 const getViewARConfig = () => {
-  let config = null;
+  let config = null
   try {
-    config = JSON.parse(fs.readFileSync(path.join(PATHS.root, 'viewar-config.json')));
-  } catch (e) {}
+    config = JSON.parse(fs.readFileSync(path.join(PATHS.root, 'viewar-config.json')))
+  }
+  catch (e) {
+    // Continue regardless of error.
+  }
 
   if (!config) {
     try {
-      config = JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')));
-    } catch (e) {}
+      config = JSON.parse(fs.readFileSync(path.join(PATHS.root, '.viewar-config')))
+    }
+    catch (e) {
+      // Continue regardless of error.
+    }
   }
 
   if (!config) {
     // eslint-disable-next-line no-console
     console.error(
-      '[ViewAR] ERROR: File viewar-config.json not existing or invalid JSON format.'
-    );
+      '[ViewAR] ERROR: File viewar-config.json not existing or invalid JSON format.',
+    )
 
-    config = {};
+    config = {}
   }
 
-  return config;
+  return config
 };
 
 /* eslint-disable */
