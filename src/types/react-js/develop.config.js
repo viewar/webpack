@@ -24,7 +24,7 @@ const getDevelopConfig = () => {
         },
         before: viewArMiddleware,
       },
-      devtool: 'inline-source-map',
+      devtool: 'eval-cheap-source-map',
       output:  {
         devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
       },
