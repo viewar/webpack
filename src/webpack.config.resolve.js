@@ -50,14 +50,14 @@ if (!resolveConfigIsPresent) {
 
     // somehow tsconfig-paths-webpack-plugin wasn't working, so adding the paths manually.
     resolveConfig.resolve.alias = {
-      modules:    join(PATHS.src, 'modules'),
-      components: join(PATHS.src, 'components'),
-      hooks:      join(PATHS.src, 'hooks'),
-      pages:      join(PATHS.src, 'pages'),
-      css:        join(PATHS.root, 'css'),
-      appfiles:   join(PATHS.root, 'appfiles'),
-      assets:     PATHS.assets,
-      "react-dom":  "@hot-loader/react-dom"
+      modules:     join(PATHS.src, 'modules'),
+      components:  join(PATHS.src, 'components'),
+      hooks:       join(PATHS.src, 'hooks'),
+      pages:       join(PATHS.src, 'pages'),
+      css:         join(PATHS.root, 'css'),
+      appfiles:    join(PATHS.root, 'appfiles'),
+      assets:      PATHS.assets,
+      'react-dom':  '@hot-loader/react-dom',
     }
   }
   else {
