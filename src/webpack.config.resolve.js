@@ -57,6 +57,7 @@ if (!resolveConfigIsPresent) {
       css:        join(PATHS.root, 'css'),
       appfiles:   join(PATHS.root, 'appfiles'),
       assets:     PATHS.assets,
+      "react-dom":  "@hot-loader/react-dom"
     }
   }
   else {
