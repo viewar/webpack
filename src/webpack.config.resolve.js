@@ -57,7 +57,10 @@ if (!resolveConfigIsPresent) {
       css:         join(PATHS.root, 'css'),
       appfiles:    join(PATHS.root, 'appfiles'),
       assets:      PATHS.assets,
-      'react-dom':  '@hot-loader/react-dom',
+    }
+
+    if (process.env.WEBPACK_PATH !== 'test') {
+      resolveConfig.resolve.alias['react-dom'] = '@hot-loader/react-dom'
     }
   }
   else {
