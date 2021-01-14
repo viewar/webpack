@@ -4,57 +4,59 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fs = require('fs')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const path = require('path')
-const webpack = require("webpack");
+const webpack = require('webpack')
 
 const { getViewARConfig } = require('../../utils')
 const { PATHS } = require('../../constants')
 const { resolve } = require('../../webpack.config.resolve.js')
 
-const { appId, appVersion } = getViewARConfig();
+const { appId, appVersion } = getViewARConfig()
 
 const getPackageJson = () => {
-  const packageJsonPath = path.join(PATHS.root, "/package.json");
-  
+  const packageJsonPath = path.join(PATHS.root, '/package.json')
+
   if (fs.existsSync(packageJsonPath)) {
-    const data = fs.readFileSync(packageJsonPath);
+    const data = fs.readFileSync(packageJsonPath)
     try {
-      return JSON.parse(data);
-    } catch (e) {
-      console.log(`Invalid JSON syntax in ${packageJsonPath}.`);
+      return JSON.parse(data)
+    }
+    catch (e) {
+      console.log(`Invalid JSON syntax in ${packageJsonPath}.`)
     }
   }
 }
 
-const getAppViewarConfigDynamic = app => {
-  const viewarConfigPath = path.join(PATHS.appfiles, `${app}/.viewar-config`);
-  const viewarConfigPathNew = path.join(PATHS.appfiles, `${app}/viewar-config.json`);
+const getAppViewarConfigDynamic = (app) => {
+  const viewarConfigPath = path.join(PATHS.appfiles, `${app}/.viewar-config`)
+  const viewarConfigPathNew = path.join(PATHS.appfiles, `${app}/viewar-config.json`)
 
-  let existingPath;
+  let existingPath
 
   if (fs.existsSync(viewarConfigPathNew)) {
-    existingPath = viewarConfigPathNew;
-  } else if (fs.existsSync(viewarConfigPath)) {
-    existingPath = viewarConfigPath;
+    existingPath = viewarConfigPathNew
+  }
+  else if (fs.existsSync(viewarConfigPath)) {
+    existingPath = viewarConfigPath
   }
 
   if (existingPath) {
-    const data = fs.readFileSync(existingPath);
+    const data = fs.readFileSync(existingPath)
     try {
-      return JSON.parse(data);
-    } catch (e) {
-      console.log(`Invalid JSON syntax in ${existingPath}.`);
+      return JSON.parse(data)
+    }
+    catch (e) {
+      console.log(`Invalid JSON syntax in ${existingPath}.`)
     }
   }
 
-  return {};
-};
+  return {}
+}
 
 module.exports = () => {
-  const app = process.env.npm_config_app;
-  const { appId: appAppId } = getAppViewarConfigDynamic(app);
-  const { version: packageVersion } = getPackageJson();
+  const app = process.env.npm_config_app
+  const { appId: appAppId } = getAppViewarConfigDynamic(app)
+  const { version: packageVersion } = getPackageJson()
 
   return {
     resolve,
@@ -71,9 +73,9 @@ module.exports = () => {
         },
         /* Use css modules. */
         {
-          test: /\.s?css$/,
+          test:    /\.s?css$/,
           exclude: /node_modules/,
-          use:  [
+          use:     [
             'style-loader',
             {
               loader:  'css-loader',
@@ -96,12 +98,12 @@ module.exports = () => {
         },
         /* Use normal css loader for css files in node_modules folder. */
         {
-          test: /\.s?css$/,
+          test:    /\.s?css$/,
           include: /node_modules/,
-          use:  [
+          use:     [
             'style-loader',
-            'css-loader'
-          ]
+            'css-loader',
+          ],
         },
         /* Use file loader for asset images. */
         {
@@ -174,9 +176,9 @@ module.exports = () => {
         template:         join(PATHS.src, 'index.html.ejs'),
         inject:           true,
         bundleIdentifier: appAppId || appId,
-        bundleVersion:    packageVersion || appVersion || "100",
+        bundleVersion:    packageVersion || appVersion || '100',
       }),
-      new webpack.EnvironmentPlugin({ APP: app })
+      new webpack.EnvironmentPlugin({ APP: app }),
     ],
     performance: {
       hints: false,
