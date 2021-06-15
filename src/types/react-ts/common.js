@@ -109,7 +109,7 @@ module.exports = () => {
         {
           test:    /\.svg$/,
           // issuer: [{ test: /\.(sa|sc|c|le)ss$/i }],
-          include: [ PATHS.assets, PATHS.appfiles ],
+          include: [ PATHS.assets, PATHS.appfiles, PATHS.modules ],
           use:     [
             {
               loader:  'file-loader',

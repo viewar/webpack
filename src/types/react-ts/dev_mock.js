@@ -35,7 +35,7 @@ module.exports = () => {
         port:     PORT,
         before:   viewArMiddleware,
       },
-      devtool: 'cheap-module-eval-source-map',
+      devtool: 'eval-source-map',
       plugins: [
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
         new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
