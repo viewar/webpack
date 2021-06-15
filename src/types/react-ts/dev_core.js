@@ -36,7 +36,7 @@ module.exports = () => {
         port:     PORT,
         before:   viewArMiddleware,
       },
-      devtool: 'cheap-module-eval-source-map',
+      devtool: 'eval-source-map',
       plugins: [
         new CopyWebpackPlugin( // Copy viewar-core
           [
