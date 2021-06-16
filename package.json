@@ -1,6 +1,6 @@
 {
   "name": "@viewar/webpack",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "description": "shared webpack config of ViewAR",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "start:mock": "cross-env WEBPACK_PATH=test webpack-dev-server --config ./webpack.config.js --open --mode development --env development_mock",
     "build": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack -p --config ./webpack.config.js --mode production --env production",
     "watch": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack --watch -p --config ./webpack.config.js --mode production --env production",
-    "test": "npm run lint && npm run build && npm run karma",
+    "test": "npm run karma",
+    "postversion": "git push origin HEAD; git push --tags",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
     "lint": "cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\"",
     "format": "prettier **/*.{css,scss,md,json} --write"

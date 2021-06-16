@@ -35,7 +35,13 @@ module.exports = (config) => {
     // BASIC
     singleRun:  true,
     frameworks: [ 'mocha' ], // test runner
-    browsers:   [ process.env.CI ? 'ChromeHeadless' : 'Chrome' ],
+    browsers:   [ process.env.CI ? 'ChromeHeadlessNoSandbox' : 'Chrome' ],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     plugins:    [
       'karma-sourcemap-loader',
       'karma-webpack',
