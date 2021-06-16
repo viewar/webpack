@@ -1,0 +1,96 @@
+version: 2.1
+commands:
+  # Create cache for package.json ignoring the version number.
+  cached_npm_install:
+    steps:
+      - run:
+          name: Create package-caching.json (without version)
+          command: cat package.json | npx json -e 'delete this.version' > package.caching.json
+      - restore_cache:
+          name: Restore NPM Package Cache
+          keys:
+            - m2-npm-packages-{{ checksum "package.caching.json" }}
+      - run:
+          name: Install
+          command: |
+            if [ ! -d node_modules ]; then
+              npm ci
+            fi
+      - save_cache:
+          name: Save NPM Package Cache
+          key: m2-npm-packages-{{ checksum "package.caching.json" }}
+          paths:
+            - ./node_modules/
+      - run:
+          name: Remove package-caching.json
+          command: rm package.caching.json
+jobs:
+  # Checkout code and do npm install.
+  checkout-and-install:
+      docker:
+        - image: circleci/node:13
+      steps:
+        - checkout
+        - cached_npm_install
+  # Test for every commit.
+  test:
+    docker:
+      - image: circleci/node:13
+    parallelism: 2
+    steps:
+      - checkout
+      - cached_npm_install
+      - run:
+          name: Test
+          command: npm run test
+  # Build every commit.
+  build:
+    docker:
+      - image: circleci/node:13
+    parallelism: 2
+    steps:
+      - checkout
+      - cached_npm_install
+      - run:
+          name: Build
+          command: npm run build
+  # Publish after merge to master.
+  publish:
+    docker:
+        - image: circleci/node:13
+    steps:
+      - checkout
+      - cached_npm_install
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+      - run:
+            name: Publish package
+            command: |
+              git config --global user.email circleci@circleci
+              git config --global user.name CircleCI
+              npm publish
+      - run:
+            name: Notify slack
+            command: |
+              PACKAGE_VERSION="$(cat package.json | npx json version)"
+              PACKAGE_NAME="$(cat package.json | npx json name)"
+              curl -X POST -H 'Content-type: application/json' --data '{"text": ":white_check_mark: *'"$PACKAGE_NAME"'*: Successfully published new version _'"$PACKAGE_VERSION"'_ to npm."}' $SLACK_WEBHOOK
+workflows:
+  version: 2
+  test:
+    jobs:
+      - checkout-and-install
+      - test:
+          requires:
+            - checkout-and-install
+      - build:
+          requires:
+            - checkout-and-install
+      - publish:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: master

@@ -10,6 +10,7 @@
     "build": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack -p --config ./webpack.config.js --mode production --env production",
     "watch": "cross-env WEBPACK_PATH=test NODE_ENV=production webpack --watch -p --config ./webpack.config.js --mode production --env production",
     "test": "npm run lint && npm run build && npm run karma",
+    "postversion": "git push origin HEAD; git push --tags",
     "karma": "cross-env WEBPACK_PATH=test karma start ./src/test/karma.config.js",
     "lint": "cross-env WEBPACK_PATH=test eslint --fix \"**/*.*{js,jsx}\" --ignore-pattern \"build/**/*\"",
     "format": "prettier **/*.{css,scss,md,json} --write"
