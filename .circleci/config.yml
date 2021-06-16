@@ -35,7 +35,10 @@ jobs:
   # Test for every commit.
   test:
     docker:
-      - image: circleci/node:13
+      - image: cypress/base:8
+        # Enable colors.
+        environment:
+          TERM: xterm
     parallelism: 2
     steps:
       - checkout
