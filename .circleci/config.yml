@@ -35,7 +35,7 @@ jobs:
   # Test for every commit.
   test:
     docker:
-      - image: cypress/base:8
+      - image: circleci/node:13
         # Enable colors.
         environment:
           TERM: xterm
